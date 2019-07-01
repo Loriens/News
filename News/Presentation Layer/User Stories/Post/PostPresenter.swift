@@ -46,9 +46,16 @@ class PostPresenter: ViperPresenter, PostPresenterInput, PostViewOutput, PostInt
     // MARK: - PostViewOutput
     override func viewIsReady(_ controller: UIViewController) {
         self.view?.setupInitialState(with: self.viewModel)
+        
+        self.interactor?.loadPost()
     }
     
     // MARK: - PostInteractorOutput
+    func providePost(_ post: Post?) {
+        self.viewModel.post = post
+        
+        self.view?.updateForTextInfo(post?.text ?? AppLocalization.Post.empty.localized)
+    }
     
     // MARK: - Module functions
 }

@@ -20,8 +20,6 @@ enum AppLocalization {
         case loading = "Loading"
         case refresh = "Refresh"
         case tryAgain = "TryAgain"
-        case wipTitle = "WipTitle"
-        case wipText = "WipText"
         case errorTitle = "Error"
         case errorLoading = "ErrorLoading"
         case errorUnknown = "ErrorUnknown"
@@ -37,12 +35,12 @@ enum AppLocalization {
         case russian = "AppLanguageRussian"
     }
     
-    enum List: String, Localizable {
+    enum PostList: String, Localizable {
         case title = "ListNavigationTitle"
         case empty = "ListEmptyPlaceholder"
     }
     
-    enum Detail: String, Localizable {
+    enum Post: String, Localizable {
         case title = "DetailNavigationTitle"
         case empty = "DetailEmptyPlaceholder"
     }

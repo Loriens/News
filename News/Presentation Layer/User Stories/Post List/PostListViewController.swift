@@ -36,7 +36,7 @@ class PostListViewController: ViperViewController, PostListViewInput {
     
     // MARK: - Setup functions
     func setupComponents() {
-        self.navigationItem.title = AppLocalization.List.title.localized
+        self.navigationItem.title = AppLocalization.PostList.title.localized
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         self.tableView.dataSource = self

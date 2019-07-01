@@ -19,7 +19,7 @@ enum PostAssembly {
     static func configure(with reference: PostViewController, postId: Int) -> PostPresenterInput {
         let presenter = PostPresenter()
         
-        let interactor = PostInteractor()
+        let interactor = PostInteractor(postId: postId)
         interactor._output = presenter
         
         let router = PostRouter()

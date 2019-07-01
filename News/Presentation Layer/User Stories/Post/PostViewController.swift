@@ -8,13 +8,16 @@
 
 import GKViper
 
-protocol PostViewInput: ViperViewInput { }
+protocol PostViewInput: ViperViewInput {
+    func updateForTextInfo(_ text: String)
+}
 
 protocol PostViewOutput: ViperViewOutput { }
 
 class PostViewController: ViperViewController, PostViewInput {
 
     // MARK: - Outlets
+    @IBOutlet private weak var textLabel: UILabel!
     
     // MARK: - Props
     fileprivate var output: PostViewOutput? {
@@ -29,13 +32,17 @@ class PostViewController: ViperViewController, PostViewInput {
     
     // MARK: - Setup functions
     func setupComponents() {
-        self.navigationItem.title = "".localized
+        self.navigationItem.title = AppLocalization.Post.title.localized
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        self.textLabel.text = ""
     }
     
     func setupActions() { }
     
-    func applyStyles() { }
+    func applyStyles() {
+        self.textLabel.apply(.bigTitleStyle())
+    }
     
     // MARK: - PostViewInput
     override func setupInitialState(with viewModel: ViperViewModel) {
@@ -43,6 +50,27 @@ class PostViewController: ViperViewController, PostViewInput {
         
         self.setupComponents()
         self.setupActions()
+    }
+    
+    override func beginLoading() {
+        super.beginLoading()
+        
+        self.updateForTextInfo(AppLocalization.General.loading.localized)
+    }
+    
+    override func finishLoading(with error: Error?) {
+        super.finishLoading(with: error)
+        
+        self.updateForTextInfo("")
+    }
+    
+    func updateForTextInfo(_ text: String) {
+        DispatchQueue.main.async { [weak self] in
+            guard let controller = self else { return }
+            
+            controller.textLabel.text = text
+            controller.textLabel.sizeToFit()
+        }
     }
     
 }

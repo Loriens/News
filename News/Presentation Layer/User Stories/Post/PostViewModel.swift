@@ -9,9 +9,7 @@
 import GKViper
 
 class PostViewModel: ViperViewModel {
-    var post: Post
+    var post: Post?
     
-    override init() {
-        post = Post(id: -1)
-    }
+    override init() { }
 }
