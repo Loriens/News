@@ -11,6 +11,6 @@ import UIKit
 
 enum AppAssets {
     static var defaultAvatar: UIImage? {
-        return UIImage(named: "AppWip")
+        return UIImage(named: "defaultAvatar")
     }
 }

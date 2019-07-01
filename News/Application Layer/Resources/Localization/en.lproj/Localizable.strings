@@ -30,7 +30,7 @@
 "AppLanguageRussian" = "Russian";
 
 // MARK: - Список
-"ListNavigationTitle" = "List";
+"ListNavigationTitle" = "News";
 "ListEmptyPlaceholder" = "There is no data";
 
 // MARK: - Детальный просмотр
