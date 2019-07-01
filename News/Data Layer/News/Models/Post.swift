@@ -19,7 +19,7 @@ public class Post: Equatable {
         self.text = ""
     }
     
-    static public func == (lhs: Album, rhs: Album) -> Bool {
+    static public func == (lhs: Post, rhs: Post) -> Bool {
         return lhs.id == rhs.id
             && lhs.title == rhs.title
     }
