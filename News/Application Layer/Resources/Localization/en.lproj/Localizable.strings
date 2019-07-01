@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  News
+
+  Created by Vladislav on 01/07/2019.
+  Copyright © 2019 Vladislav Markov. All rights reserved.
+*/
+
+// MARK: - Общие выражения
+"OK" = "OK";
+"Save" = "Save";
+"Cancel" = "Cancel";
+"Close" = "Close";
+"Error" = "Error";
+"ErrorLoading" = "Can't load any data";
+"ErrorUnknown" = "Unknown error";
+"Attention" = "Attention";
+"Unknown" = "Unknown";
+"WipTitle" = "WIP";
+"WipText" = "Work in progress";
+"Loading" = "Loading...";
+"Refresh" = "Refresh";
+"TryAgain" = "Try again";
+
+// MARK: - Темы и языки
+"AppThemeLight" = "Light";
+"AppThemeDark" = "Dark";
+
+"AppLanguageEnglish" = "English";
+"AppLanguageRussian" = "Russian";
+
+// MARK: - Список
+"ListNavigationTitle" = "List";
+"ListEmptyPlaceholder" = "There is no data";
+
+// MARK: - Детальный просмотр
+"DetailNavigationTitle" = "Detail";
+"DetailEmptyPlaceholder" = "There is no data";
