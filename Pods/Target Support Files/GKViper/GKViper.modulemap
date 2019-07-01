@@ -1,0 +1,6 @@
+framework module GKViper {
+  umbrella header "GKViper-umbrella.h"
+
+  export *
+  module * { export * }
+}

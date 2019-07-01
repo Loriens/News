@@ -1,0 +1,6 @@
+framework module GKNetwork {
+  umbrella header "GKNetwork-umbrella.h"
+
+  export *
+  module * { export * }
+}
