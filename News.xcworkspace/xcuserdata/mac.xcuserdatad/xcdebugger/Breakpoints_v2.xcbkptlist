@@ -9,13 +9,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "News/Presentation Layer/User Stories/Post List/PostListInteractor.swift"
-            timestampString = "583703941.35567"
+            filePath = "News/Presentation Layer/User Stories/Post List/PostListViewController.swift"
+            timestampString = "583704786.377386"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "loadPosts()"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "updateForSections(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "News.PostListViewController.updateForSections(Swift.Array&lt;News.TableSectionModel&gt;) -&gt; ()"
+                  moduleName = "News"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vladislav/Library/Mobile%20Documents/com~apple~CloudDocs/Apps/Other/News/News/Presentation%20Layer/User%20Stories/Post%20List/PostListViewController.swift"
+                  timestampString = "583704732.417661"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "197">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in News.PostListViewController.updateForSections(Swift.Array&lt;News.TableSectionModel&gt;) -&gt; ()"
+                  moduleName = "News"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vladislav/Library/Mobile%20Documents/com~apple~CloudDocs/Apps/Other/News/News/Presentation%20Layer/User%20Stories/Post%20List/PostListViewController.swift"
+                  timestampString = "583704732.41913"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "89">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "News/Presentation Layer/User Stories/Post List/PostListViewController.swift"
+            timestampString = "583704786.378264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "News/Presentation Layer/User Stories/Post List/PostListInteractor.swift"
-            timestampString = "583703941.356014"
+            filePath = "News/Presentation Layer/User Stories/Post List/PostListViewController.swift"
+            timestampString = "583704786.3786319"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "getPostsSuccess(result:response:)"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

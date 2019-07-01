@@ -36,13 +36,25 @@ class PostListViewController: ViperViewController, PostListViewInput {
     
     // MARK: - Setup functions
     func setupComponents() {
-        self.navigationItem.title = "".localized
+        self.navigationItem.title = AppLocalization.List.title.localized
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.contentInset = UIEdgeInsets(top: 8.0, left: 0.0, bottom: 8.0, right: 0.0)
+        self.tableView.registerCellNib(PostListCell.self)
     }
     
     func setupActions() { }
     
-    func applyStyles() { }
+    func applyStyles() {
+        self.view.backgroundColor = AppTheme.backgroundMain
+        
+        self.tableView.backgroundColor = .clear
+        self.tableView.separatorColor = .clear
+        self.tableView.showsVerticalScrollIndicator = true
+        self.tableView.showsHorizontalScrollIndicator = false
+    }
     
     // MARK: - PostListViewInput
     override func setupInitialState(with viewModel: ViperViewModel) {
@@ -69,3 +81,56 @@ extension PostListViewController { }
 
 // MARK: - Module functions
 extension PostListViewController { }
+
+// MARK: - UITableViewDataSource
+extension PostListViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.sections[section].rows.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = self.sections[indexPath.section].rows[indexPath.row]
+        
+        if model is PostListCellModel {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: model.cellIdentifier) as? PostListCell else { return UITableViewCell() }
+            cell.model = model
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+extension PostListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let model = self.sections[indexPath.section].rows[indexPath.row]
+        
+        return model.cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = self.sections[indexPath.section].rows[indexPath.row]
+        
+        if let selectedModel = model as? PostListCellModel,
+            let selectedId = selectedModel.userInfo["postId"] as? Int {
+            self.output?.selectPost(id: selectedId)
+        }
+    }
+    
+}
