@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Foundation
 
 enum AppDefaults {
     static let activeTheme: String =  "APP_ACTIVE_THEME"
