@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0438B46922D64A7000718402 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438B46622D64A7000718402 /* TableCell.swift */; };
+		0438B46A22D64A7000718402 /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438B46722D64A7000718402 /* TableCellModel.swift */; };
+		0438B46B22D64A7000718402 /* TableSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438B46822D64A7000718402 /* TableSectionModel.swift */; };
 		0476101022CA698000DE4982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476100F22CA698000DE4982 /* AppDelegate.swift */; };
 		0476101722CA698200DE4982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0476101622CA698200DE4982 /* Assets.xcassets */; };
 		0476101A22CA698200DE4982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0476101822CA698200DE4982 /* LaunchScreen.storyboard */; };
@@ -48,14 +51,14 @@
 		04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9822CA8DF800CE0A0E /* BasicNavigationController.swift */; };
 		04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */; };
 		04B51C9F22CA8E5400CE0A0E /* PostListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B51C9D22CA8E5400CE0A0E /* PostListCell.xib */; };
-		04B51CA222CA8EB900CE0A0E /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51CA122CA8EB900CE0A0E /* TableCell.swift */; };
-		04B51CA422CA8ECB00CE0A0E /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51CA322CA8ECB00CE0A0E /* TableCellModel.swift */; };
-		04B51CA622CA8EDD00CE0A0E /* TableSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51CA522CA8EDD00CE0A0E /* TableSectionModel.swift */; };
 		04B51CA822CA932B00CE0A0E /* PostListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51CA722CA932B00CE0A0E /* PostListCellModel.swift */; };
 		45E27CF156951C57ACD186E1 /* Pods_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6727B7BC5B3FE21325BADF0 /* Pods_News.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0438B46622D64A7000718402 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		0438B46722D64A7000718402 /* TableCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
+		0438B46822D64A7000718402 /* TableSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionModel.swift; sourceTree = "<group>"; };
 		0476100C22CA698000DE4982 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0476100F22CA698000DE4982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0476101622CA698200DE4982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,9 +103,6 @@
 		04B51C9822CA8DF800CE0A0E /* BasicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationController.swift; sourceTree = "<group>"; };
 		04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListCell.swift; sourceTree = "<group>"; };
 		04B51C9D22CA8E5400CE0A0E /* PostListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListCell.xib; sourceTree = "<group>"; };
-		04B51CA122CA8EB900CE0A0E /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
-		04B51CA322CA8ECB00CE0A0E /* TableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
-		04B51CA522CA8EDD00CE0A0E /* TableSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionModel.swift; sourceTree = "<group>"; };
 		04B51CA722CA932B00CE0A0E /* PostListCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListCellModel.swift; sourceTree = "<group>"; };
 		071B5B7A085CDC2C54A6EA26 /* Pods-News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.debug.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.debug.xcconfig"; sourceTree = "<group>"; };
 		90FE4F8B75B32AFA8BBCAE45 /* Pods-News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.release.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +121,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0438B46422D64A7000718402 /* Application Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				0438B46522D64A7000718402 /* GKRepresentable */,
+			);
+			path = "Application Libraries";
+			sourceTree = "<group>";
+		};
+		0438B46522D64A7000718402 /* GKRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				0438B46622D64A7000718402 /* TableCell.swift */,
+				0438B46722D64A7000718402 /* TableCellModel.swift */,
+				0438B46822D64A7000718402 /* TableSectionModel.swift */,
+			);
+			path = GKRepresentable;
+			sourceTree = "<group>";
+		};
 		0476100322CA698000DE4982 = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +202,7 @@
 		0476102522CA69E500DE4982 /* Service Layer */ = {
 			isa = PBXGroup;
 			children = (
-				04B51CA022CA8EA700CE0A0E /* Representable */,
+				0438B46422D64A7000718402 /* Application Libraries */,
 			);
 			path = "Service Layer";
 			sourceTree = "<group>";
@@ -348,16 +366,6 @@
 				04B51CA722CA932B00CE0A0E /* PostListCellModel.swift */,
 			);
 			path = "Post List";
-			sourceTree = "<group>";
-		};
-		04B51CA022CA8EA700CE0A0E /* Representable */ = {
-			isa = PBXGroup;
-			children = (
-				04B51CA122CA8EB900CE0A0E /* TableCell.swift */,
-				04B51CA322CA8ECB00CE0A0E /* TableCellModel.swift */,
-				04B51CA522CA8EDD00CE0A0E /* TableSectionModel.swift */,
-			);
-			path = Representable;
 			sourceTree = "<group>";
 		};
 		20DAC89E12FA0E891B53C36D /* Pods */ = {
@@ -535,9 +543,9 @@
 				0476103122CA6DDC00DE4982 /* AppLocalization.swift in Sources */,
 				0476102722CA6A4D00DE4982 /* AppConfiguration.swift in Sources */,
 				0476101022CA698000DE4982 /* AppDelegate.swift in Sources */,
+				0438B46A22D64A7000718402 /* TableCellModel.swift in Sources */,
 				04B51C8822CA8C9100CE0A0E /* PostListPresenter.swift in Sources */,
 				04B51C8622CA8C9100CE0A0E /* PostListRouter.swift in Sources */,
-				04B51CA622CA8EDD00CE0A0E /* TableSectionModel.swift in Sources */,
 				04B51C9522CA8CA100CE0A0E /* PostRouter.swift in Sources */,
 				0476106122CA75C900DE4982 /* PostRemoteRouter.swift in Sources */,
 				0476105622CA74D200DE4982 /* Stylable.swift in Sources */,
@@ -546,14 +554,14 @@
 				0476102F22CA6C8700DE4982 /* AppAssets.swift in Sources */,
 				0476103522CA6E4700DE4982 /* AppLocalizationManager.swift in Sources */,
 				0476105D22CA75A400DE4982 /* PostResponse.swift in Sources */,
+				0438B46B22D64A7000718402 /* TableSectionModel.swift in Sources */,
+				0438B46922D64A7000718402 /* TableCell.swift in Sources */,
 				04B51C9422CA8CA100CE0A0E /* PostInteractor.swift in Sources */,
-				04B51CA222CA8EB900CE0A0E /* TableCell.swift in Sources */,
 				0476103E22CA702800DE4982 /* AppTheme.swift in Sources */,
 				04B51C8522CA8C9100CE0A0E /* PostListInteractor.swift in Sources */,
 				04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */,
 				0476103322CA6E2600DE4982 /* Localizable.swift in Sources */,
 				0476105722CA74D200DE4982 /* StyleWrapper.swift in Sources */,
-				04B51CA422CA8ECB00CE0A0E /* TableCellModel.swift in Sources */,
 				04B51C9322CA8CA100CE0A0E /* PostAssembly.swift in Sources */,
 				04B51C8322CA8C9100CE0A0E /* PostListViewController.swift in Sources */,
 				04B51C8422CA8C9100CE0A0E /* PostListAssembly.swift in Sources */,
