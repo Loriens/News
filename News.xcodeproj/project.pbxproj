@@ -25,7 +25,6 @@
 		0476102F22CA6C8700DE4982 /* AppAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476102E22CA6C8700DE4982 /* AppAssets.swift */; };
 		0476103122CA6DDC00DE4982 /* AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476103022CA6DDC00DE4982 /* AppLocalization.swift */; };
 		0476103322CA6E2600DE4982 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476103222CA6E2600DE4982 /* Localizable.swift */; };
-		0476103522CA6E4700DE4982 /* AppLocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476103422CA6E4700DE4982 /* AppLocalizationManager.swift */; };
 		0476103922CA6F7B00DE4982 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0476103B22CA6F7B00DE4982 /* Localizable.strings */; };
 		0476103E22CA702800DE4982 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476103D22CA702800DE4982 /* AppTheme.swift */; };
 		0476104022CA703400DE4982 /* AppThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476103F22CA703400DE4982 /* AppThemeManager.swift */; };
@@ -76,7 +75,6 @@
 		0476102E22CA6C8700DE4982 /* AppAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssets.swift; sourceTree = "<group>"; };
 		0476103022CA6DDC00DE4982 /* AppLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalization.swift; sourceTree = "<group>"; };
 		0476103222CA6E2600DE4982 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
-		0476103422CA6E4700DE4982 /* AppLocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalizationManager.swift; sourceTree = "<group>"; };
 		0476103A22CA6F7B00DE4982 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0476103C22CA6F8100DE4982 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0476103D22CA702800DE4982 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				0476103022CA6DDC00DE4982 /* AppLocalization.swift */,
-				0476103422CA6E4700DE4982 /* AppLocalizationManager.swift */,
 				0476103B22CA6F7B00DE4982 /* Localizable.strings */,
 				0476103222CA6E2600DE4982 /* Localizable.swift */,
 			);
@@ -551,7 +548,6 @@
 				0476105622CA74D200DE4982 /* Stylable.swift in Sources */,
 				04B51CA822CA932B00CE0A0E /* PostListCellModel.swift in Sources */,
 				0476102F22CA6C8700DE4982 /* AppAssets.swift in Sources */,
-				0476103522CA6E4700DE4982 /* AppLocalizationManager.swift in Sources */,
 				0476105D22CA75A400DE4982 /* PostResponse.swift in Sources */,
 				0438B46B22D64A7000718402 /* TableSectionModel.swift in Sources */,
 				0438B46922D64A7000718402 /* TableCell.swift in Sources */,
@@ -720,6 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TV76LZZGYZ;
 				INFOPLIST_FILE = "News/Application Layer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -739,6 +736,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TV76LZZGYZ;
 				INFOPLIST_FILE = "News/Application Layer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
