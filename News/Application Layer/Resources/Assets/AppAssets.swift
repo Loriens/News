@@ -9,8 +9,4 @@
 import Foundation
 import UIKit
 
-enum AppAssets {
-    static var defaultAvatar: UIImage? {
-        return UIImage(named: "defaultAvatar")
-    }
-}
+enum AppAssets { }
