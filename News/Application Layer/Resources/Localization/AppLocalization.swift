@@ -10,31 +10,30 @@ import Foundation
 
 enum AppLocalization {
     
-    enum General: String {
+    enum General: String, Localizable {
         case ok = "OK"
         case save = "Save"
         case cancel = "Cancel"
         case close = "Close"
-        case attention = "Attention"
         case unknown = "Unknown"
         case loading = "Loading"
         case refresh = "Refresh"
         case tryAgain = "TryAgain"
-        case errorTitle = "Error"
+        case error = "Error"
         case errorLoading = "ErrorLoading"
         case errorUnknown = "ErrorUnknown"
     }
     
-    enum Errors: String {
+    enum Error: String, Localizable {
         case internetConnectionError = "InternetConnectionError"
     }
     
-    enum PostList: String {
+    enum PostList: String, Localizable {
         case title = "ListNavigationTitle"
         case empty = "ListEmptyPlaceholder"
     }
     
-    enum Post: String {
+    enum Post: String, Localizable {
         case title = "DetailNavigationTitle"
         case empty = "DetailEmptyPlaceholder"
     }

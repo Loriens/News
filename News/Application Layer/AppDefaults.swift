@@ -8,7 +8,4 @@
 
 import Foundation
 
-enum AppDefaults {
-    static let activeTheme: String =  "APP_ACTIVE_THEME"
-    static let activeLocalization: String =  "APP_ACTIVE_LOCALIZATION"
-}
+enum AppDefaults { }

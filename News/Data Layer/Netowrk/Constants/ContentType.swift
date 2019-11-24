@@ -16,6 +16,7 @@ enum ContentType {
         switch self {
         case .json:
             return "application/json"
+        }
     }
     
 }

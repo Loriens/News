@@ -6,6 +6,6 @@ target 'News' do
   use_frameworks!
 
   pod 'Alamofire', '4.9.1'
-  pod 'Toast', '4.0.0'
+  pod 'Toast-Swift', '5.0.0'
 
 end

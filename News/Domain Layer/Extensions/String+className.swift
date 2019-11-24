@@ -1,5 +1,5 @@
 //
-//  String+localized.swift
+//  String+className.swift
 //  News
 //
 //  Created by Vladislav on 24.11.2019.
@@ -10,8 +10,8 @@ import Foundation
 
 extension String {
     
-    var localized: String {
-        return NSLocalizedString(self, comment: "")
+    public static func className(_ aClass: AnyClass) -> String {
+        return NSStringFromClass(aClass).components(separatedBy: ".").last ?? ""
     }
     
 }

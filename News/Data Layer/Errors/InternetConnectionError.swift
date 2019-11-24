@@ -11,7 +11,7 @@ import Foundation
 struct InternetConnectionError: LocalizedError {
     
     var errorDescription: String? {
-        return "InternetConnectionError".localized
+        return AppLocalization.Error.internetConnectionError.localized
     }
     
 }

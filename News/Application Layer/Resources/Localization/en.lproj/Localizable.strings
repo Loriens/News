@@ -14,10 +14,7 @@
 "Error" = "Error";
 "ErrorLoading" = "Can't load any data";
 "ErrorUnknown" = "Unknown error";
-"Attention" = "Attention";
 "Unknown" = "Unknown";
-"WipTitle" = "WIP";
-"WipText" = "Work in progress";
 "Loading" = "Loading...";
 "Refresh" = "Refresh";
 "TryAgain" = "Try again";

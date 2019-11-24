@@ -38,8 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Window configuration
     private func setup(_ window: UIWindow) {
-        let vc = PostListAssembly.create()
-        _ = PostListAssembly.configure(with: vc)
+        let vc = PostListConfigurator.create()
+        _ = PostListConfigurator.configure(with: vc)
         
         let nc = BasicNavigationController(rootViewController: vc)
         
