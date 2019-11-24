@@ -8,19 +8,10 @@
 
 import Foundation
 
-public class Post: Equatable {
+struct Post {
+    
     var id: Int
     var title: String
     var text: String
     
-    init(id: Int) {
-        self.id = id
-        self.title = ""
-        self.text = ""
-    }
-    
-    static public func == (lhs: Post, rhs: Post) -> Bool {
-        return lhs.id == rhs.id
-            && lhs.title == rhs.title
-    }
 }

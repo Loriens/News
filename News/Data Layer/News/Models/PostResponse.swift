@@ -24,9 +24,11 @@ struct PostResponse: Codable {
     func defaultMapping() -> Post? {
         guard let id = self.id else { return nil }
         
-        let post = Post(id: id)
-        post.title = self.title ?? ""
-        post.text = self.text ?? ""
+        let post = Post(
+            id: id,
+            title: title ?? "",
+            text: text ?? ""
+        )
         
         return post
     }
