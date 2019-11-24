@@ -12,8 +12,6 @@
 "Cancel" = "Cancel";
 "Close" = "Close";
 "Error" = "Error";
-"ErrorLoading" = "Can't load any data";
-"ErrorUnknown" = "Unknown error";
 "Unknown" = "Unknown";
 "Loading" = "Loading...";
 "Refresh" = "Refresh";
@@ -21,6 +19,7 @@
 
 // MARK: - Ошибки
 "InternetConnectionError" = "The Internet connection appears to be offline.";
+"UnknownError" = "Unknown error";
 
 // MARK: - Список
 "ListNavigationTitle" = "News";

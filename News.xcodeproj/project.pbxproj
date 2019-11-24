@@ -58,6 +58,7 @@
 		04CB2199238AA04600907863 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2198238AA04600907863 /* UIColor+hex.swift */; };
 		04CB219B238AA0AF00907863 /* UIViewController+identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219A238AA0AF00907863 /* UIViewController+identifier.swift */; };
 		04CB219D238AA1D700907863 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219C238AA1D700907863 /* Localizable.swift */; };
+		04CB219F238AAA0600907863 /* UnknownError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219E238AAA0600907863 /* UnknownError.swift */; };
 		45E27CF156951C57ACD186E1 /* Pods_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6727B7BC5B3FE21325BADF0 /* Pods_News.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		04CB2198238AA04600907863 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		04CB219A238AA0AF00907863 /* UIViewController+identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+identifier.swift"; sourceTree = "<group>"; };
 		04CB219C238AA1D700907863 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		04CB219E238AAA0600907863 /* UnknownError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownError.swift; sourceTree = "<group>"; };
 		071B5B7A085CDC2C54A6EA26 /* Pods-News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.debug.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.debug.xcconfig"; sourceTree = "<group>"; };
 		90FE4F8B75B32AFA8BBCAE45 /* Pods-News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.release.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.release.xcconfig"; sourceTree = "<group>"; };
 		A6727B7BC5B3FE21325BADF0 /* Pods_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				04CB2167238A978200907863 /* InternetConnectionError.swift */,
+				04CB219E238AAA0600907863 /* UnknownError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				04CB218D238A9D3B00907863 /* UITableView+registerClass.swift in Sources */,
 				04CB2189238A9B9F00907863 /* Toast.swift in Sources */,
 				04CB2160238A954100907863 /* HTTPHeaderFields.swift in Sources */,
+				04CB219F238AAA0600907863 /* UnknownError.swift in Sources */,
 				04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */,
 				04CB2193238A9DE500907863 /* PostViewModel.swift in Sources */,
 				04CB2176238A9AB900907863 /* PostListConfigurator.swift in Sources */,

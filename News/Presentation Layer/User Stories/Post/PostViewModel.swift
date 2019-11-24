@@ -6,6 +6,8 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
+import Alamofire
+
 protocol PostViewModelInput {
     func configure(with data: Any?)
 }
@@ -22,11 +24,31 @@ class PostViewModel {
     }
     
     // MARK: - Public functions
+    public func loadData() {
+        guard let postId = postId else { return }
+        PostAPIClient.item(postId: postId, completion: postResult)
+    }
     
 }
 
 // MARK: - Module functions
-extension PostViewModel { }
+extension PostViewModel {
+    
+    private func postResult(result: Result<PostResponse?>) {
+        switch result {
+        case let .success(postResponse):
+            guard let post = postResponse?.defaultMapping() else {
+                view?.updatePost(nil)
+                return
+            }
+            view?.updatePost(post)
+        case let .failure(error):
+            view?.updatePost(nil)
+            error.show()
+        }
+    }
+    
+}
 
 // MARK: - PostViewModelInput
 extension PostViewModel: PostViewModelInput {

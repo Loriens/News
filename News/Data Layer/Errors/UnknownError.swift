@@ -1,5 +1,5 @@
 //
-//  InternetConnectionError.swift
+//  UnknownError.swift
 //  News
 //
 //  Created by Vladislav on 24.11.2019.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct InternetConnectionError: LocalizedError {
+struct UnknownError: LocalizedError {
     
     var errorDescription: String? {
-        return AppLocalization.Error.internetConnection.localized
+        return AppLocalization.Error.unknown.localized
     }
     
 }

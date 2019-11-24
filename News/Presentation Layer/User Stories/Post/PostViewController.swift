@@ -8,11 +8,14 @@
 
 import UIKit
 
-protocol PostViewInput: AnyObject { }
+protocol PostViewInput: AnyObject {
+    func updatePost(_ post: Post?)
+}
 
 class PostViewController: UIViewController, PostViewInput {
 
     // MARK: - Outlets
+    @IBOutlet private weak var textLabel: UILabel!
     
     // MARK: - Props
     var viewModel: PostViewModel?
@@ -31,6 +34,15 @@ class PostViewController: UIViewController, PostViewInput {
     }
     
     // MARK: - PostViewInput
+    func updatePost(_ post: Post?) {
+        DispatchQueue.main.async { [weak self] in
+            guard let controller = self else { return }
+            
+            UIView.animate(withDuration: 0.3) {
+                controller.textLabel.text = post?.text ?? AppLocalization.Post.empty.localized
+            }
+        }
+    }
     
 }
 
@@ -38,13 +50,19 @@ class PostViewController: UIViewController, PostViewInput {
 extension PostViewController {
     
     func setupComponents() {
-        navigationItem.title = ""
+        navigationItem.title = AppLocalization.Post.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        textLabel.text = AppLocalization.General.loading.localized
+        
+        viewModel?.loadData()
     }
     
     func setupActions() { }
     
-    func applyStyles() { }
+    func applyStyles() {
+        textLabel.apply(.bigTitleStyle())
+    }
     
 }
 

@@ -20,12 +20,11 @@ enum AppLocalization {
         case refresh = "Refresh"
         case tryAgain = "TryAgain"
         case error = "Error"
-        case errorLoading = "ErrorLoading"
-        case errorUnknown = "ErrorUnknown"
     }
     
     enum Error: String, Localizable {
-        case internetConnectionError = "InternetConnectionError"
+        case internetConnection = "InternetConnectionError"
+        case unknown = "UnknownError"
     }
     
     enum PostList: String, Localizable {

@@ -121,7 +121,7 @@ extension PostListViewController: UITableViewDelegate {
         
         if let selectedModel = model as? PostListCellModel,
             let selectedId = selectedModel.userInfo["postId"] as? Int {
-//            output?.selectPost(id: selectedId)
+            router?.pushPostViewController(postId: selectedId)
         }
     }
     

@@ -12,18 +12,14 @@
 "Cancel" = "Отмена";
 "Close" = "Закрыть";
 "Error" = "Ошибка";
-"ErrorLoading" = "Не удалось загрузить данные";
-"ErrorUnknown" = "Неизвестная ошибка";
-"Attention" = "Внимание";
-"Unknown" = "Неизвестно";
-"WipTitle" = "WIP";
-"WipText" = "В разработке";
+"Unknown" = "Неизвестно";ё
 "Loading" = "Загрузка...";
 "Refresh" = "Обновить";
 "TryAgain" = "Повторить";
 
 // MARK: - Ошибки
 "InternetConnectionError" = "Вероятно, соединение с Интернетом прервано.";
+"UnknownError" = "Неизвестная ошибка";
 
 // MARK: - Список
 "ListNavigationTitle" = "Новости";
