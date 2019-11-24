@@ -1,10 +1,11 @@
-platform :ios, '11.0'
+platform :ios, '12.0'
 
 inhibit_all_warnings!
 
 target 'News' do
   use_frameworks!
 
-  pod 'GKViper', '0.4.6'
+  pod 'Alamofire', '4.9.1'
+  pod 'Toast-Swift', '5.0.0'
 
 end

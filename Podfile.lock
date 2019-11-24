@@ -1,25 +1,20 @@
 PODS:
-  - GKExtensions (1.0.0)
-  - GKNetwork (0.5.4):
-    - GKExtensions (~> 1.0.0)
-  - GKViper (0.4.6):
-    - GKExtensions (~> 1.0.0)
-    - GKNetwork (~> 0.5.4)
+  - Alamofire (4.9.1)
+  - Toast-Swift (5.0.0)
 
 DEPENDENCIES:
-  - GKViper (= 0.4.6)
+  - Alamofire (= 4.9.1)
+  - Toast-Swift (= 5.0.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - GKExtensions
-    - GKNetwork
-    - GKViper
+  trunk:
+    - Alamofire
+    - Toast-Swift
 
 SPEC CHECKSUMS:
-  GKExtensions: 179829256c98f9e23a8101181ebd90ff6c2c463e
-  GKNetwork: 5f674b710f80d4f9dfee8c5caf713ced2dabf982
-  GKViper: 8d0b91fd8696bd97a862e249356a44a96d34bc20
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
 
-PODFILE CHECKSUM: e5d3c6fbd7904c1ae8496ca754c2284882541758
+PODFILE CHECKSUM: 029472d7914ad5e2bd521e672356b751695e30f6
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

@@ -12,22 +12,14 @@
 "Cancel" = "Cancel";
 "Close" = "Close";
 "Error" = "Error";
-"ErrorLoading" = "Can't load any data";
-"ErrorUnknown" = "Unknown error";
-"Attention" = "Attention";
 "Unknown" = "Unknown";
-"WipTitle" = "WIP";
-"WipText" = "Work in progress";
 "Loading" = "Loading...";
 "Refresh" = "Refresh";
 "TryAgain" = "Try again";
 
-// MARK: - Темы и языки
-"AppThemeLight" = "Light";
-"AppThemeDark" = "Dark";
-
-"AppLanguageEnglish" = "English";
-"AppLanguageRussian" = "Russian";
+// MARK: - Ошибки
+"InternetConnectionError" = "The Internet connection appears to be offline.";
+"UnknownError" = "Unknown error";
 
 // MARK: - Список
 "ListNavigationTitle" = "News";

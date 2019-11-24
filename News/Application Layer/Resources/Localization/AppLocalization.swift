@@ -15,24 +15,16 @@ enum AppLocalization {
         case save = "Save"
         case cancel = "Cancel"
         case close = "Close"
-        case attention = "Attention"
         case unknown = "Unknown"
         case loading = "Loading"
         case refresh = "Refresh"
         case tryAgain = "TryAgain"
-        case errorTitle = "Error"
-        case errorLoading = "ErrorLoading"
-        case errorUnknown = "ErrorUnknown"
+        case error = "Error"
     }
     
-    enum Theme: String, Localizable {
-        case light = "AppThemeLight"
-        case dark = "AppThemeDark"
-    }
-    
-    enum Language: String, Localizable {
-        case english = "AppLanguageEnglish"
-        case russian = "AppLanguageRussian"
+    enum Error: String, Localizable {
+        case internetConnection = "InternetConnectionError"
+        case unknown = "UnknownError"
     }
     
     enum PostList: String, Localizable {

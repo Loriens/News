@@ -2,34 +2,26 @@
 //  PostListRouter.swift
 //  News
 //
-//  Created by Vladislav on 01/07/2019.
+//  Created by Vladislav on 24.11.2019.
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-import GKViper
-
-protocol PostListRouterInput: ViperRouterInput {
-    func pushPostViewController(postId: Int) -> PostPresenterInput
+protocol PostListRouterInput {
+    func pushPostViewController(postId: Int)
 }
 
-class PostListRouter: ViperRouter, PostListRouterInput {
+class PostListRouter: PostListRouterInput {
     
     // MARK: - Props
-    fileprivate var mainController: PostListViewController? {
-        guard let mainController = self._mainController as? PostListViewController else {
-            return nil
-        }
-        return mainController
-    }
+    weak var viewController: PostListViewController?
     
     // MARK: - PostListRouterInput
-    func pushPostViewController(postId: Int) -> PostPresenterInput {
-        let vc = PostAssembly.create()
-        let moduleInput = PostAssembly.configure(with: vc, postId: postId)
+    func pushPostViewController(postId: Int) {
+        let vc = PostConfigurator.create()
+        let viewModelInput = PostConfigurator.configure(with: vc)
+        viewModelInput.configure(with: postId)
         
-        self.push(to: vc, animated: true)
-        
-        return moduleInput
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Module functions

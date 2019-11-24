@@ -2,68 +2,41 @@
 //  PostListViewController.swift
 //  News
 //
-//  Created by Vladislav on 01/07/2019.
+//  Created by Vladislav on 24.11.2019.
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-import GKViper
+import UIKit
 
-protocol PostListViewInput: ViperViewInput {
+protocol PostListViewInput: AnyObject {
     func updateForSections(_ sections: [TableSectionModel])
+    func finishLoading(with error: Error?)
 }
 
-protocol PostListViewOutput: ViperViewOutput {
-    func selectPost(id: Int)
-}
-
-class PostListViewController: ViperViewController, PostListViewInput {
+class PostListViewController: UIViewController, PostListViewInput {
 
     // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Props
-    fileprivate var output: PostListViewOutput? {
-        guard let output = self._output as? PostListViewOutput else { return nil }
-        return output
-    }
+    var viewModel: PostListViewModel?
+    var router: PostListRouterInput?
     
     private var sections: [TableSectionModel] = []
     
     // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupComponents()
+        setupActions()
+    }
+    
     override func viewDidLayoutSubviews() {
-        self.applyStyles()
-    }
-    
-    // MARK: - Setup functions
-    func setupComponents() {
-        self.navigationItem.title = AppLocalization.PostList.title.localized
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.contentInset = UIEdgeInsets(top: 8.0, left: 0.0, bottom: 8.0, right: 0.0)
-        self.tableView.registerCellNib(PostListCell.self)
-    }
-    
-    func setupActions() { }
-    
-    func applyStyles() {
-        self.view.backgroundColor = AppTheme.backgroundMain
-        
-        self.tableView.backgroundColor = .clear
-        self.tableView.separatorColor = .clear
-        self.tableView.showsVerticalScrollIndicator = true
-        self.tableView.showsHorizontalScrollIndicator = false
+        applyStyles()
     }
     
     // MARK: - PostListViewInput
-    override func setupInitialState(with viewModel: ViperViewModel) {
-        super.setupInitialState(with: viewModel)
-        
-        self.setupComponents()
-        self.setupActions()
-    }
-    
     func updateForSections(_ sections: [TableSectionModel]) {
         self.sections = sections
         
@@ -74,10 +47,45 @@ class PostListViewController: ViperViewController, PostListViewInput {
         }
     }
     
+    func finishLoading(with error: Error?) {
+        tableView.refreshControl?.endRefreshing()
+        error?.show()
+    }
+    
+}
+
+// MARK: - Setup functions
+extension PostListViewController {
+    
+    func setupComponents() {
+        navigationItem.title = AppLocalization.PostList.title.localized
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.registerCellNib(PostListCell.self)
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        viewModel?.loadData()
+    }
+    
+    func setupActions() { }
+    
+    func applyStyles() { }
+    
 }
 
 // MARK: - Actions
-extension PostListViewController { }
+extension PostListViewController {
+    
+    @objc
+    func loadData() {
+        viewModel?.loadData()
+    }
+    
+}
 
 // MARK: - Module functions
 extension PostListViewController { }
@@ -86,15 +94,15 @@ extension PostListViewController { }
 extension PostListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.sections.count
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sections[section].rows.count
+        return sections[section].rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = self.sections[indexPath.section].rows[indexPath.row]
+        let model = sections[indexPath.section].rows[indexPath.row]
         
         if model is PostListCellModel {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: model.cellIdentifier) as? PostListCell else { return UITableViewCell() }
@@ -115,7 +123,7 @@ extension PostListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let model = self.sections[indexPath.section].rows[indexPath.row]
+        let model = sections[indexPath.section].rows[indexPath.row]
         
         return model.cellHeight
     }
@@ -125,11 +133,11 @@ extension PostListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = self.sections[indexPath.section].rows[indexPath.row]
+        let model = sections[indexPath.section].rows[indexPath.row]
         
         if let selectedModel = model as? PostListCellModel,
             let selectedId = selectedModel.userInfo["postId"] as? Int {
-            self.output?.selectPost(id: selectedId)
+            router?.pushPostViewController(postId: selectedId)
         }
     }
     

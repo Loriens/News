@@ -10,12 +10,12 @@ import Foundation
 
 enum AppConfiguration {
     
-    static var serverURL: String {
-        #if DEBUG
-        return "https://jsonplaceholder.typicode.com"
-        #else
-        return "https://jsonplaceholder.typicode.com"
-        #endif
+    static var serverUrl: String {
+        guard let serverUrl = Bundle.main.infoDictionary?["ServerUrl"] as? String else {
+            return ""
+        }
+        
+        return serverUrl
     }
     
 }
