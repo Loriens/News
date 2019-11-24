@@ -23,9 +23,9 @@ enum PostRemoteRouter {
     var path: String {
         switch self {
         case .list:
-            return "\(AppConfiguration.serverURL)/posts"
+            return "\(AppConfiguration.serverUrl)/posts"
         case let .item(postId):
-            return "\(AppConfiguration.serverURL)/posts/\(postId)"
+            return "\(AppConfiguration.serverUrl)/posts/\(postId)"
         }
     }
     

@@ -27,7 +27,6 @@
 		0476103322CA6E2600DE4982 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476103222CA6E2600DE4982 /* Localizable.swift */; };
 		0476103922CA6F7B00DE4982 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0476103B22CA6F7B00DE4982 /* Localizable.strings */; };
 		0476103E22CA702800DE4982 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476103D22CA702800DE4982 /* AppTheme.swift */; };
-		0476104022CA703400DE4982 /* AppThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476103F22CA703400DE4982 /* AppThemeManager.swift */; };
 		0476104722CA727400DE4982 /* PTRootUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476104622CA727400DE4982 /* PTRootUI.swift */; };
 		0476104C22CA729500DE4982 /* PT Root UI_Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0476104822CA729500DE4982 /* PT Root UI_Medium.otf */; };
 		0476104D22CA729500DE4982 /* PT Root UI_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0476104922CA729500DE4982 /* PT Root UI_Regular.otf */; };
@@ -78,7 +77,6 @@
 		0476103A22CA6F7B00DE4982 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0476103C22CA6F8100DE4982 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0476103D22CA702800DE4982 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		0476103F22CA703400DE4982 /* AppThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeManager.swift; sourceTree = "<group>"; };
 		0476104622CA727400DE4982 /* PTRootUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTRootUI.swift; sourceTree = "<group>"; };
 		0476104822CA729500DE4982 /* PT Root UI_Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT Root UI_Medium.otf"; sourceTree = "<group>"; };
 		0476104922CA729500DE4982 /* PT Root UI_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT Root UI_Regular.otf"; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				0476103D22CA702800DE4982 /* AppTheme.swift */,
-				0476103F22CA703400DE4982 /* AppThemeManager.swift */,
 				0476104522CA723800DE4982 /* Components */,
 				0476104422CA723300DE4982 /* Fonts */,
 			);
@@ -561,7 +558,6 @@
 				04B51C8322CA8C9100CE0A0E /* PostListViewController.swift in Sources */,
 				04B51C8422CA8C9100CE0A0E /* PostListAssembly.swift in Sources */,
 				041802F422DA1BC500157225 /* PostInteractor.swift in Sources */,
-				0476104022CA703400DE4982 /* AppThemeManager.swift in Sources */,
 				0476105422CA74D200DE4982 /* StyleWrapper+UIImageView.swift in Sources */,
 				0476105F22CA75AA00DE4982 /* Post.swift in Sources */,
 				04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */,
@@ -725,6 +721,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = markov.vladislav.News;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SERVER_URL = "https://jsonplaceholder.typicode.com";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -745,6 +742,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = markov.vladislav.News;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SERVER_URL = "https://jsonplaceholder.typicode.com";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
