@@ -10,6 +10,7 @@ import UIKit
 
 protocol PostListViewInput: AnyObject {
     func updateForSections(_ sections: [TableSectionModel])
+    func finishLoading(with error: Error?)
 }
 
 class PostListViewController: UIViewController, PostListViewInput {
@@ -46,6 +47,11 @@ class PostListViewController: UIViewController, PostListViewInput {
         }
     }
     
+    func finishLoading(with error: Error?) {
+        tableView.refreshControl?.endRefreshing()
+        error?.show()
+    }
+    
 }
 
 // MARK: - Setup functions
@@ -58,6 +64,9 @@ extension PostListViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerCellNib(PostListCell.self)
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
         
         viewModel?.loadData()
     }
@@ -69,7 +78,14 @@ extension PostListViewController {
 }
 
 // MARK: - Actions
-extension PostListViewController { }
+extension PostListViewController {
+    
+    @objc
+    func loadData() {
+        viewModel?.loadData()
+    }
+    
+}
 
 // MARK: - Module functions
 extension PostListViewController { }

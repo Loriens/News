@@ -42,12 +42,13 @@ extension PostListViewModel {
         
         switch result {
         case let .success(postsResponse):
+            view?.finishLoading(with: nil)
             let posts = postsResponse?.compactMap({ $0.defaultMapping() }) ?? []
             self.posts = posts
             
             makeSectionsModel()
         case let .failure(error):
-            error.show()
+            view?.finishLoading(with: error)
         }
     }
     

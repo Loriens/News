@@ -38,13 +38,13 @@ extension PostViewModel {
         switch result {
         case let .success(postResponse):
             guard let post = postResponse?.defaultMapping() else {
-                view?.updatePost(nil)
+                view?.finishLoading(with: UnknownError())
                 return
             }
+            view?.finishLoading(with: nil)
             view?.updatePost(post)
         case let .failure(error):
-            view?.updatePost(nil)
-            error.show()
+            view?.finishLoading(with: error)
         }
     }
     

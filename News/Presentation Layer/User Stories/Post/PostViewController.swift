@@ -9,7 +9,8 @@
 import UIKit
 
 protocol PostViewInput: AnyObject {
-    func updatePost(_ post: Post?)
+    func updatePost(_ post: Post)
+    func finishLoading(with error: Error?)
 }
 
 class PostViewController: UIViewController, PostViewInput {
@@ -34,12 +35,24 @@ class PostViewController: UIViewController, PostViewInput {
     }
     
     // MARK: - PostViewInput
-    func updatePost(_ post: Post?) {
+    func updatePost(_ post: Post) {
         DispatchQueue.main.async { [weak self] in
             guard let controller = self else { return }
             
             UIView.animate(withDuration: 0.3) {
-                controller.textLabel.text = post?.text ?? AppLocalization.Post.empty.localized
+                controller.textLabel.text = post.text
+            }
+        }
+    }
+    
+    func finishLoading(with error: Error?) {
+        guard let error = error else { return }
+        error.show()
+        DispatchQueue.main.async { [weak self] in
+            guard let controller = self else { return }
+            
+            UIView.animate(withDuration: 0.3) {
+                controller.textLabel.text = AppLocalization.Post.empty.localized
             }
         }
     }
