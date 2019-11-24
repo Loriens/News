@@ -3,17 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		041802F422DA1BC500157225 /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041802ED22DA1BC500157225 /* PostInteractor.swift */; };
-		041802F522DA1BC500157225 /* PostAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041802EE22DA1BC500157225 /* PostAssembly.swift */; };
-		041802F622DA1BC500157225 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041802EF22DA1BC500157225 /* PostViewModel.swift */; };
-		041802F722DA1BC500157225 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041802F022DA1BC500157225 /* PostViewController.swift */; };
-		041802F822DA1BC500157225 /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041802F122DA1BC500157225 /* PostPresenter.swift */; };
-		041802F922DA1BC500157225 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041802F222DA1BC500157225 /* PostViewController.xib */; };
-		041802FA22DA1BC500157225 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041802F322DA1BC500157225 /* PostRouter.swift */; };
 		0438B46922D64A7000718402 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438B46622D64A7000718402 /* TableCell.swift */; };
 		0438B46A22D64A7000718402 /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438B46722D64A7000718402 /* TableCellModel.swift */; };
 		0438B46B22D64A7000718402 /* TableSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438B46822D64A7000718402 /* TableSectionModel.swift */; };
@@ -39,13 +32,6 @@
 		0476105D22CA75A400DE4982 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105C22CA75A400DE4982 /* PostResponse.swift */; };
 		0476105F22CA75AA00DE4982 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105E22CA75AA00DE4982 /* Post.swift */; };
 		0476106122CA75C900DE4982 /* PostRemoteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476106022CA75C900DE4982 /* PostRemoteRouter.swift */; };
-		04B51C8222CA8C9100CE0A0E /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C7B22CA8C9100CE0A0E /* PostListViewModel.swift */; };
-		04B51C8322CA8C9100CE0A0E /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C7C22CA8C9100CE0A0E /* PostListViewController.swift */; };
-		04B51C8422CA8C9100CE0A0E /* PostListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C7D22CA8C9100CE0A0E /* PostListAssembly.swift */; };
-		04B51C8522CA8C9100CE0A0E /* PostListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C7E22CA8C9100CE0A0E /* PostListInteractor.swift */; };
-		04B51C8622CA8C9100CE0A0E /* PostListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C7F22CA8C9100CE0A0E /* PostListRouter.swift */; };
-		04B51C8722CA8C9100CE0A0E /* PostListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B51C8022CA8C9100CE0A0E /* PostListViewController.xib */; };
-		04B51C8822CA8C9100CE0A0E /* PostListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C8122CA8C9100CE0A0E /* PostListPresenter.swift */; };
 		04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9822CA8DF800CE0A0E /* BasicNavigationController.swift */; };
 		04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */; };
 		04B51C9F22CA8E5400CE0A0E /* PostListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B51C9D22CA8E5400CE0A0E /* PostListCell.xib */; };
@@ -54,13 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		041802ED22DA1BC500157225 /* PostInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
-		041802EE22DA1BC500157225 /* PostAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAssembly.swift; sourceTree = "<group>"; };
-		041802EF22DA1BC500157225 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
-		041802F022DA1BC500157225 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		041802F122DA1BC500157225 /* PostPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
-		041802F222DA1BC500157225 /* PostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
-		041802F322DA1BC500157225 /* PostRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
 		0438B46622D64A7000718402 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		0438B46722D64A7000718402 /* TableCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
 		0438B46822D64A7000718402 /* TableSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionModel.swift; sourceTree = "<group>"; };
@@ -89,13 +68,6 @@
 		0476105C22CA75A400DE4982 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		0476105E22CA75AA00DE4982 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0476106022CA75C900DE4982 /* PostRemoteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRemoteRouter.swift; sourceTree = "<group>"; };
-		04B51C7B22CA8C9100CE0A0E /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
-		04B51C7C22CA8C9100CE0A0E /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
-		04B51C7D22CA8C9100CE0A0E /* PostListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListAssembly.swift; sourceTree = "<group>"; };
-		04B51C7E22CA8C9100CE0A0E /* PostListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListInteractor.swift; sourceTree = "<group>"; };
-		04B51C7F22CA8C9100CE0A0E /* PostListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListRouter.swift; sourceTree = "<group>"; };
-		04B51C8022CA8C9100CE0A0E /* PostListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListViewController.xib; sourceTree = "<group>"; };
-		04B51C8122CA8C9100CE0A0E /* PostListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListPresenter.swift; sourceTree = "<group>"; };
 		04B51C9822CA8DF800CE0A0E /* BasicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationController.swift; sourceTree = "<group>"; };
 		04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListCell.swift; sourceTree = "<group>"; };
 		04B51C9D22CA8E5400CE0A0E /* PostListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListCell.xib; sourceTree = "<group>"; };
@@ -117,20 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		041802EC22DA1BC500157225 /* Post */ = {
-			isa = PBXGroup;
-			children = (
-				041802ED22DA1BC500157225 /* PostInteractor.swift */,
-				041802EE22DA1BC500157225 /* PostAssembly.swift */,
-				041802EF22DA1BC500157225 /* PostViewModel.swift */,
-				041802F022DA1BC500157225 /* PostViewController.swift */,
-				041802F122DA1BC500157225 /* PostPresenter.swift */,
-				041802F222DA1BC500157225 /* PostViewController.xib */,
-				041802F322DA1BC500157225 /* PostRouter.swift */,
-			);
-			path = Post;
-			sourceTree = "<group>";
-		};
 		0438B46422D64A7000718402 /* Application Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,7 +266,6 @@
 		04B51C7622CA8C6A00CE0A0E /* User Stories */ = {
 			isa = PBXGroup;
 			children = (
-				04B51C7922CA8C8000CE0A0E /* Post List */,
 			);
 			path = "User Stories";
 			sourceTree = "<group>";
@@ -327,21 +284,6 @@
 				04B51C9A22CA8E1800CE0A0E /* Cells */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		04B51C7922CA8C8000CE0A0E /* Post List */ = {
-			isa = PBXGroup;
-			children = (
-				041802EC22DA1BC500157225 /* Post */,
-				04B51C7D22CA8C9100CE0A0E /* PostListAssembly.swift */,
-				04B51C7E22CA8C9100CE0A0E /* PostListInteractor.swift */,
-				04B51C8122CA8C9100CE0A0E /* PostListPresenter.swift */,
-				04B51C7F22CA8C9100CE0A0E /* PostListRouter.swift */,
-				04B51C7C22CA8C9100CE0A0E /* PostListViewController.swift */,
-				04B51C8022CA8C9100CE0A0E /* PostListViewController.xib */,
-				04B51C7B22CA8C9100CE0A0E /* PostListViewModel.swift */,
-			);
-			path = "Post List";
 			sourceTree = "<group>";
 		};
 		04B51C9A22CA8E1800CE0A0E /* Cells */ = {
@@ -445,8 +387,6 @@
 				0476104D22CA729500DE4982 /* PT Root UI_Regular.otf in Resources */,
 				0476104E22CA729500DE4982 /* PT Root UI_Light.otf in Resources */,
 				0476103922CA6F7B00DE4982 /* Localizable.strings in Resources */,
-				041802F922DA1BC500157225 /* PostViewController.xib in Resources */,
-				04B51C8722CA8C9100CE0A0E /* PostListViewController.xib in Resources */,
 				0476104C22CA729500DE4982 /* PT Root UI_Medium.otf in Resources */,
 				04B51C9F22CA8E5400CE0A0E /* PostListCell.xib in Resources */,
 				0476104F22CA729500DE4982 /* PT Root UI_Bold.otf in Resources */,
@@ -520,18 +460,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041802F822DA1BC500157225 /* PostPresenter.swift in Sources */,
-				041802F622DA1BC500157225 /* PostViewModel.swift in Sources */,
-				041802F522DA1BC500157225 /* PostAssembly.swift in Sources */,
 				0476105522CA74D200DE4982 /* StyleWrapper+UILabel.swift in Sources */,
 				0476104722CA727400DE4982 /* PTRootUI.swift in Sources */,
-				04B51C8222CA8C9100CE0A0E /* PostListViewModel.swift in Sources */,
 				0476103122CA6DDC00DE4982 /* AppLocalization.swift in Sources */,
 				0476102722CA6A4D00DE4982 /* AppConfiguration.swift in Sources */,
 				0476101022CA698000DE4982 /* AppDelegate.swift in Sources */,
 				0438B46A22D64A7000718402 /* TableCellModel.swift in Sources */,
-				04B51C8822CA8C9100CE0A0E /* PostListPresenter.swift in Sources */,
-				04B51C8622CA8C9100CE0A0E /* PostListRouter.swift in Sources */,
 				0476106122CA75C900DE4982 /* PostRemoteRouter.swift in Sources */,
 				0476105622CA74D200DE4982 /* Stylable.swift in Sources */,
 				04B51CA822CA932B00CE0A0E /* PostListCellModel.swift in Sources */,
@@ -540,15 +474,9 @@
 				0438B46B22D64A7000718402 /* TableSectionModel.swift in Sources */,
 				0438B46922D64A7000718402 /* TableCell.swift in Sources */,
 				0476103E22CA702800DE4982 /* AppTheme.swift in Sources */,
-				04B51C8522CA8C9100CE0A0E /* PostListInteractor.swift in Sources */,
-				041802F722DA1BC500157225 /* PostViewController.swift in Sources */,
 				04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */,
-				041802FA22DA1BC500157225 /* PostRouter.swift in Sources */,
 				0476103322CA6E2600DE4982 /* Localizable.swift in Sources */,
 				0476105722CA74D200DE4982 /* StyleWrapper.swift in Sources */,
-				04B51C8322CA8C9100CE0A0E /* PostListViewController.swift in Sources */,
-				04B51C8422CA8C9100CE0A0E /* PostListAssembly.swift in Sources */,
-				041802F422DA1BC500157225 /* PostInteractor.swift in Sources */,
 				0476105422CA74D200DE4982 /* StyleWrapper+UIImageView.swift in Sources */,
 				0476105F22CA75AA00DE4982 /* Post.swift in Sources */,
 				04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */,
