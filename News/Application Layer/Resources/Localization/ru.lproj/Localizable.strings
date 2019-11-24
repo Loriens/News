@@ -22,12 +22,8 @@
 "Refresh" = "Обновить";
 "TryAgain" = "Повторить";
 
-// MARK: - Темы и языки
-"AppThemeLight" = "Светлая";
-"AppThemeDark" = "Темная";
-
-"AppLanguageEnglish" = "Английский";
-"AppLanguageRussian" = "Русский";
+// MARK: - Ошибки
+"InternetConnectionError" = "Вероятно, соединение с Интернетом прервано.";
 
 // MARK: - Список
 "ListNavigationTitle" = "Новости";

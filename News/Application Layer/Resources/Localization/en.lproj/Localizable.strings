@@ -22,12 +22,8 @@
 "Refresh" = "Refresh";
 "TryAgain" = "Try again";
 
-// MARK: - Темы и языки
-"AppThemeLight" = "Light";
-"AppThemeDark" = "Dark";
-
-"AppLanguageEnglish" = "English";
-"AppLanguageRussian" = "Russian";
+// MARK: - Ошибки
+"InternetConnectionError" = "The Internet connection appears to be offline.";
 
 // MARK: - Список
 "ListNavigationTitle" = "News";
