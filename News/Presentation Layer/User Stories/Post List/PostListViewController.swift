@@ -31,8 +31,6 @@ class PostListViewController: UIViewController {
         applyStyles()
     }
     
-    // MARK: - PostListViewInput
-    
 }
 
 // MARK: - Setup functions
