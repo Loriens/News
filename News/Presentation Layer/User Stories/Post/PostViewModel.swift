@@ -15,13 +15,12 @@ protocol PostViewModelInput {
 class PostViewModel {
     
     // MARK: - Props
+    var loadDataCompletion: ((Swift.Result<Post, Error>) -> Void)?
+    
     private var postId: Int?
-    private weak var view: PostViewInput?
     
     // MARK: - Initialization
-    init(with view: PostViewInput?) {
-        self.view = view
-    }
+    init() { }
     
     // MARK: - Public functions
     public func loadData() {
@@ -38,13 +37,12 @@ extension PostViewModel {
         switch result {
         case let .success(postResponse):
             guard let post = postResponse?.defaultMapping() else {
-                view?.finishLoading(with: UnknownError())
+                loadDataCompletion?(.failure(UnknownError()))
                 return
             }
-            view?.finishLoading(with: nil)
-            view?.updatePost(post)
+            loadDataCompletion?(.success(post))
         case let .failure(error):
-            view?.finishLoading(with: error)
+            loadDataCompletion?(.failure(error))
         }
     }
     

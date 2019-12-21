@@ -8,12 +8,7 @@
 
 import UIKit
 
-protocol PostListViewInput: AnyObject {
-    func updateForSections(_ sections: [TableSectionModel])
-    func finishLoading(with error: Error?)
-}
-
-class PostListViewController: UIViewController, PostListViewInput {
+class PostListViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
@@ -37,20 +32,6 @@ class PostListViewController: UIViewController, PostListViewInput {
     }
     
     // MARK: - PostListViewInput
-    func updateForSections(_ sections: [TableSectionModel]) {
-        self.sections = sections
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let controller = self else { return }
-            
-            controller.tableView.reloadData()
-        }
-    }
-    
-    func finishLoading(with error: Error?) {
-        tableView.refreshControl?.endRefreshing()
-        error?.show()
-    }
     
 }
 
@@ -68,6 +49,9 @@ extension PostListViewController {
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView.refreshControl = refreshControl
         
+        viewModel?.loadDataCompletion = { [weak self] result in
+            self?.loadDataCompletion(result)
+        }
         viewModel?.loadData()
     }
     
@@ -88,7 +72,34 @@ extension PostListViewController {
 }
 
 // MARK: - Module functions
-extension PostListViewController { }
+extension PostListViewController {
+    
+    func loadDataCompletion(_ result: Result<[TableSectionModel], Error>) {
+        switch result {
+        case .success(let sections):
+            finishLoading(with: nil)
+            updateForSections(sections)
+        case .failure(let error):
+            finishLoading(with: error)
+        }
+    }
+    
+    func updateForSections(_ sections: [TableSectionModel]) {
+        self.sections = sections
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let controller = self else { return }
+            
+            controller.tableView.reloadData()
+        }
+    }
+    
+    func finishLoading(with error: Error?) {
+        tableView.refreshControl?.endRefreshing()
+        error?.show()
+    }
+    
+}
 
 // MARK: - UITableViewDataSource
 extension PostListViewController: UITableViewDataSource {

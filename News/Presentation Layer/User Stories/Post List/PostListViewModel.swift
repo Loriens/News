@@ -15,13 +15,13 @@ protocol PostListViewModelInput {
 class PostListViewModel {
     
     // MARK: - Props
+    var loadDataCompletion: ((Swift.Result<[TableSectionModel], Error>) -> Void)?
+    
     private var posts: [Post]
     private var isLoading = false
-    private weak var view: PostListViewInput?
     
     // MARK: - Initialization
-    init(with view: PostListViewInput?) {
-        self.view = view
+    init() {
         self.posts = []
     }
     
@@ -42,13 +42,12 @@ extension PostListViewModel {
         
         switch result {
         case let .success(postsResponse):
-            view?.finishLoading(with: nil)
             let posts = postsResponse?.compactMap({ $0.defaultMapping() }) ?? []
             self.posts = posts
             
             makeSectionsModel()
         case let .failure(error):
-            view?.finishLoading(with: error)
+            loadDataCompletion?(.failure(error))
         }
     }
     
@@ -61,7 +60,7 @@ extension PostListViewModel {
             mainSection.rows.append(postRow)
         }
         
-        self.view?.updateForSections([mainSection])
+        loadDataCompletion?(.success([mainSection]))
     }
     
 }

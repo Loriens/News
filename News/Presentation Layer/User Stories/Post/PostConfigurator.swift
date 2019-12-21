@@ -15,7 +15,7 @@ enum PostConfigurator {
     
     // Create and link modules with controller, return view model input
     static func configure(with reference: PostViewController) -> PostViewModelInput {
-        let viewModel = PostViewModel(with: reference)
+        let viewModel = PostViewModel()
         
         let router = PostRouter()
         router.viewController = reference

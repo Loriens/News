@@ -8,12 +8,7 @@
 
 import UIKit
 
-protocol PostViewInput: AnyObject {
-    func updatePost(_ post: Post)
-    func finishLoading(with error: Error?)
-}
-
-class PostViewController: UIViewController, PostViewInput {
+class PostViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var textLabel: UILabel!
@@ -34,7 +29,47 @@ class PostViewController: UIViewController, PostViewInput {
         applyStyles()
     }
     
-    // MARK: - PostViewInput
+}
+
+// MARK: - Setup functions
+extension PostViewController {
+    
+    func setupComponents() {
+        navigationItem.title = AppLocalization.Post.title.localized
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        textLabel.text = AppLocalization.General.loading.localized
+        
+        viewModel?.loadDataCompletion = { [weak self] result in
+            self?.loadDataCompletion(result)
+        }
+        viewModel?.loadData()
+    }
+    
+    func setupActions() { }
+    
+    func applyStyles() {
+        textLabel.apply(.bigTitleStyle())
+    }
+    
+}
+
+// MARK: - Actions
+extension PostViewController { }
+
+// MARK: - Module functions
+extension PostViewController {
+    
+    func loadDataCompletion(_ result: Result<Post, Error>) {
+        switch result {
+        case .success(let post):
+            finishLoading(with: nil)
+            updatePost(post)
+        case .failure(let error):
+            finishLoading(with: error)
+        }
+    }
+    
     func updatePost(_ post: Post) {
         DispatchQueue.main.async { [weak self] in
             guard let controller = self else { return }
@@ -58,29 +93,3 @@ class PostViewController: UIViewController, PostViewInput {
     }
     
 }
-
-// MARK: - Setup functions
-extension PostViewController {
-    
-    func setupComponents() {
-        navigationItem.title = AppLocalization.Post.title.localized
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        textLabel.text = AppLocalization.General.loading.localized
-        
-        viewModel?.loadData()
-    }
-    
-    func setupActions() { }
-    
-    func applyStyles() {
-        textLabel.apply(.bigTitleStyle())
-    }
-    
-}
-
-// MARK: - Actions
-extension PostViewController { }
-
-// MARK: - Module functions
-extension PostViewController { }
