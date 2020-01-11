@@ -15,20 +15,22 @@ protocol PostListViewModelInput {
 class PostListViewModel {
     
     // MARK: - Props
-    var loadDataCompletion: ((Swift.Result<[TableSectionModel], Error>) -> Void)?
-    
     private var posts: [Post]
-    private var isLoading = false
+    private var isLoading: Bool
+    private var loadDataCompletion: (Swift.Result<[TableSectionModel], Error>) -> Void
     
     // MARK: - Initialization
     init() {
-        self.posts = []
+        posts = []
+        isLoading = false
+        loadDataCompletion = { _ in }
     }
     
     // MARK: - Public functions
-    public func loadData() {
+    public func loadData(completion: @escaping (Swift.Result<[TableSectionModel], Error>) -> Void) {
         guard !isLoading else { return }
         isLoading = true
+        loadDataCompletion = completion
         PostAPIClient.list(completion: postListResult)
     }
     
@@ -47,7 +49,7 @@ extension PostListViewModel {
             
             makeSectionsModel()
         case let .failure(error):
-            loadDataCompletion?(.failure(error))
+            loadDataCompletion(.failure(error))
         }
     }
     
@@ -60,7 +62,7 @@ extension PostListViewModel {
             mainSection.rows.append(postRow)
         }
         
-        loadDataCompletion?(.success([mainSection]))
+        loadDataCompletion(.success([mainSection]))
     }
     
 }
