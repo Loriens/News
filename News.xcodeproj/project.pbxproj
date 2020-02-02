@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,8 @@
 		0476105722CA74D200DE4982 /* StyleWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105322CA74D200DE4982 /* StyleWrapper.swift */; };
 		0476105D22CA75A400DE4982 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105C22CA75A400DE4982 /* PostResponse.swift */; };
 		0476105F22CA75AA00DE4982 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105E22CA75AA00DE4982 /* Post.swift */; };
+		047E86E523E6F53300EE1165 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 047E86E423E6F53300EE1165 /* SwiftPackageProductDependency */; settings = {ATTRIBUTES = (Required, ); }; };
+		047E86E823E6F54D00EE1165 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 047E86E723E6F54D00EE1165 /* SwiftPackageProductDependency */; settings = {ATTRIBUTES = (Required, ); }; };
 		04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9822CA8DF800CE0A0E /* BasicNavigationController.swift */; };
 		04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */; };
 		04B51C9F22CA8E5400CE0A0E /* PostListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B51C9D22CA8E5400CE0A0E /* PostListCell.xib */; };
@@ -59,7 +61,6 @@
 		04CB219B238AA0AF00907863 /* UIViewController+identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219A238AA0AF00907863 /* UIViewController+identifier.swift */; };
 		04CB219D238AA1D700907863 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219C238AA1D700907863 /* Localizable.swift */; };
 		04CB219F238AAA0600907863 /* UnknownError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219E238AAA0600907863 /* UnknownError.swift */; };
-		45E27CF156951C57ACD186E1 /* Pods_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6727B7BC5B3FE21325BADF0 /* Pods_News.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,9 +119,6 @@
 		04CB219A238AA0AF00907863 /* UIViewController+identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+identifier.swift"; sourceTree = "<group>"; };
 		04CB219C238AA1D700907863 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		04CB219E238AAA0600907863 /* UnknownError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownError.swift; sourceTree = "<group>"; };
-		071B5B7A085CDC2C54A6EA26 /* Pods-News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.debug.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.debug.xcconfig"; sourceTree = "<group>"; };
-		90FE4F8B75B32AFA8BBCAE45 /* Pods-News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.release.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.release.xcconfig"; sourceTree = "<group>"; };
-		A6727B7BC5B3FE21325BADF0 /* Pods_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45E27CF156951C57ACD186E1 /* Pods_News.framework in Frameworks */,
+				047E86E823E6F54D00EE1165 /* BuildFile in Frameworks */,
+				047E86E523E6F53300EE1165 /* BuildFile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +140,6 @@
 				0476100E22CA698000DE4982 /* News */,
 				0476100D22CA698000DE4982 /* Products */,
 				20DAC89E12FA0E891B53C36D /* Pods */,
-				2F0C3002C8B5EACBC107C8C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -448,18 +446,8 @@
 		20DAC89E12FA0E891B53C36D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				071B5B7A085CDC2C54A6EA26 /* Pods-News.debug.xcconfig */,
-				90FE4F8B75B32AFA8BBCAE45 /* Pods-News.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		2F0C3002C8B5EACBC107C8C0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A6727B7BC5B3FE21325BADF0 /* Pods_News.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,11 +457,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0476101E22CA698200DE4982 /* Build configuration list for PBXNativeTarget "News" */;
 			buildPhases = (
-				BEC34C60AEE48FD53006C7C7 /* [CP] Check Pods Manifest.lock */,
 				0476100822CA698000DE4982 /* Sources */,
 				0476100922CA698000DE4982 /* Frameworks */,
 				0476100A22CA698000DE4982 /* Resources */,
-				CD5132247C644FE7FA9C9A4C /* [CP] Embed Pods Frameworks */,
 				0488951B22CB660E00108C0B /* ShellScript */,
 			);
 			buildRules = (
@@ -481,6 +467,10 @@
 			dependencies = (
 			);
 			name = News;
+			packageProductDependencies = (
+				047E86E423E6F53300EE1165 /* SwiftPackageProductDependency */,
+				047E86E723E6F54D00EE1165 /* SwiftPackageProductDependency */,
+			);
 			productName = News;
 			productReference = 0476100C22CA698000DE4982 /* News.app */;
 			productType = "com.apple.product-type.application";
@@ -510,6 +500,10 @@
 				ru,
 			);
 			mainGroup = 0476100322CA698000DE4982;
+			packageReferences = (
+				047E86E323E6F53300EE1165 /* RemoteSwiftPackageReference */,
+				047E86E623E6F54D00EE1165 /* RemoteSwiftPackageReference */,
+			);
 			productRefGroup = 0476100D22CA698000DE4982 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -556,45 +550,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		BEC34C60AEE48FD53006C7C7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-News-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CD5132247C644FE7FA9C9A4C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-News/Pods-News-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-News/Pods-News-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-News/Pods-News-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -791,7 +746,6 @@
 		};
 		0476101F22CA698200DE4982 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 071B5B7A085CDC2C54A6EA26 /* Pods-News.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -812,7 +766,6 @@
 		};
 		0476102022CA698200DE4982 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90FE4F8B75B32AFA8BBCAE45 /* Pods-News.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -853,6 +806,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		047E86E323E6F53300EE1165 /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.1;
+			};
+		};
+		047E86E623E6F54D00EE1165 /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		047E86E423E6F53300EE1165 /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 047E86E323E6F53300EE1165 /* RemoteSwiftPackageReference */;
+			productName = Alamofire;
+		};
+		047E86E723E6F54D00EE1165 /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 047E86E623E6F54D00EE1165 /* RemoteSwiftPackageReference */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0476100422CA698000DE4982 /* Project object */;
 }

@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import Toast_Swift
+import UIKit
+import Toast
 
 class Toast {
     
