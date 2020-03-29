@@ -2,17 +2,13 @@ name: CI
 
 on: [push]
 
-dependencies:
-  pre:
-    - xcrun instruments -w 'iPhone 8' || sleep 15
-
 jobs:
   build:
 
     runs-on: macOS-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
     - name: Run tests
       run: xcodebuild -project 'News.xcodeproj' -scheme 'News' -destination 'platform=iOS Simulator,name=iPhone 8' test
     - name: Build App
