@@ -2,10 +2,14 @@ name: CI
 
 on: [push]
 
+dependencies:
+  pre:
+    - xcrun instruments -w 'iPhone 8' || sleep 15
+
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: macOS-latest
 
     steps:
     - uses: actions/checkout@v2
