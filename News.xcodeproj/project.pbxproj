@@ -61,7 +61,6 @@
 		04CB219B238AA0AF00907863 /* UIViewController+identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219A238AA0AF00907863 /* UIViewController+identifier.swift */; };
 		04CB219D238AA1D700907863 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219C238AA1D700907863 /* Localizable.swift */; };
 		04CB219F238AAA0600907863 /* UnknownError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219E238AAA0600907863 /* UnknownError.swift */; };
-		04E73C6F2430B9D30005E2F5 /* NewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E73C6E2430B9D30005E2F5 /* NewsTests.swift */; };
 		04E73C792430BA070005E2F5 /* PostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E73C782430BA070005E2F5 /* PostTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,7 +131,6 @@
 		04CB219C238AA1D700907863 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		04CB219E238AAA0600907863 /* UnknownError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownError.swift; sourceTree = "<group>"; };
 		04E73C6C2430B9D30005E2F5 /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		04E73C6E2430B9D30005E2F5 /* NewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTests.swift; sourceTree = "<group>"; };
 		04E73C702430B9D30005E2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04E73C782430BA070005E2F5 /* PostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -471,7 +469,6 @@
 			isa = PBXGroup;
 			children = (
 				04E73C702430B9D30005E2F5 /* Info.plist */,
-				04E73C6E2430B9D30005E2F5 /* NewsTests.swift */,
 				04E73C782430BA070005E2F5 /* PostTests.swift */,
 			);
 			path = NewsTests;
@@ -664,7 +661,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04E73C6F2430B9D30005E2F5 /* NewsTests.swift in Sources */,
 				04E73C792430BA070005E2F5 /* PostTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

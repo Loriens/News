@@ -12,17 +12,17 @@ import XCTest
 class PostTests: XCTestCase {
     
     // MARK: - Props
-    var emptyPostReponse: PostResponse?
+    var emptyPostResponse: PostResponse?
     var postResponse: PostResponse?
 
     // MARK: - Setup functions
     override func setUpWithError() throws {
-        emptyPostReponse = PostResponse()
+        emptyPostResponse = PostResponse()
         postResponse = PostResponse(id: 1, title: "Title", text: "Text")
     }
 
     override func tearDownWithError() throws {
-        emptyPostReponse = nil
+        emptyPostResponse = nil
         postResponse = nil
     }
 
@@ -38,11 +38,8 @@ class PostTests: XCTestCase {
     }
     
     func testEmptyPostResponseMapsToNil() throws {
-        guard let emptyPostResponse = emptyPostReponse else {
-            XCTAssert(false)
-            return
-        }
-        XCTAssertNil(emptyPostResponse.defaultMapping())
+        XCTAssertNotNil(emptyPostResponse)
+        XCTAssertNil(emptyPostResponse?.defaultMapping())
     }
 
 }
