@@ -28,14 +28,20 @@ class PostTests: XCTestCase {
 
     // MARK: - Test functions
     func testPostResponseMapsToPost() throws {
-        guard let post = postResponse?.defaultMapping() else { return }
+        guard let post = postResponse?.defaultMapping() else {
+            XCTAssert(false)
+            return
+        }
         XCTAssert(post.id == 1)
         XCTAssert(post.title == "Title")
         XCTAssert(post.text == "Text")
     }
     
     func testEmptyPostResponseMapsToNil() throws {
-        guard let emptyPostResponse = emptyPostReponse else { return }
+        guard let emptyPostResponse = emptyPostReponse else {
+            XCTAssert(false)
+            return
+        }
         XCTAssertNil(emptyPostResponse.defaultMapping())
     }
 
