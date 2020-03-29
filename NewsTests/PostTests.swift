@@ -38,7 +38,6 @@ class PostTests: XCTestCase {
     }
     
     func testEmptyPostResponseMapsToNil() throws {
-        XCTAssert(false)
         XCTAssertNotNil(emptyPostResponse)
         XCTAssertNil(emptyPostResponse?.defaultMapping())
     }
