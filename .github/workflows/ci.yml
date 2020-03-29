@@ -8,7 +8,7 @@ jobs:
     runs-on: macOS-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Run tests
       run: xcodebuild -project 'News.xcodeproj' -scheme 'News' -destination 'platform=iOS Simulator,name=iPhone 8' test
     - name: Build App
