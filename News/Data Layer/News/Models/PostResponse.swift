@@ -9,14 +9,13 @@
 import Foundation
 
 struct PostResponse: Codable {
+    
     var id: Int?
-    var userId: Int?
     var title: String?
     var text: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
-        case userId = "userId"
         case title = "title"
         case text = "body"
     }
