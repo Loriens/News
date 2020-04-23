@@ -13,18 +13,30 @@ class PostListCell: TableCell {
     // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
     
+    // MARK: - Lifecycle
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        applyStyles()
+    }
+    
     // MARK: - Setup functions
     override func setupView() {
-        self.backgroundColor = .clear
-        self.contentView.backgroundColor = .clear
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
         
-        self.titleLabel.apply(.smallTitleStyle())
+        setupActions()
     }
     
     override func updateViews() {
-        guard let model = self.model as? PostListCellModel else { return }
+        guard let model = model as? PostListCellModel else { return }
         
-        self.titleLabel.text = model.title
+        titleLabel.text = model.title
+    }
+    
+    private func setupActions() { }
+    
+    private func applyStyles() {
+        titleLabel.apply(.smallTitleStyle())
     }
     
 }
