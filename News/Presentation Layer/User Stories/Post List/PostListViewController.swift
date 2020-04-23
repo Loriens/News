@@ -82,10 +82,8 @@ extension PostListViewController {
     func updateForSections(_ sections: [TableSectionModel]) {
         self.sections = sections
         
-        DispatchQueue.main.async { [weak self] in
-            guard let controller = self else { return }
-            
-            controller.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
     

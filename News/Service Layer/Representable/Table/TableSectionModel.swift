@@ -19,7 +19,7 @@ open class TableSectionModel: TableSectionRepresentable {
     
     // MARK: - Initialization
     public init() {
-        self.rows = []
+        rows = []
     }
     
 }

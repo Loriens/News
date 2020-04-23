@@ -13,11 +13,11 @@ protocol Localizable: RawRepresentable { }
 extension Localizable {
     
     var key: String {
-        return self.rawValue as? String ?? ""
+        return rawValue as? String ?? ""
     }
     
     var localized: String {
-        return NSLocalizedString(self.key, comment: "")
+        return NSLocalizedString(key, comment: "")
     }
     
 }
