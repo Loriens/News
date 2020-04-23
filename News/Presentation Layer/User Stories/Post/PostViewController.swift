@@ -40,9 +40,7 @@ extension PostViewController {
         
         textLabel.text = AppLocalization.General.loading.localized
         
-        viewModel?.loadDataCompletion = { [weak self] result in
-            self?.loadDataCompletion(result)
-        }
+        bindViewModel()
         viewModel?.loadData()
     }
     
@@ -60,22 +58,22 @@ extension PostViewController { }
 // MARK: - Module functions
 extension PostViewController {
     
-    func loadDataCompletion(_ result: Result<Post, Error>) {
-        switch result {
-        case .success(let post):
-            finishLoading(with: nil)
-            updatePost(post)
-        case .failure(let error):
-            finishLoading(with: error)
+    func bindViewModel() {
+        viewModel?.loadDataCompletion = { [weak self] result in
+            switch result {
+            case .success(let post):
+                self?.finishLoading(with: nil)
+                self?.updatePost(post)
+            case .failure(let error):
+                self?.finishLoading(with: error)
+            }
         }
     }
     
     func updatePost(_ post: Post) {
-        DispatchQueue.main.async { [weak self] in
-            guard let controller = self else { return }
-            
+        DispatchQueue.main.async {
             UIView.animate(withDuration: 0.3) {
-                controller.textLabel.text = post.text
+                self.textLabel.text = post.text
             }
         }
     }
@@ -83,11 +81,9 @@ extension PostViewController {
     func finishLoading(with error: Error?) {
         guard let error = error else { return }
         error.show()
-        DispatchQueue.main.async { [weak self] in
-            guard let controller = self else { return }
-            
+        DispatchQueue.main.async {
             UIView.animate(withDuration: 0.3) {
-                controller.textLabel.text = AppLocalization.Post.empty.localized
+                self.textLabel.text = AppLocalization.Post.empty.localized
             }
         }
     }

@@ -29,6 +29,7 @@
 		0476105F22CA75AA00DE4982 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105E22CA75AA00DE4982 /* Post.swift */; };
 		047E86E523E6F53300EE1165 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 047E86E423E6F53300EE1165 /* Alamofire */; settings = {ATTRIBUTES = (Required, ); }; };
 		047E86E823E6F54D00EE1165 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 047E86E723E6F54D00EE1165 /* Toast */; settings = {ATTRIBUTES = (Required, ); }; };
+		04AF69B02452169900F220EB /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF69AF2452169900F220EB /* PostError.swift */; };
 		04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9822CA8DF800CE0A0E /* BasicNavigationController.swift */; };
 		04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */; };
 		04B51C9F22CA8E5400CE0A0E /* PostListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B51C9D22CA8E5400CE0A0E /* PostListCell.xib */; };
@@ -37,9 +38,7 @@
 		04CB215C238A952600907863 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB215B238A952600907863 /* APIConfiguration.swift */; };
 		04CB215E238A953900907863 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB215D238A953900907863 /* ContentType.swift */; };
 		04CB2160238A954100907863 /* HTTPHeaderFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB215F238A954100907863 /* HTTPHeaderFields.swift */; };
-		04CB2163238A96CD00907863 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2162238A96CD00907863 /* Reachability.swift */; };
-		04CB2165238A96E700907863 /* PostAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2164238A96E700907863 /* PostAPIClient.swift */; };
-		04CB2168238A978200907863 /* InternetConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2167238A978200907863 /* InternetConnectionError.swift */; };
+		04CB2165238A96E700907863 /* PostApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2164238A96E700907863 /* PostApiClient.swift */; };
 		04CB2174238A9AB900907863 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB216F238A9AB900907863 /* PostListViewModel.swift */; };
 		04CB2175238A9AB900907863 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2170238A9AB900907863 /* PostListViewController.swift */; };
 		04CB2176238A9AB900907863 /* PostListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2171238A9AB900907863 /* PostListConfigurator.swift */; };
@@ -60,7 +59,6 @@
 		04CB2199238AA04600907863 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2198238AA04600907863 /* UIColor+hex.swift */; };
 		04CB219B238AA0AF00907863 /* UIViewController+identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219A238AA0AF00907863 /* UIViewController+identifier.swift */; };
 		04CB219D238AA1D700907863 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219C238AA1D700907863 /* Localizable.swift */; };
-		04CB219F238AAA0600907863 /* UnknownError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219E238AAA0600907863 /* UnknownError.swift */; };
 		04E73C792430BA070005E2F5 /* PostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E73C782430BA070005E2F5 /* PostTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +96,7 @@
 		0476105322CA74D200DE4982 /* StyleWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleWrapper.swift; sourceTree = "<group>"; };
 		0476105C22CA75A400DE4982 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		0476105E22CA75AA00DE4982 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		04AF69AF2452169900F220EB /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
 		04B51C9822CA8DF800CE0A0E /* BasicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationController.swift; sourceTree = "<group>"; };
 		04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListCell.swift; sourceTree = "<group>"; };
 		04B51C9D22CA8E5400CE0A0E /* PostListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListCell.xib; sourceTree = "<group>"; };
@@ -106,9 +105,7 @@
 		04CB215B238A952600907863 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		04CB215D238A953900907863 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		04CB215F238A954100907863 /* HTTPHeaderFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderFields.swift; sourceTree = "<group>"; };
-		04CB2162238A96CD00907863 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		04CB2164238A96E700907863 /* PostAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPIClient.swift; sourceTree = "<group>"; };
-		04CB2167238A978200907863 /* InternetConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionError.swift; sourceTree = "<group>"; };
+		04CB2164238A96E700907863 /* PostApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApiClient.swift; sourceTree = "<group>"; };
 		04CB216F238A9AB900907863 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		04CB2170238A9AB900907863 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		04CB2171238A9AB900907863 /* PostListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListConfigurator.swift; sourceTree = "<group>"; };
@@ -129,7 +126,6 @@
 		04CB2198238AA04600907863 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		04CB219A238AA0AF00907863 /* UIViewController+identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+identifier.swift"; sourceTree = "<group>"; };
 		04CB219C238AA1D700907863 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
-		04CB219E238AAA0600907863 /* UnknownError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownError.swift; sourceTree = "<group>"; };
 		04E73C6C2430B9D30005E2F5 /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E73C702430B9D30005E2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04E73C782430BA070005E2F5 /* PostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTests.swift; sourceTree = "<group>"; };
@@ -201,7 +197,6 @@
 		0476102322CA69D600DE4982 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
-				04CB2166238A976800907863 /* Errors */,
 				04CB2156238A94C200907863 /* Network */,
 				0476105822CA751200DE4982 /* News */,
 			);
@@ -302,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				0476105E22CA75AA00DE4982 /* Post.swift */,
+				04AF69AF2452169900F220EB /* PostError.swift */,
 				0476105C22CA75A400DE4982 /* PostResponse.swift */,
 			);
 			path = Models;
@@ -380,19 +376,9 @@
 		04CB2161238A96A200907863 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				04CB2164238A96E700907863 /* PostAPIClient.swift */,
-				04CB2162238A96CD00907863 /* Reachability.swift */,
+				04CB2164238A96E700907863 /* PostApiClient.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		04CB2166238A976800907863 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				04CB2167238A978200907863 /* InternetConnectionError.swift */,
-				04CB219E238AAA0600907863 /* UnknownError.swift */,
-			);
-			path = Errors;
 			sourceTree = "<group>";
 		};
 		04CB2169238A979D00907863 /* Domain Layer */ = {
@@ -621,7 +607,7 @@
 				0476102722CA6A4D00DE4982 /* AppConfiguration.swift in Sources */,
 				04CB217E238A9B2100907863 /* TableCellModel.swift in Sources */,
 				0476101022CA698000DE4982 /* AppDelegate.swift in Sources */,
-				04CB2165238A96E700907863 /* PostAPIClient.swift in Sources */,
+				04CB2165238A96E700907863 /* PostApiClient.swift in Sources */,
 				04CB218B238A9CEF00907863 /* TableSectionModel.swift in Sources */,
 				04CB2186238A9B7300907863 /* String+className.swift in Sources */,
 				04CB2194238A9DE500907863 /* PostViewController.swift in Sources */,
@@ -630,7 +616,6 @@
 				04B51CA822CA932B00CE0A0E /* PostListCellModel.swift in Sources */,
 				0476102F22CA6C8700DE4982 /* AppAssets.swift in Sources */,
 				04CB2199238AA04600907863 /* UIColor+hex.swift in Sources */,
-				04CB2168238A978200907863 /* InternetConnectionError.swift in Sources */,
 				04CB2174238A9AB900907863 /* PostListViewModel.swift in Sources */,
 				04CB2196238A9DE500907863 /* PostRouter.swift in Sources */,
 				0476105D22CA75A400DE4982 /* PostResponse.swift in Sources */,
@@ -640,7 +625,6 @@
 				04CB218D238A9D3B00907863 /* UITableView+registerClass.swift in Sources */,
 				04CB2189238A9B9F00907863 /* Toast.swift in Sources */,
 				04CB2160238A954100907863 /* HTTPHeaderFields.swift in Sources */,
-				04CB219F238AAA0600907863 /* UnknownError.swift in Sources */,
 				04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */,
 				04CB2193238A9DE500907863 /* PostViewModel.swift in Sources */,
 				04CB2176238A9AB900907863 /* PostListConfigurator.swift in Sources */,
@@ -649,10 +633,10 @@
 				0476105722CA74D200DE4982 /* StyleWrapper.swift in Sources */,
 				04CB2177238A9AB900907863 /* PostListRouter.swift in Sources */,
 				0476105422CA74D200DE4982 /* StyleWrapper+UIImageView.swift in Sources */,
-				04CB2163238A96CD00907863 /* Reachability.swift in Sources */,
 				04CB2195238A9DE500907863 /* PostConfigurator.swift in Sources */,
 				0476105F22CA75AA00DE4982 /* Post.swift in Sources */,
 				04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */,
+				04AF69B02452169900F220EB /* PostError.swift in Sources */,
 				0476102922CA6C2100DE4982 /* AppDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -934,7 +918,7 @@
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.9.1;
+				minimumVersion = 5.0.1;
 			};
 		};
 		047E86E623E6F54D00EE1165 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {

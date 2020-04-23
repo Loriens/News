@@ -23,8 +23,12 @@ enum AppLocalization {
     }
     
     enum Error: String, Localizable {
-        case internetConnection = "InternetConnectionError"
         case unknown = "UnknownError"
+        
+        enum Post: String, Localizable {
+            case postWasNotFound = "PostWasNotFoundError"
+            case emptyPost = "EmptyPostError"
+        }
     }
     
     enum PostList: String, Localizable {

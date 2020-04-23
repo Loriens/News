@@ -17,7 +17,7 @@ class PostListViewModel {
     // MARK: - Props
     private var posts: [Post]
     private var isLoading: Bool
-    private var loadDataCompletion: (Swift.Result<[TableSectionModel], Error>) -> Void
+    private var loadDataCompletion: (Swift.Result<[TableSectionModel], PostError>) -> Void
     
     // MARK: - Initialization
     init() {
@@ -27,11 +27,11 @@ class PostListViewModel {
     }
     
     // MARK: - Public functions
-    public func loadData(completion: @escaping (Swift.Result<[TableSectionModel], Error>) -> Void) {
+    public func loadData(completion: @escaping (Swift.Result<[TableSectionModel], PostError>) -> Void) {
         guard !isLoading else { return }
         isLoading = true
         loadDataCompletion = completion
-        PostAPIClient.list(completion: postListResult)
+        PostApiClient.list(completion: postListResult)
     }
     
 }
@@ -39,17 +39,17 @@ class PostListViewModel {
 // MARK: - Module functions
 extension PostListViewModel {
     
-    private func postListResult(result: Result<[PostResponse]?>) {
+    private func postListResult(result: Swift.Result<[PostResponse?]?, Error>) {
         isLoading = false
         
         switch result {
         case let .success(postsResponse):
-            let posts = postsResponse?.compactMap({ $0.defaultMapping() }) ?? []
+            let posts = postsResponse?.compactMap({ $0?.defaultMapping() }) ?? []
             self.posts = posts
             
             makeSectionsModel()
         case let .failure(error):
-            loadDataCompletion(.failure(error))
+            loadDataCompletion(.failure(.unknown(error)))
         }
     }
     

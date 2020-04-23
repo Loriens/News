@@ -55,9 +55,10 @@ enum PostAPIRouter: APIConfiguration {
         
         // Common headers
         urlRequest.setValue(ContentType.json.value, forHTTPHeaderField: HTTPHeaderFields.acceptType.rawValue)
+        urlRequest.setValue(ContentType.json.value, forHTTPHeaderField: HTTPHeaderFields.contentType.rawValue)
         
         if let headers = headers {
-            for key in headers.keys {
+            for key in headers.dictionary.keys {
                 urlRequest.setValue(headers[key], forHTTPHeaderField: key)
             }
         }

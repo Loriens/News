@@ -18,8 +18,10 @@
 "TryAgain" = "Повторить";
 
 // MARK: - Ошибки
-"InternetConnectionError" = "Вероятно, соединение с Интернетом прервано.";
 "UnknownError" = "Неизвестная ошибка";
+
+"PostWasNotFoundError" = "Пост не был найден";
+"EmptyPostError" = "Пустой пост :(";
 
 // MARK: - Список
 "ListNavigationTitle" = "Новости";

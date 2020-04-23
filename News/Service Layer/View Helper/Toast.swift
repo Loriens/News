@@ -12,8 +12,10 @@ import Toast
 
 class Toast {
     
+    // MARK: - Props
     static let shared: Toast = Toast()
     
+    // MARK: - Initialization
     private init() {
         var style = ToastStyle()
         style.messageColor = .white
@@ -28,6 +30,7 @@ class Toast {
         ToastManager.shared.isQueueEnabled = false
     }
     
+    // MARK: - Public functions
     func show(title: String?, message: String?) {
         DispatchQueue.main.async {
             guard let window = UIApplication.shared.keyWindow else { return }

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-import Alamofire
-
 protocol PostViewModelInput {
     func configure(with data: Any?)
 }
@@ -15,7 +13,7 @@ protocol PostViewModelInput {
 class PostViewModel {
     
     // MARK: - Props
-    var loadDataCompletion: ((Swift.Result<Post, Error>) -> Void)?
+    var loadDataCompletion: ((Swift.Result<Post, PostError>) -> Void)?
     
     private var postId: Int?
     
@@ -25,7 +23,7 @@ class PostViewModel {
     // MARK: - Public functions
     public func loadData() {
         guard let postId = postId else { return }
-        PostAPIClient.item(postId: postId, completion: postResult)
+        PostApiClient.item(postId: postId, completion: postResult)
     }
     
 }
@@ -33,16 +31,16 @@ class PostViewModel {
 // MARK: - Module functions
 extension PostViewModel {
     
-    private func postResult(result: Result<PostResponse?>) {
+    private func postResult(result: Swift.Result<PostResponse?, Error>) {
         switch result {
         case let .success(postResponse):
             guard let post = postResponse?.defaultMapping() else {
-                loadDataCompletion?(.failure(UnknownError()))
+                loadDataCompletion?(.failure(.emptyPost))
                 return
             }
             loadDataCompletion?(.success(post))
         case let .failure(error):
-            loadDataCompletion?(.failure(error))
+            loadDataCompletion?(.failure(.unknown(error)))
         }
     }
     

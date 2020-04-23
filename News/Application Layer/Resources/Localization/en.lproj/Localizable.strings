@@ -18,8 +18,10 @@
 "TryAgain" = "Try again";
 
 // MARK: - Ошибки
-"InternetConnectionError" = "The Internet connection appears to be offline.";
 "UnknownError" = "Unknown error";
+
+"PostWasNotFoundError" = "Post was not found";
+"EmptyPostError" = "Empty post :(";
 
 // MARK: - Список
 "ListNavigationTitle" = "News";
