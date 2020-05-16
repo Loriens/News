@@ -10,6 +10,7 @@
 		042E4348246FE3B200866E29 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E4347246FE3B200866E29 /* Toast.swift */; };
 		042E434A246FE4C900866E29 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E4349246FE4C900866E29 /* NetworkClient.swift */; };
 		042E434C246FECD600866E29 /* NetworkClientRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E434B246FECD600866E29 /* NetworkClientRetrier.swift */; };
+		042E435024703D8C00866E29 /* PostApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E434F24703D8C00866E29 /* PostApiTests.swift */; };
 		0476101022CA698000DE4982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476100F22CA698000DE4982 /* AppDelegate.swift */; };
 		0476101722CA698200DE4982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0476101622CA698200DE4982 /* Assets.xcassets */; };
 		0476101A22CA698200DE4982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0476101822CA698200DE4982 /* LaunchScreen.storyboard */; };
@@ -76,6 +77,7 @@
 		042E4347246FE3B200866E29 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		042E4349246FE4C900866E29 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		042E434B246FECD600866E29 /* NetworkClientRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientRetrier.swift; sourceTree = "<group>"; };
+		042E434F24703D8C00866E29 /* PostApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApiTests.swift; sourceTree = "<group>"; };
 		0476100C22CA698000DE4982 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0476100F22CA698000DE4982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0476101622CA698200DE4982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				04E73C702430B9D30005E2F5 /* Info.plist */,
+				042E434F24703D8C00866E29 /* PostApiTests.swift */,
 				04E73C782430BA070005E2F5 /* PostTests.swift */,
 			);
 			path = NewsTests;
@@ -645,6 +648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042E435024703D8C00866E29 /* PostApiTests.swift in Sources */,
 				04E73C792430BA070005E2F5 /* PostTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
