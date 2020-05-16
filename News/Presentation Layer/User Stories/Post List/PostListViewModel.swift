@@ -17,13 +17,12 @@ class PostListViewModel {
     // MARK: - Props
     private var posts: [Post]
     private var isLoading: Bool
-    private var loadDataCompletion: (Swift.Result<[TableSectionModel], PostError>) -> Void
+    private var loadDataCompletion: ((Swift.Result<[TableSectionModel], PostError>) -> Void)?
     
     // MARK: - Initialization
     init() {
         posts = []
         isLoading = false
-        loadDataCompletion = { _ in }
     }
     
     // MARK: - Public functions
@@ -31,27 +30,28 @@ class PostListViewModel {
         guard !isLoading else { return }
         isLoading = true
         loadDataCompletion = completion
-        PostApiClient.list(completion: postListResult)
+        NetworkClient.request(with: PostApiRouter.list)
+            .responseDecodable(of: [PostResponse].self) { [weak self] response in
+                self?.isLoading = false
+                
+                if let error = response.error {
+                    self?.loadDataCompletion?(.failure(.unknown(error)))
+                }
+                
+                guard let posts = response.value?.compactMap({ $0.defaultMapping() }) else {
+                    self?.posts = []
+                    self?.makeSectionsModel()
+                    return
+                }
+                self?.posts = posts
+                self?.makeSectionsModel()
+            }
     }
     
 }
 
 // MARK: - Module functions
 extension PostListViewModel {
-    
-    private func postListResult(result: Swift.Result<[PostResponse?]?, Error>) {
-        isLoading = false
-        
-        switch result {
-        case let .success(postsResponse):
-            let posts = postsResponse?.compactMap({ $0?.defaultMapping() }) ?? []
-            self.posts = posts
-            
-            makeSectionsModel()
-        case let .failure(error):
-            loadDataCompletion(.failure(.unknown(error)))
-        }
-    }
     
     private func makeSectionsModel() {
         let mainSection = TableSectionModel()
@@ -62,7 +62,7 @@ extension PostListViewModel {
             mainSection.rows.append(postRow)
         }
         
-        loadDataCompletion(.success([mainSection]))
+        loadDataCompletion?(.success([mainSection]))
     }
     
 }

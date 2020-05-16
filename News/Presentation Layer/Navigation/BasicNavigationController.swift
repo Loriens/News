@@ -15,6 +15,12 @@ class BasicNavigationController: UINavigationController {
         return nc
     }
     
+    // MARK: - Props
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return AppTheme.statusBarStyle
+    }
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +33,7 @@ class BasicNavigationController: UINavigationController {
         setNeedsStatusBarAppearanceUpdate()
     }
     
+    // MARK: - Setup functions
     private func setupUI() {
         navigationBar.isTranslucent = false
         navigationBar.barTintColor = AppTheme.backgroundBar
@@ -36,10 +43,6 @@ class BasicNavigationController: UINavigationController {
             .foregroundColor: AppTheme.accentText
         ]
         navigationBar.prefersLargeTitles = false
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return AppTheme.statusBarStyle
     }
     
 }

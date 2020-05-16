@@ -22,29 +22,28 @@ class PostViewModel {
     
     // MARK: - Public functions
     public func loadData() {
-        guard let postId = postId else { return }
-        PostApiClient.item(postId: postId, completion: postResult)
+        guard let postId = postId else {
+            loadDataCompletion?(.failure(.postWasNotFound))
+            return
+        }
+        NetworkClient.request(with: PostApiRouter.item(postId: postId))
+            .responseDecodable(of: PostResponse.self) { [weak self] response in
+                if let error = response.error {
+                    self?.loadDataCompletion?(.failure(.unknown(error)))
+                }
+                
+                guard let post = response.value?.defaultMapping() else {
+                    self?.loadDataCompletion?(.failure(.emptyPost))
+                    return
+                }
+                self?.loadDataCompletion?(.success(post))
+            }
     }
     
 }
 
 // MARK: - Module functions
-extension PostViewModel {
-    
-    private func postResult(result: Swift.Result<PostResponse?, Error>) {
-        switch result {
-        case let .success(postResponse):
-            guard let post = postResponse?.defaultMapping() else {
-                loadDataCompletion?(.failure(.emptyPost))
-                return
-            }
-            loadDataCompletion?(.success(post))
-        case let .failure(error):
-            loadDataCompletion?(.failure(.unknown(error)))
-        }
-    }
-    
-}
+extension PostViewModel { }
 
 // MARK: - PostViewModelInput
 extension PostViewModel: PostViewModelInput {

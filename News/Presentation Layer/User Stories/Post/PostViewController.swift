@@ -79,8 +79,7 @@ extension PostViewController {
     }
     
     func finishLoading(with error: Error?) {
-        guard let error = error else { return }
-        error.show()
+        guard error != nil else { return }
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.3) {
                 self.textLabel.text = AppLocalization.Post.empty.localized

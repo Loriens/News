@@ -89,7 +89,8 @@ extension PostListViewController {
     
     func finishLoading(with error: Error?) {
         tableView.refreshControl?.endRefreshing()
-        error?.show()
+        guard let error = error else { return }
+        Toast.shared.show(title: AppLocalization.General.error.localized, message: error.localizedDescription)
     }
     
 }
