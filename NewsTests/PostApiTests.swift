@@ -24,12 +24,11 @@ class PostApiTests: XCTestCase {
                 }
                 
                 XCTAssertNil(response.error, response.error?.localizedDescription ?? AppLocalization.Error.unknown.localized)
-                XCTAssertNotNil(response.value?.compactMap({ $0.defaultMapping() }))
+                XCTAssertNotNil(response.value)
             }
     }
     
     func testPostItemResponse() {
-        
         let expectation = self.expectation(description: "Get a post in reasonable time")
         defer {
             waitForExpectations(timeout: 10)
