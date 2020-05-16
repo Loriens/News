@@ -9,37 +9,36 @@
 import XCTest
 @testable import News
 
-class PostTests: XCTestCase {
+final class PostTests: XCTestCase {
     
     // MARK: - Props
-    var emptyPostResponse: PostResponse?
-    var postResponse: PostResponse?
+    var invalidPostResponse: PostResponse?
+    var validPostResponse: PostResponse?
 
     // MARK: - Setup functions
     override func setUpWithError() throws {
-        emptyPostResponse = PostResponse()
-        postResponse = PostResponse(id: 1, title: "Title", text: "Text")
+        validPostResponse = PostResponse(id: 1,
+                                         title: "Title",
+                                         text: "Text")
+        invalidPostResponse = PostResponse()
     }
 
     override func tearDownWithError() throws {
-        emptyPostResponse = nil
-        postResponse = nil
+        validPostResponse = nil
+        invalidPostResponse = nil
     }
 
     // MARK: - Test functions
-    func testPostResponseMapsToPost() throws {
-        guard let post = postResponse?.defaultMapping() else {
-            XCTAssert(false)
-            return
-        }
-        XCTAssert(post.id == 1)
-        XCTAssert(post.title == "Title")
-        XCTAssert(post.text == "Text")
+    func testValidPostResponseMapsToPost() throws {
+        let post = try XCTUnwrap(validPostResponse?.defaultMapping())
+        XCTAssertEqual(post.id, 1)
+        XCTAssertEqual(post.title, "Title")
+        XCTAssertEqual(post.text, "Text")
     }
     
-    func testEmptyPostResponseMapsToNil() throws {
-        XCTAssertNotNil(emptyPostResponse)
-        XCTAssertNil(emptyPostResponse?.defaultMapping())
+    func testInvalidPostResponseMapsToNil() throws {
+        let postResponse = try XCTUnwrap(invalidPostResponse)
+        XCTAssertNil(postResponse.defaultMapping())
     }
 
 }

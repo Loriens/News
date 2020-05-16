@@ -8,7 +8,7 @@
 
 protocol PostRouterInput { }
 
-class PostRouter: PostRouterInput {
+final class PostRouter: PostRouterInput {
     
     // MARK: - Props
     weak var viewController: PostViewController?

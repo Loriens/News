@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PostListCellModel: TableCellModel {
+final class PostListCellModel: TableCellModel {
     
     // MARK: - Props
     public override var cellIdentifier: String {

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Toast
 
-class Toast {
+final class Toast {
     
     // MARK: - Props
     static let shared: Toast = Toast()

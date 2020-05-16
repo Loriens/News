@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostListCell: TableCell {
+final class PostListCell: TableCell {
 
     // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
