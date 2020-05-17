@@ -1,4 +1,8 @@
 # News
+
+
+![](https://github.com/Loriens/News/workflows/Run%tests/badge.svg)
+
 Little description
 
 ## Requirements
