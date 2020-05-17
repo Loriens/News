@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041D31BE2471716500381A2F /* PostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D31BD2471716500381A2F /* PostUITests.swift */; };
 		042E4348246FE3B200866E29 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E4347246FE3B200866E29 /* Toast.swift */; };
 		042E434A246FE4C900866E29 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E4349246FE4C900866E29 /* NetworkClient.swift */; };
 		042E434C246FECD600866E29 /* NetworkClientRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E434B246FECD600866E29 /* NetworkClientRetrier.swift */; };
@@ -64,6 +65,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		041D31B824716FFD00381A2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0476100422CA698000DE4982 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0476100B22CA698000DE4982;
+			remoteInfo = News;
+		};
 		04E73C712430B9D30005E2F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0476100422CA698000DE4982 /* Project object */;
@@ -74,6 +82,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041D31B324716FFD00381A2F /* NewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		041D31B724716FFD00381A2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		041D31BD2471716500381A2F /* PostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUITests.swift; sourceTree = "<group>"; };
 		042E4347246FE3B200866E29 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		042E4349246FE4C900866E29 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		042E434B246FECD600866E29 /* NetworkClientRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientRetrier.swift; sourceTree = "<group>"; };
@@ -134,6 +145,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		041D31B024716FFD00381A2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0476100922CA698000DE4982 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,11 +171,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041D31B424716FFD00381A2F /* NewsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				041D31B724716FFD00381A2F /* Info.plist */,
+				041D31BD2471716500381A2F /* PostUITests.swift */,
+			);
+			path = NewsUITests;
+			sourceTree = "<group>";
+		};
 		0476100322CA698000DE4982 = {
 			isa = PBXGroup;
 			children = (
 				0476100E22CA698000DE4982 /* News */,
 				04E73C6D2430B9D30005E2F5 /* NewsTests */,
+				041D31B424716FFD00381A2F /* NewsUITests */,
 				0476100D22CA698000DE4982 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -167,6 +195,7 @@
 			children = (
 				0476100C22CA698000DE4982 /* News.app */,
 				04E73C6C2430B9D30005E2F5 /* NewsTests.xctest */,
+				041D31B324716FFD00381A2F /* NewsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -466,6 +495,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		041D31B224716FFD00381A2F /* NewsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 041D31BC24716FFD00381A2F /* Build configuration list for PBXNativeTarget "NewsUITests" */;
+			buildPhases = (
+				041D31AF24716FFD00381A2F /* Sources */,
+				041D31B024716FFD00381A2F /* Frameworks */,
+				041D31B124716FFD00381A2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				041D31B924716FFD00381A2F /* PBXTargetDependency */,
+			);
+			name = NewsUITests;
+			productName = NewsUITests;
+			productReference = 041D31B324716FFD00381A2F /* NewsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		0476100B22CA698000DE4982 /* News */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0476101E22CA698200DE4982 /* Build configuration list for PBXNativeTarget "News" */;
@@ -516,6 +563,10 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Vladislav Markov";
 				TargetAttributes = {
+					041D31B224716FFD00381A2F = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 0476100B22CA698000DE4982;
+					};
 					0476100B22CA698000DE4982 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -545,11 +596,19 @@
 			targets = (
 				0476100B22CA698000DE4982 /* News */,
 				04E73C6B2430B9D30005E2F5 /* NewsTests */,
+				041D31B224716FFD00381A2F /* NewsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		041D31B124716FFD00381A2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0476100A22CA698000DE4982 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -597,6 +656,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		041D31AF24716FFD00381A2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				041D31BE2471716500381A2F /* PostUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0476100822CA698000DE4982 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -656,6 +723,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		041D31B924716FFD00381A2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0476100B22CA698000DE4982 /* News */;
+			targetProxy = 041D31B824716FFD00381A2F /* PBXContainerItemProxy */;
+		};
 		04E73C722430B9D30005E2F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0476100B22CA698000DE4982 /* News */;
@@ -684,6 +756,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		041D31BA24716FFD00381A2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TV76LZZGYZ;
+				INFOPLIST_FILE = NewsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = markov.vladislav.NewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = News;
+			};
+			name = Debug;
+		};
+		041D31BB24716FFD00381A2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TV76LZZGYZ;
+				INFOPLIST_FILE = NewsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = markov.vladislav.NewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = News;
+			};
+			name = Release;
+		};
 		0476101C22CA698200DE4982 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -887,6 +999,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		041D31BC24716FFD00381A2F /* Build configuration list for PBXNativeTarget "NewsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				041D31BA24716FFD00381A2F /* Debug */,
+				041D31BB24716FFD00381A2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0476100722CA698000DE4982 /* Build configuration list for PBXProject "News" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
