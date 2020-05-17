@@ -56,8 +56,12 @@ class PostApiTests: XCTestCase {
                     self.expectation.fulfill()
                 }
                 
-                XCTAssertNil(response.error, response.error?.localizedDescription ?? AppLocalization.Error.unknown.localized)
-                XCTAssertNotNil(response.value)
+                if let error = response.error {
+                    XCTFail(error.localizedDescription)
+                    return
+                }
+                
+                XCTAssertNotNil(response.value?.defaultMapping)
             }
     }
     
