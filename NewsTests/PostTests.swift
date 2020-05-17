@@ -13,8 +13,6 @@ final class PostTests: XCTestCase {
 
     // MARK: - Test functions
     func testValidPostResponseMapsToPost() throws {
-        XCTFail("Test")
-        
         let postResponse = PostResponse(
             id: 1,
             title: "Title",
