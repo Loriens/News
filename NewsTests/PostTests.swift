@@ -10,34 +10,22 @@ import XCTest
 @testable import News
 
 final class PostTests: XCTestCase {
-    
-    // MARK: - Props
-    var invalidPostResponse: PostResponse?
-    var validPostResponse: PostResponse?
-
-    // MARK: - Setup functions
-    override func setUpWithError() throws {
-        validPostResponse = PostResponse(id: 1,
-                                         title: "Title",
-                                         text: "Text")
-        invalidPostResponse = PostResponse()
-    }
-
-    override func tearDownWithError() throws {
-        validPostResponse = nil
-        invalidPostResponse = nil
-    }
 
     // MARK: - Test functions
     func testValidPostResponseMapsToPost() throws {
-        let post = try XCTUnwrap(validPostResponse?.defaultMapping())
+        let postResponse = PostResponse(
+            id: 1,
+            title: "Title",
+            text: "Text"
+        )
+        let post = try XCTUnwrap(postResponse.defaultMapping())
         XCTAssertEqual(post.id, 1)
         XCTAssertEqual(post.title, "Title")
         XCTAssertEqual(post.text, "Text")
     }
     
     func testInvalidPostResponseMapsToNil() throws {
-        let postResponse = try XCTUnwrap(invalidPostResponse)
+        let postResponse = PostResponse()
         XCTAssertNil(postResponse.defaultMapping())
     }
 
