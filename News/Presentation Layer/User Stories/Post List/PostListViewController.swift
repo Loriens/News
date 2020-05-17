@@ -47,6 +47,7 @@ extension PostListViewController {
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView.refreshControl = refreshControl
         
+        bindViewModel()
         loadData()
     }
     
@@ -61,23 +62,25 @@ extension PostListViewController {
     
     @objc
     func loadData() {
-        viewModel?.loadData(completion: { [weak self] result in
-            guard let controller = self else { return }
-            
-            switch result {
-            case .success(let sections):
-                controller.finishLoading(with: nil)
-                controller.updateForSections(sections)
-            case .failure(let error):
-                controller.finishLoading(with: error)
-            }
-        })
+        viewModel?.loadData()
     }
     
 }
 
 // MARK: - Module functions
 extension PostListViewController {
+    
+    func bindViewModel() {
+        viewModel?.loadDataCompletion = { [weak self] result in
+            switch result {
+            case .success(let sections):
+                self?.finishLoading(with: nil)
+                self?.updateForSections(sections)
+            case .failure(let error):
+                self?.finishLoading(with: error)
+            }
+        }
+    }
     
     func updateForSections(_ sections: [TableSectionModel]) {
         self.sections = sections

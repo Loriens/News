@@ -61,7 +61,7 @@ class PostApiTests: XCTestCase {
                     return
                 }
                 
-                XCTAssertNotNil(response.value?.defaultMapping)
+                XCTAssertNotNil(response.value?.defaultMapping())
             }
     }
     

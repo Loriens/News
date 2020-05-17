@@ -15,9 +15,10 @@ protocol PostListViewModelInput {
 class PostListViewModel {
     
     // MARK: - Props
+    var loadDataCompletion: ((Swift.Result<[TableSectionModel], PostError>) -> Void)?
+    
     private var posts: [Post]
     private var isLoading: Bool
-    private var loadDataCompletion: ((Swift.Result<[TableSectionModel], PostError>) -> Void)?
     
     // MARK: - Initialization
     init() {
@@ -26,13 +27,14 @@ class PostListViewModel {
     }
     
     // MARK: - Public functions
-    public func loadData(completion: @escaping (Swift.Result<[TableSectionModel], PostError>) -> Void) {
+    public func loadData() {
         guard !isLoading else { return }
         isLoading = true
-        loadDataCompletion = completion
         NetworkClient.request(with: PostApiRouter.list)
             .responseDecodable(of: [PostResponse].self) { [weak self] response in
-                self?.isLoading = false
+                defer {
+                    self?.isLoading = false
+                }
                 
                 if let error = response.error {
                     self?.loadDataCompletion?(.failure(.unknown(error)))
