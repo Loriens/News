@@ -30,7 +30,7 @@ class PostUITests: XCTestCase {
     }
     
     // MARK: - Module functions
-    func waitForElementToAppear(element: XCUIElement, timeout: TimeInterval = 10) {
+    private func waitForElementToAppear(element: XCUIElement, timeout: TimeInterval = 10) {
         let existsPredicate = NSPredicate(format: "exists == 1")
         let expectation = self.expectation(for: existsPredicate, evaluatedWith: element, handler: nil)
         let result = XCTWaiter.wait(for: [expectation], timeout: timeout)
