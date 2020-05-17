@@ -26,7 +26,7 @@ class PostUITests: XCTestCase {
         let cell = app.tables.staticTexts.firstMatch
         waitForElementToAppear(element: cell)
         cell.tap()
-        XCTAssertEqual(app.staticTexts.firstMatch.label, "Detail")
+        XCTAssert(app.navigationBars["Detail"].exists)
     }
     
     // MARK: - Module functions
