@@ -12,7 +12,7 @@ protocol PostListRouterInput {
     func pushPostViewController(postId: Int)
 }
 
-class PostListRouter: PostListRouterInput {
+final class PostListRouter: PostListRouterInput {
     
     // MARK: - Props
     weak var viewController: PostListViewController?

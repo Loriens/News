@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostViewController: UIViewController {
+final class PostViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var textLabel: UILabel!

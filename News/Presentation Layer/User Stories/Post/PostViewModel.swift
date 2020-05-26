@@ -10,7 +10,7 @@ protocol PostViewModelInput {
     func configure(with data: Any?)
 }
 
-class PostViewModel {
+final class PostViewModel {
     
     // MARK: - Props
     var loadDataCompletion: ((Swift.Result<Post, PostError>) -> Void)?

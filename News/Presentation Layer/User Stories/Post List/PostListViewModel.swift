@@ -12,7 +12,7 @@ protocol PostListViewModelInput {
     func configure(with data: Any?)
 }
 
-class PostListViewModel {
+final class PostListViewModel {
     
     // MARK: - Props
     var loadDataCompletion: ((Swift.Result<[TableSectionModel], PostError>) -> Void)?

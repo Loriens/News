@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostListViewController: UIViewController {
+final class PostListViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!

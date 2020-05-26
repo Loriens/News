@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicNavigationController: UINavigationController {
+final class BasicNavigationController: UINavigationController {
     
     class func create(with rootController: UIViewController) -> BasicNavigationController {
         let nc = BasicNavigationController(rootViewController: rootController)
