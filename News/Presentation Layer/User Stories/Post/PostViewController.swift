@@ -71,19 +71,15 @@ extension PostViewController {
     }
     
     func updatePost(_ post: Post) {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.3) {
-                self.textLabel.text = post.text
-            }
+        UIView.animate(withDuration: 0.3) {
+            self.textLabel.text = post.text
         }
     }
     
     func finishLoading(with error: Error?) {
         guard error != nil else { return }
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.3) {
-                self.textLabel.text = AppLocalization.Post.empty.localized
-            }
+        UIView.animate(withDuration: 0.3) {
+            self.textLabel.text = AppLocalization.Post.empty.localized
         }
     }
     
