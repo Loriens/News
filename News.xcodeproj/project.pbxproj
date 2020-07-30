@@ -247,9 +247,9 @@
 		0476102522CA69E500DE4982 /* Service Layer */ = {
 			isa = PBXGroup;
 			children = (
-				04CB2187238A9B8D00907863 /* View Helper */,
-				04CB2179238A9AFE00907863 /* Representable */,
 				04CB2161238A96A200907863 /* Network */,
+				04CB2179238A9AFE00907863 /* Representable */,
+				04CB2187238A9B8D00907863 /* View Helper */,
 			);
 			path = "Service Layer";
 			sourceTree = "<group>";
@@ -371,8 +371,8 @@
 			isa = PBXGroup;
 			children = (
 				04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */,
-				04B51C9D22CA8E5400CE0A0E /* PostListCell.xib */,
 				04B51CA722CA932B00CE0A0E /* PostListCellModel.swift */,
+				04B51C9D22CA8E5400CE0A0E /* PostListCell.xib */,
 			);
 			path = "Post List";
 			sourceTree = "<group>";
@@ -438,8 +438,8 @@
 				04CB2171238A9AB900907863 /* PostListConfigurator.swift */,
 				04CB2172238A9AB900907863 /* PostListRouter.swift */,
 				04CB2170238A9AB900907863 /* PostListViewController.swift */,
-				04CB2173238A9AB900907863 /* PostListViewController.xib */,
 				04CB216F238A9AB900907863 /* PostListViewModel.swift */,
+				04CB2173238A9AB900907863 /* PostListViewController.xib */,
 			);
 			path = "Post List";
 			sourceTree = "<group>";
@@ -450,8 +450,8 @@
 				04CB2190238A9DE500907863 /* PostConfigurator.swift */,
 				04CB2191238A9DE500907863 /* PostRouter.swift */,
 				04CB218F238A9DE500907863 /* PostViewController.swift */,
-				04CB2192238A9DE500907863 /* PostViewController.xib */,
 				04CB218E238A9DE500907863 /* PostViewModel.swift */,
+				04CB2192238A9DE500907863 /* PostViewController.xib */,
 			);
 			path = Post;
 			sourceTree = "<group>";
