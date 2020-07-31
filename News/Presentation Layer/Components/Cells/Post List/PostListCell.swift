@@ -31,6 +31,8 @@ final class PostListCell: TableCell {
         guard let model = model as? PostListCellModel else { return }
         
         titleLabel.text = model.title
+        
+        setNeedsLayout()
     }
     
     private func setupActions() { }
