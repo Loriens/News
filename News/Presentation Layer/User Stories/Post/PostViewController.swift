@@ -59,13 +59,13 @@ extension PostViewController { }
 extension PostViewController {
     
     func bindViewModel() {
-        viewModel?.loadDataCompletion = { [weak self] result in
+        viewModel?.loadDataCompletion = { [unowned self] result in
             switch result {
             case .success(let post):
-                self?.finishLoading(with: nil)
-                self?.updatePost(post)
+                self.finishLoading(with: nil)
+                self.updatePost(post)
             case .failure(let error):
-                self?.finishLoading(with: error)
+                self.finishLoading(with: error)
             }
         }
     }

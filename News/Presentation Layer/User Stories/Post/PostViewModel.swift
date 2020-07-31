@@ -30,8 +30,8 @@ final class PostViewModel {
             .responseDecodable(of: PostResponse.self) { [weak self] response in
                 if let error = response.error {
                     self?.loadDataCompletion?(.failure(.unknown(error)))
+                    return
                 }
-                
                 guard let post = response.value?.defaultMapping() else {
                     self?.loadDataCompletion?(.failure(.emptyPost))
                     return

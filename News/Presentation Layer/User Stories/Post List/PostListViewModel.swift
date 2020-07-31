@@ -32,14 +32,12 @@ final class PostListViewModel {
         isLoading = true
         NetworkClient.request(with: PostApiRouter.list)
             .responseDecodable(of: [PostResponse].self) { [weak self] response in
-                defer {
-                    self?.isLoading = false
-                }
+                defer { self?.isLoading = false }
                 
                 if let error = response.error {
                     self?.loadDataCompletion?(.failure(.unknown(error)))
+                    return
                 }
-                
                 guard let posts = response.value?.compactMap({ $0.defaultMapping() }) else {
                     self?.posts = []
                     self?.makeSectionsModel()

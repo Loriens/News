@@ -71,13 +71,14 @@ extension PostListViewController {
 extension PostListViewController {
     
     func bindViewModel() {
-        viewModel?.loadDataCompletion = { [weak self] result in
+        viewModel?.loadDataCompletion = { [unowned self] result in
             switch result {
             case .success(let sections):
-                self?.finishLoading(with: nil)
-                self?.updateForSections(sections)
+                self.finishLoading(with: nil)
+                self.updateForSections(sections)
             case .failure(let error):
-                self?.finishLoading(with: error)
+                self.finishLoading(with: error)
+                self.updateForSections([])
             }
         }
     }
@@ -115,7 +116,7 @@ extension PostListViewController: UITableViewDataSource {
             return cell
         }
         
-        return UITableViewCell()
+        preconditionFailure("Invalid cell model")
     }
     
 }
