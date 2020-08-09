@@ -6,13 +6,17 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class PostListCellModel: TableCellModel {
     
     // MARK: - Props
     public override var cellIdentifier: String {
         return PostListCell.identifier
+    }
+    
+    public override var cellHeight: CGFloat {
+        return 60
     }
     
     var title: String

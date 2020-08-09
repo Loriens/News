@@ -9,15 +9,21 @@
 import UIKit
 
 final class PostListViewController: UIViewController {
-
-    // MARK: - Outlets
-    @IBOutlet private weak var tableView: UITableView!
+    
+    // MARK: - Subviews
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.registerCellClass(PostListCell.self)
+        return tableView
+    }()
     
     // MARK: - Props
     var viewModel: PostListViewModel?
     var router: PostListRouterInput?
     
     private var sections: [TableSectionModel] = []
+    private var shouldSetupConstraints = true
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -31,6 +37,14 @@ final class PostListViewController: UIViewController {
         applyStyles()
     }
     
+    override func updateViewConstraints() {
+        if shouldSetupConstraints {
+            setupConstraints()
+            shouldSetupConstraints = false
+        }
+        super.updateViewConstraints()
+    }
+    
 }
 
 // MARK: - Setup functions
@@ -40,18 +54,28 @@ extension PostListViewController {
         navigationItem.title = AppLocalization.PostList.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.registerCellNib(PostListCell.self)
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView.refreshControl = refreshControl
+        tableView.dataSource = self
+        tableView.delegate = self
+        view.addSubview(tableView)
+        view.setNeedsUpdateConstraints()
         
         bindViewModel()
         loadData()
     }
     
     func setupActions() { }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+    }
     
     func applyStyles() { }
     
@@ -124,18 +148,10 @@ extension PostListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension PostListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = sections[indexPath.section].rows[indexPath.row]
         
         return model.cellHeight
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

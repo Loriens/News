@@ -29,19 +29,17 @@ open class TableCell: UITableViewCell, TableCellRepresentable {
     // MARK: - Initialization
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    // MARK: - Setup functions
-    open override func awakeFromNib() {
-        super.awakeFromNib()
         
         setupView()
     }
     
+    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupView()
+    }
+    
+    // MARK: - Setup functions
     open func setupView() { }
     
     open func updateViews() { }

@@ -10,7 +10,7 @@ enum PostListConfigurator {
     
     // Create and return controller
     static func create() -> PostListViewController {
-        return PostListViewController(nibName: PostListViewController.identifier, bundle: nil)
+        return PostListViewController()
     }
     
     // Create and link modules with controller, return view model input

@@ -7,7 +7,7 @@
 //
 
 protocol PostViewModelInput {
-    func configure(with data: Any?)
+    func configure(postId: Int)
 }
 
 final class PostViewModel {
@@ -48,10 +48,8 @@ extension PostViewModel { }
 // MARK: - PostViewModelInput
 extension PostViewModel: PostViewModelInput {
     
-    func configure(with data: Any?) {
-        if let postId = data as? Int {
-            self.postId = postId
-        }
+    func configure(postId: Int) {
+        self.postId = postId
     }
     
 }

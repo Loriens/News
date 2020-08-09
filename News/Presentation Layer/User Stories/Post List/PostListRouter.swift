@@ -21,7 +21,7 @@ final class PostListRouter: PostListRouterInput {
     func pushPostViewController(postId: Int) {
         let vc = PostConfigurator.create()
         let viewModelInput = PostConfigurator.configure(with: vc)
-        viewModelInput.configure(with: postId)
+        viewModelInput.configure(postId: postId)
         
         DispatchQueue.main.async {
             self.viewController?.navigationController?.pushViewController(vc, animated: true)

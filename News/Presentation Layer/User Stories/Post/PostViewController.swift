@@ -9,13 +9,20 @@
 import UIKit
 
 final class PostViewController: UIViewController {
-
-    // MARK: - Outlets
-    @IBOutlet private weak var textLabel: UILabel!
+    
+    // MARK: - Subviews
+    let textLabel: UILabel = {
+        let label = UILabel()
+        label.text = AppLocalization.General.loading.localized
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     // MARK: - Props
     var viewModel: PostViewModel?
     var router: PostRouterInput?
+    
+    private var shouldSetupConstraints = true
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -29,6 +36,14 @@ final class PostViewController: UIViewController {
         applyStyles()
     }
     
+    override func updateViewConstraints() {
+        if shouldSetupConstraints {
+            setupConstraints()
+            shouldSetupConstraints = false
+        }
+        super.updateViewConstraints()
+    }
+    
 }
 
 // MARK: - Setup functions
@@ -38,13 +53,24 @@ extension PostViewController {
         navigationItem.title = AppLocalization.Post.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        textLabel.text = AppLocalization.General.loading.localized
+        view.addSubview(textLabel)
+        view.backgroundColor = .white
+        view.setNeedsUpdateConstraints()
         
         bindViewModel()
         viewModel?.loadData()
     }
     
     func setupActions() { }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            textLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            textLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            textLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            textLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32)
+        ])
+    }
     
     func applyStyles() {
         textLabel.apply(.bigTitleStyle())
