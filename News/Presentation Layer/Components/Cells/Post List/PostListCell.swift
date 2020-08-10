@@ -14,7 +14,7 @@ final class PostListCell: TableCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.apply(.smallTitleStyle())
         return label
     }()
     
@@ -22,11 +22,6 @@ final class PostListCell: TableCell {
     private var shouldSetupConstraints = true
     
     // MARK: - Lifecycle
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        applyStyles()
-    }
-    
     override func updateConstraints() {
         if shouldSetupConstraints {
             setupConstraints()
@@ -50,8 +45,6 @@ final class PostListCell: TableCell {
         guard let model = model as? PostListCellModel else { return }
         
         titleLabel.text = model.title
-        
-        setNeedsLayout()
     }
     
     private func setupActions() { }
@@ -64,10 +57,6 @@ final class PostListCell: TableCell {
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20)
         ])
-    }
-    
-    private func applyStyles() {
-        titleLabel.apply(.smallTitleStyle())
     }
     
 }
