@@ -15,10 +15,6 @@ final class PostListCellModel: TableCellModel {
         return PostListCell.identifier
     }
     
-    public override var cellHeight: CGFloat {
-        return 60
-    }
-    
     var title: String
     
     // MARK: - Initalization

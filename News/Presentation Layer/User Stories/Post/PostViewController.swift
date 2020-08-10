@@ -13,8 +13,8 @@ final class PostViewController: UIViewController {
     // MARK: - Subviews
     let textLabel: UILabel = {
         let label = UILabel()
-        label.text = AppLocalization.General.loading.localized
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = AppLocalization.General.loading.localized
         return label
     }()
     
