@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum PostError: LocalizedError, Error {
+enum PostError: LocalizedError {
     
     case postWasNotFound
     case emptyPost
