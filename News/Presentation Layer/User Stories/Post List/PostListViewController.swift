@@ -25,7 +25,6 @@ final class PostListViewController: UIViewController {
     var router: PostListRouterInput?
     
     private var sections: [TableSectionModel] = []
-    private var shouldSetupConstraints = true
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -37,14 +36,6 @@ final class PostListViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         applyStyles()
-    }
-    
-    override func updateViewConstraints() {
-        if shouldSetupConstraints {
-            setupConstraints()
-            shouldSetupConstraints = false
-        }
-        super.updateViewConstraints()
     }
     
 }
@@ -63,6 +54,7 @@ extension PostListViewController {
         tableView.delegate = self
         view.addSubview(tableView)
         view.setNeedsUpdateConstraints()
+        setupConstraints()
         
         bindViewModel()
         loadData()

@@ -22,8 +22,6 @@ final class PostViewController: UIViewController {
     var viewModel: PostViewModel?
     var router: PostRouterInput?
     
-    private var shouldSetupConstraints = true
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +32,6 @@ final class PostViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         applyStyles()
-    }
-    
-    override func updateViewConstraints() {
-        if shouldSetupConstraints {
-            setupConstraints()
-            shouldSetupConstraints = false
-        }
-        super.updateViewConstraints()
     }
     
 }
@@ -56,6 +46,7 @@ extension PostViewController {
         view.addSubview(textLabel)
         view.backgroundColor = .white
         view.setNeedsUpdateConstraints()
+        setupConstraints()
         
         bindViewModel()
         viewModel?.loadData()
