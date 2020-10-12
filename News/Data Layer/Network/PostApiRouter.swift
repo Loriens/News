@@ -33,14 +33,16 @@ enum PostApiRouter: APIConfiguration {
     
     internal var headers: HTTPHeaders? {
         switch self {
-        default:
+        case .list,
+             .item:
             return nil
         }
     }
     
     internal var parameters: Parameters? {
         switch self {
-        default:
+        case .list,
+             .item:
             return nil
         }
     }

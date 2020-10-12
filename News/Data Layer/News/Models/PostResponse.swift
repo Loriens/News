@@ -15,8 +15,8 @@ struct PostResponse: Codable {
     var text: String?
     
     enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case title = "title"
+        case id
+        case title
         case text = "body"
     }
     
