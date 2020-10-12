@@ -17,7 +17,6 @@ opt_in_rules:
   - discouraged_object_literal
   - empty_count
   - empty_string
-  - explicit_enum_raw_value
   - explicit_init
   - explicit_self
   - fatal_error_message
