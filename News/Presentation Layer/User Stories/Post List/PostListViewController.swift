@@ -92,18 +92,18 @@ extension PostListViewController {
         viewModel?.loadDataCompletion = { [unowned self] result in
             switch result {
             case .success(let sections):
-                self.finishLoading(with: nil)
-                self.updateForSections(sections)
+                finishLoading(with: nil)
+                updateForSections(sections)
             case .failure(let error):
-                self.finishLoading(with: error)
-                self.updateForSections([])
+                finishLoading(with: error)
+                updateForSections([])
             }
         }
     }
     
     func updateForSections(_ sections: [TableSectionModel]) {
         self.sections = sections
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     func finishLoading(with error: Error?) {

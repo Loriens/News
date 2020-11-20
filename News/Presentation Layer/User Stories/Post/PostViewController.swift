@@ -79,10 +79,10 @@ extension PostViewController {
         viewModel?.loadDataCompletion = { [unowned self] result in
             switch result {
             case .success(let post):
-                self.finishLoading(with: nil)
-                self.updatePost(post)
+                finishLoading(with: nil)
+                updatePost(post)
             case .failure(let error):
-                self.finishLoading(with: error)
+                finishLoading(with: error)
             }
         }
     }
