@@ -16,7 +16,7 @@ final class PostTests: XCTestCase {
         let postResponse = PostResponse(
             id: 1,
             title: "Title",
-            text: "Text"
+            body: "Text"
         )
         let post = try XCTUnwrap(postResponse.defaultMapping())
         XCTAssertEqual(post.id, 1)
