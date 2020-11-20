@@ -6,19 +6,17 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import Toast
 
 final class Toast {
     
     // MARK: - Props
-    static let shared: Toast = Toast()
+    static let shared = Toast()
     
     // MARK: - Initialization
     private init() {
         var style = ToastStyle()
-        style.messageColor = .white
         style.backgroundColor = UIColor(hex: "a9a9a9", alpha: 0.7)
         style.cornerRadius = 5.0
         style.displayShadow = true
@@ -28,27 +26,20 @@ final class Toast {
         ToastManager.shared.style = style
         ToastManager.shared.isTapToDismissEnabled = true
         ToastManager.shared.isQueueEnabled = false
+        ToastManager.shared.position = .center
+        ToastManager.shared.duration = 3.0
     }
     
     // MARK: - Public functions
     func show(title: String?, message: String?) {
         DispatchQueue.main.async {
-            guard let window = UIApplication.shared.keyWindow else { return }
-            window.makeToast(message, duration: 3.0, position: .center, title: title, image: nil, style: ToastManager.shared.style, completion: nil)
-        }
-    }
-    
-    func show(title: String?, message: String?, duration: Double) {
-        DispatchQueue.main.async {
-            guard let window = UIApplication.shared.keyWindow else { return }
-            window.makeToast(message, duration: duration, position: .center, title: title, image: nil, style: ToastManager.shared.style, completion: nil)
+            UIApplication.shared.keyWindow?.makeToast(message, title: title)
         }
     }
     
     func hideAllToasts() {
         DispatchQueue.main.async {
-            guard let window = UIApplication.shared.keyWindow else { return }
-            window.hideAllToasts()
+            UIApplication.shared.keyWindow?.hideAllToasts()
         }
     }
     

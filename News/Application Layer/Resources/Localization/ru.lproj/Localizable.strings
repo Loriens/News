@@ -6,27 +6,27 @@
   Copyright © 2019 Vladislav Markov. All rights reserved.
 */
 
-// MARK: - Общие выражения
+// MARK: - General
 "OK" = "ОК";
 "Save" = "Сохранить";
 "Cancel" = "Отмена";
 "Close" = "Закрыть";
 "Error" = "Ошибка";
-"Unknown" = "Неизвестно";ё
+"Unknown" = "Неизвестно";
 "Loading" = "Загрузка...";
 "Refresh" = "Обновить";
 "TryAgain" = "Повторить";
 
-// MARK: - Ошибки
+// MARK: - Errors
 "UnknownError" = "Неизвестная ошибка";
 
-"PostWasNotFoundError" = "Пост не был найден";
+"PostIsNotFoundError" = "Пост не был найден";
 "EmptyPostError" = "Пустой пост :(";
 
-// MARK: - Список
-"ListNavigationTitle" = "Новости";
-"ListEmptyPlaceholder" = "Данные отсутствуют";
+// MARK: - Post List
+"PostListTitle" = "Новости";
+"PostListEmpty" = "Данные отсутствуют";
 
-// MARK: - Детальный просмотр
-"DetailNavigationTitle" = "Подробно";
-"DetailEmptyPlaceholder" = "Данные отсутствуют";
+// MARK: - Post
+"PostTitle" = "Подробно";
+"PostEmpty" = "Данные отсутствуют";

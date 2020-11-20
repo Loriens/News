@@ -26,19 +26,19 @@ enum AppLocalization {
         case unknown = "UnknownError"
         
         enum Post: String, Localizable {
-            case postWasNotFound = "PostWasNotFoundError"
+            case postIsNotFound = "PostIsNotFoundError"
             case emptyPost = "EmptyPostError"
         }
     }
     
     enum PostList: String, Localizable {
-        case title = "ListNavigationTitle"
-        case empty = "ListEmptyPlaceholder"
+        case title = "PostListTitle"
+        case empty = "PostListEmpty"
     }
     
     enum Post: String, Localizable {
-        case title = "DetailNavigationTitle"
-        case empty = "DetailEmptyPlaceholder"
+        case title = "PostTitle"
+        case empty = "PostEmpty"
     }
     
 }

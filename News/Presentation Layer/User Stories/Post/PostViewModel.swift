@@ -23,7 +23,7 @@ final class PostViewModel {
     // MARK: - Public functions
     public func loadData() {
         guard let postId = postId else {
-            loadDataCompletion?(.failure(.postWasNotFound))
+            loadDataCompletion?(.failure(.postIsNotFound))
             return
         }
         NetworkClient.request(with: PostApiRouter.item(postId: postId))

@@ -6,7 +6,7 @@
   Copyright © 2019 Vladislav Markov. All rights reserved.
 */
 
-// MARK: - Общие выражения
+// MARK: - General
 "OK" = "OK";
 "Save" = "Save";
 "Cancel" = "Cancel";
@@ -17,16 +17,16 @@
 "Refresh" = "Refresh";
 "TryAgain" = "Try again";
 
-// MARK: - Ошибки
+// MARK: - Errors
 "UnknownError" = "Unknown error";
 
-"PostWasNotFoundError" = "Post was not found";
+"PostIsNotFoundError" = "Post is not found";
 "EmptyPostError" = "Empty post :(";
 
-// MARK: - Список
-"ListNavigationTitle" = "News";
-"ListEmptyPlaceholder" = "There is no data";
+// MARK: - Post List
+"PostListTitle" = "News";
+"PostListEmpty" = "There is no data";
 
-// MARK: - Детальный просмотр
-"DetailNavigationTitle" = "Detail";
-"DetailEmptyPlaceholder" = "There is no data";
+// MARK: - Post
+"PostTitle" = "Detail";
+"PostEmpty" = "There is no data";

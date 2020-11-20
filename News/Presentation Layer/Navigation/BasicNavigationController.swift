@@ -10,11 +10,6 @@ import UIKit
 
 final class BasicNavigationController: UINavigationController {
     
-    class func create(with rootController: UIViewController) -> BasicNavigationController {
-        let nc = BasicNavigationController(rootViewController: rootController)
-        return nc
-    }
-    
     // MARK: - Props
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return AppTheme.statusBarStyle

@@ -14,8 +14,6 @@ final class PostListViewController: UIViewController {
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.registerCellClass(PostListCell.self)
         return tableView
     }()
@@ -109,7 +107,8 @@ extension PostListViewController {
     func finishLoading(with error: Error?) {
         tableView.refreshControl?.endRefreshing()
         guard let error = error else { return }
-        Toast.shared.show(title: AppLocalization.General.error.localized, message: error.localizedDescription)
+        Toast.shared.show(title: AppLocalization.General.error.localized,
+                          message: error.localizedDescription)
     }
     
 }

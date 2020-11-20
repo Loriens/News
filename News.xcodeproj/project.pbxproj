@@ -16,7 +16,6 @@
 		0476101722CA698200DE4982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0476101622CA698200DE4982 /* Assets.xcassets */; };
 		0476101A22CA698200DE4982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0476101822CA698200DE4982 /* LaunchScreen.storyboard */; };
 		0476102722CA6A4D00DE4982 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476102622CA6A4D00DE4982 /* AppConfiguration.swift */; };
-		0476102922CA6C2100DE4982 /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476102822CA6C2100DE4982 /* AppDefaults.swift */; };
 		0476102F22CA6C8700DE4982 /* AppAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476102E22CA6C8700DE4982 /* AppAssets.swift */; };
 		0476103122CA6DDC00DE4982 /* AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476103022CA6DDC00DE4982 /* AppLocalization.swift */; };
 		0476103922CA6F7B00DE4982 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0476103B22CA6F7B00DE4982 /* Localizable.strings */; };
@@ -92,7 +91,6 @@
 		0476101922CA698200DE4982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0476101B22CA698200DE4982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0476102622CA6A4D00DE4982 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
-		0476102822CA6C2100DE4982 /* AppDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
 		0476102E22CA6C8700DE4982 /* AppAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssets.swift; sourceTree = "<group>"; };
 		0476103022CA6DDC00DE4982 /* AppLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalization.swift; sourceTree = "<group>"; };
 		0476103A22CA6F7B00DE4982 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				0476102622CA6A4D00DE4982 /* AppConfiguration.swift */,
-				0476102822CA6C2100DE4982 /* AppDefaults.swift */,
 				0476100F22CA698000DE4982 /* AppDelegate.swift */,
 				0476101B22CA698200DE4982 /* Info.plist */,
 				0476101822CA698200DE4982 /* LaunchScreen.storyboard */,
@@ -695,7 +692,6 @@
 				0476105F22CA75AA00DE4982 /* Post.swift in Sources */,
 				04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */,
 				04AF69B02452169900F220EB /* PostError.swift in Sources */,
-				0476102922CA6C2100DE4982 /* AppDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

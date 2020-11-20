@@ -18,27 +18,15 @@ final class PostListCell: TableCell {
         return label
     }()
     
-    // MARK: - Props
-    private var shouldSetupConstraints = true
-    
-    // MARK: - Lifecycle
-    override func updateConstraints() {
-        if shouldSetupConstraints {
-            setupConstraints()
-            shouldSetupConstraints = false
-        }
-        super.updateConstraints()
-    }
-    
     // MARK: - Setup functions
     override func setupView() {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         
         contentView.addSubview(titleLabel)
-        
-        setNeedsUpdateConstraints()
+
         setupActions()
+        setupConstraints()
     }
     
     override func updateViews() {
