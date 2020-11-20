@@ -27,7 +27,7 @@ final class PostListViewModel {
     }
     
     // MARK: - Public functions
-    public func loadData() {
+    func loadData() {
         guard !isLoading else { return }
         isLoading = true
         NetworkClient.request(with: PostApiRouter.list)

@@ -19,14 +19,13 @@ final class PostListRouter: PostListRouterInput {
     
     // MARK: - PostListRouterInput
     func pushPostViewController(postId: Int) {
-        let vc = PostConfigurator.create()
-        let viewModelInput = PostConfigurator.configure(with: vc)
-        viewModelInput.configure(postId: postId)
-        
         DispatchQueue.main.async {
+            let vc = PostConfigurator.create()
+            let viewModelInput = PostConfigurator.configure(with: vc)
+            viewModelInput.configure(postId: postId)
+
             self.viewController?.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    // MARK: - Module functions
+
 }

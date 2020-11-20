@@ -21,7 +21,7 @@ final class PostViewModel {
     init() { }
     
     // MARK: - Public functions
-    public func loadData() {
+    func loadData() {
         guard let postId = postId else {
             loadDataCompletion?(.failure(.postIsNotFound))
             return

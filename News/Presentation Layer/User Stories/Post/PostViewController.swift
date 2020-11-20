@@ -39,7 +39,7 @@ final class PostViewController: UIViewController {
 // MARK: - Setup functions
 extension PostViewController {
     
-    func setupComponents() {
+    private func setupComponents() {
         navigationItem.title = AppLocalization.Post.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
@@ -52,9 +52,9 @@ extension PostViewController {
         viewModel?.loadData()
     }
     
-    func setupActions() { }
+    private func setupActions() { }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             textLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             textLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -63,7 +63,7 @@ extension PostViewController {
         ])
     }
     
-    func applyStyles() {
+    private func applyStyles() {
         textLabel.apply(.bigTitleStyle())
     }
     
@@ -75,25 +75,25 @@ extension PostViewController { }
 // MARK: - Module functions
 extension PostViewController {
     
-    func bindViewModel() {
+    private func bindViewModel() {
         viewModel?.loadDataCompletion = { [unowned self] result in
             switch result {
             case .success(let post):
                 finishLoading(with: nil)
-                updatePost(post)
+                update(post: post)
             case .failure(let error):
                 finishLoading(with: error)
             }
         }
     }
     
-    func updatePost(_ post: Post) {
+    private func update(post: Post) {
         UIView.animate(withDuration: 0.3) {
             self.textLabel.text = post.text
         }
     }
     
-    func finishLoading(with error: Error?) {
+    private func finishLoading(with error: Error?) {
         guard error != nil else { return }
         UIView.animate(withDuration: 0.3) {
             self.textLabel.text = AppLocalization.Post.empty.localized

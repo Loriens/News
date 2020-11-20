@@ -12,13 +12,7 @@ struct PostResponse: Codable {
     
     var id: Int?
     var title: String?
-    var text: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case text = "body"
-    }
+    var body: String?
     
     func defaultMapping() -> Post? {
         guard let id = id else { return nil }
@@ -26,7 +20,7 @@ struct PostResponse: Codable {
         let post = Post(
             id: id,
             title: title ?? "",
-            text: text ?? ""
+            text: body ?? ""
         )
         
         return post

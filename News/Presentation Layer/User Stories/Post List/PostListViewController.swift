@@ -41,7 +41,7 @@ final class PostListViewController: UIViewController {
 // MARK: - Setup functions
 extension PostListViewController {
     
-    func setupComponents() {
+    private func setupComponents() {
         navigationItem.title = AppLocalization.PostList.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
@@ -58,9 +58,9 @@ extension PostListViewController {
         loadData()
     }
     
-    func setupActions() { }
+    private func setupActions() { }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -69,7 +69,7 @@ extension PostListViewController {
         ])
     }
     
-    func applyStyles() { }
+    private func applyStyles() { }
     
 }
 
@@ -77,7 +77,7 @@ extension PostListViewController {
 extension PostListViewController {
     
     @objc
-    func loadData() {
+    private func loadData() {
         viewModel?.loadData()
     }
     
@@ -86,25 +86,25 @@ extension PostListViewController {
 // MARK: - Module functions
 extension PostListViewController {
     
-    func bindViewModel() {
+    private func bindViewModel() {
         viewModel?.loadDataCompletion = { [unowned self] result in
             switch result {
             case .success(let sections):
                 finishLoading(with: nil)
-                updateForSections(sections)
+                update(sections: sections)
             case .failure(let error):
                 finishLoading(with: error)
-                updateForSections([])
+                update(sections: [])
             }
         }
     }
     
-    func updateForSections(_ sections: [TableSectionModel]) {
+    private func update(sections: [TableSectionModel]) {
         self.sections = sections
         tableView.reloadData()
     }
     
-    func finishLoading(with error: Error?) {
+    private func finishLoading(with error: Error?) {
         tableView.refreshControl?.endRefreshing()
         guard let error = error else { return }
         Toast.shared.show(title: AppLocalization.General.error.localized,
@@ -128,7 +128,9 @@ extension PostListViewController: UITableViewDataSource {
         let model = sections[indexPath.section].rows[indexPath.row]
         
         if model is PostListCellModel {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: model.cellIdentifier) as? PostListCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: model.cellIdentifier) as? PostListCell else {
+                preconditionFailure("Invalid cell type")
+            }
             cell.model = model
             return cell
         }
@@ -143,7 +145,6 @@ extension PostListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = sections[indexPath.section].rows[indexPath.row]
-        
         return model.cellHeight
     }
     
@@ -151,8 +152,8 @@ extension PostListViewController: UITableViewDelegate {
         let model = sections[indexPath.section].rows[indexPath.row]
         
         if let selectedModel = model as? PostListCellModel,
-            let selectedId = selectedModel.userInfo["postId"] as? Int {
-            router?.pushPostViewController(postId: selectedId)
+            let postId = selectedModel.userInfo["postId"] as? Int {
+            router?.pushPostViewController(postId: postId)
         }
     }
     

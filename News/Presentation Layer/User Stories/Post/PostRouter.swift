@@ -14,6 +14,5 @@ final class PostRouter: PostRouterInput {
     weak var viewController: PostViewController?
     
     // MARK: - PostRouterInput
-    
-    // MARK: - Module functions
+
 }
