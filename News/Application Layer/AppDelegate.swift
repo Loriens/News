@@ -10,7 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     // MARK: - UIApplicationDelegate
     var window: UIWindow?
     
@@ -37,5 +36,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = nc
         self.window?.makeKeyAndVisible()
     }
-
 }

@@ -1,9 +1,9 @@
 //
 //  StyleWrapper.swift
-//  Test Playground
+//  News
 //
-//  Created by  Кирилл on 1/22/19.
-//  Copyright © 2019 AppCraft. All rights reserved.
+//  Created by Vladislav Markov on 22.12.2020.
+//  Copyright © 2020 Vladislav Markov. All rights reserved.
 //
 
 import Foundation
@@ -11,5 +11,5 @@ import Foundation
 typealias Style<Element> = (Element) -> Void
 
 enum StyleWrapper<Element> {
-    case wrap(style: Style<Element>)    
+    case wrap(style: Style<Element>)
 }

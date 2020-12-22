@@ -9,10 +9,8 @@
 protocol PostRouterInput { }
 
 final class PostRouter: PostRouterInput {
-    
     // MARK: - Props
     weak var viewController: PostViewController?
     
     // MARK: - PostRouterInput
-
 }

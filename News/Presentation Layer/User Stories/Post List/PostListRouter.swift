@@ -13,7 +13,6 @@ protocol PostListRouterInput {
 }
 
 final class PostListRouter: PostListRouterInput {
-    
     // MARK: - Props
     weak var viewController: PostListViewController?
     
@@ -27,5 +26,4 @@ final class PostListRouter: PostListRouterInput {
             self.viewController?.navigationController?.pushViewController(vc, animated: true)
         }
     }
-
 }

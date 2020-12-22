@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
-    public class var identifier: String {
+    static var identifier: String {
         return String.className(self)
     }
     

@@ -25,14 +25,14 @@
 		0476104D22CA729500DE4982 /* PT Root UI_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0476104922CA729500DE4982 /* PT Root UI_Regular.otf */; };
 		0476104E22CA729500DE4982 /* PT Root UI_Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0476104A22CA729500DE4982 /* PT Root UI_Light.otf */; };
 		0476104F22CA729500DE4982 /* PT Root UI_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0476104B22CA729500DE4982 /* PT Root UI_Bold.otf */; };
-		0476105422CA74D200DE4982 /* StyleWrapper+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105022CA74D200DE4982 /* StyleWrapper+UIImageView.swift */; };
-		0476105522CA74D200DE4982 /* StyleWrapper+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105122CA74D200DE4982 /* StyleWrapper+UILabel.swift */; };
-		0476105622CA74D200DE4982 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105222CA74D200DE4982 /* Stylable.swift */; };
-		0476105722CA74D200DE4982 /* StyleWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105322CA74D200DE4982 /* StyleWrapper.swift */; };
 		0476105D22CA75A400DE4982 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105C22CA75A400DE4982 /* PostResponse.swift */; };
 		0476105F22CA75AA00DE4982 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476105E22CA75AA00DE4982 /* Post.swift */; };
 		047E86E523E6F53300EE1165 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 047E86E423E6F53300EE1165 /* Alamofire */; settings = {ATTRIBUTES = (Required, ); }; };
 		047E86E823E6F54D00EE1165 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 047E86E723E6F54D00EE1165 /* Toast */; settings = {ATTRIBUTES = (Required, ); }; };
+		0480C6762591FD5400B9566F /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480C6752591FD5400B9566F /* Stylable.swift */; };
+		0480C67E2591FD7700B9566F /* StyleWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480C67D2591FD7700B9566F /* StyleWrapper.swift */; };
+		0480C6862591FD9500B9566F /* StyleWrapper+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480C6852591FD9500B9566F /* StyleWrapper+UILabel.swift */; };
+		0480C68E2591FDAA00B9566F /* StyleWrapper+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480C68D2591FDAA00B9566F /* StyleWrapper+UIImageView.swift */; };
 		04AF69B02452169900F220EB /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF69AF2452169900F220EB /* PostError.swift */; };
 		04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9822CA8DF800CE0A0E /* BasicNavigationController.swift */; };
 		04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */; };
@@ -101,12 +101,12 @@
 		0476104922CA729500DE4982 /* PT Root UI_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT Root UI_Regular.otf"; sourceTree = "<group>"; };
 		0476104A22CA729500DE4982 /* PT Root UI_Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT Root UI_Light.otf"; sourceTree = "<group>"; };
 		0476104B22CA729500DE4982 /* PT Root UI_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT Root UI_Bold.otf"; sourceTree = "<group>"; };
-		0476105022CA74D200DE4982 /* StyleWrapper+UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StyleWrapper+UIImageView.swift"; sourceTree = "<group>"; };
-		0476105122CA74D200DE4982 /* StyleWrapper+UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StyleWrapper+UILabel.swift"; sourceTree = "<group>"; };
-		0476105222CA74D200DE4982 /* Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
-		0476105322CA74D200DE4982 /* StyleWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleWrapper.swift; sourceTree = "<group>"; };
 		0476105C22CA75A400DE4982 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		0476105E22CA75AA00DE4982 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		0480C6752591FD5400B9566F /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
+		0480C67D2591FD7700B9566F /* StyleWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleWrapper.swift; sourceTree = "<group>"; };
+		0480C6852591FD9500B9566F /* StyleWrapper+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StyleWrapper+UILabel.swift"; sourceTree = "<group>"; };
+		0480C68D2591FDAA00B9566F /* StyleWrapper+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StyleWrapper+UIImageView.swift"; sourceTree = "<group>"; };
 		04AF69AF2452169900F220EB /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
 		04B51C9822CA8DF800CE0A0E /* BasicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationController.swift; sourceTree = "<group>"; };
 		04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListCell.swift; sourceTree = "<group>"; };
@@ -299,10 +299,10 @@
 		0476104522CA723800DE4982 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				0476105222CA74D200DE4982 /* Stylable.swift */,
-				0476105322CA74D200DE4982 /* StyleWrapper.swift */,
-				0476105022CA74D200DE4982 /* StyleWrapper+UIImageView.swift */,
-				0476105122CA74D200DE4982 /* StyleWrapper+UILabel.swift */,
+				0480C6752591FD5400B9566F /* Stylable.swift */,
+				0480C67D2591FD7700B9566F /* StyleWrapper.swift */,
+				0480C68D2591FDAA00B9566F /* StyleWrapper+UIImageView.swift */,
+				0480C6852591FD9500B9566F /* StyleWrapper+UILabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -653,7 +653,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0476105522CA74D200DE4982 /* StyleWrapper+UILabel.swift in Sources */,
+				0480C6862591FD9500B9566F /* StyleWrapper+UILabel.swift in Sources */,
 				0476104722CA727400DE4982 /* PTRootUI.swift in Sources */,
 				04CB215C238A952600907863 /* APIConfiguration.swift in Sources */,
 				0476103122CA6DDC00DE4982 /* AppLocalization.swift in Sources */,
@@ -665,8 +665,8 @@
 				04CB2186238A9B7300907863 /* String+className.swift in Sources */,
 				04CB2194238A9DE500907863 /* PostViewController.swift in Sources */,
 				04CB2158238A94F300907863 /* PostApiRouter.swift in Sources */,
+				0480C6762591FD5400B9566F /* Stylable.swift in Sources */,
 				042E4348246FE3B200866E29 /* Toast.swift in Sources */,
-				0476105622CA74D200DE4982 /* Stylable.swift in Sources */,
 				04B51CA822CA932B00CE0A0E /* PostListCellModel.swift in Sources */,
 				0476102F22CA6C8700DE4982 /* AppAssets.swift in Sources */,
 				04CB2199238AA04600907863 /* UIColor+hex.swift in Sources */,
@@ -675,7 +675,9 @@
 				0476105D22CA75A400DE4982 /* PostResponse.swift in Sources */,
 				04CB219D238AA1D700907863 /* Localizable.swift in Sources */,
 				04CB219B238AA0AF00907863 /* UIViewController+identifier.swift in Sources */,
+				0480C68E2591FDAA00B9566F /* StyleWrapper+UIImageView.swift in Sources */,
 				0476103E22CA702800DE4982 /* AppTheme.swift in Sources */,
+				0480C67E2591FD7700B9566F /* StyleWrapper.swift in Sources */,
 				04CB218D238A9D3B00907863 /* UITableView+registerClass.swift in Sources */,
 				04CB2160238A954100907863 /* HTTPHeaderFields.swift in Sources */,
 				04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */,
@@ -684,9 +686,7 @@
 				04CB215E238A953900907863 /* ContentType.swift in Sources */,
 				04CB2175238A9AB900907863 /* PostListViewController.swift in Sources */,
 				042E434A246FE4C900866E29 /* NetworkClient.swift in Sources */,
-				0476105722CA74D200DE4982 /* StyleWrapper.swift in Sources */,
 				04CB2177238A9AB900907863 /* PostListRouter.swift in Sources */,
-				0476105422CA74D200DE4982 /* StyleWrapper+UIImageView.swift in Sources */,
 				04CB2195238A9DE500907863 /* PostConfigurator.swift in Sources */,
 				042E434C246FECD600866E29 /* NetworkClientRetrier.swift in Sources */,
 				0476105F22CA75AA00DE4982 /* Post.swift in Sources */,

@@ -9,9 +9,7 @@
 import Foundation
 
 struct Post {
-    
     var id: Int
     var title: String
     var text: String
-    
 }

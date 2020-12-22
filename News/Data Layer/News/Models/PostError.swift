@@ -9,7 +9,6 @@
 import Foundation
 
 enum PostError: LocalizedError {
-    
     case postIsNotFound
     case emptyPost
     case unknown(_ error: Error?)
@@ -24,5 +23,4 @@ enum PostError: LocalizedError {
             return error?.localizedDescription ?? AppLocalization.Error.unknown.localized
         }
     }
-    
 }

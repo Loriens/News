@@ -13,7 +13,6 @@ public protocol TableSectionRepresentable {
 }
 
 open class TableSectionModel: TableSectionRepresentable {
-    
     // MARK: - Props
     public var rows: [TableCellIdentifiable]
     
@@ -21,5 +20,4 @@ open class TableSectionModel: TableSectionRepresentable {
     public init() {
         rows = []
     }
-    
 }

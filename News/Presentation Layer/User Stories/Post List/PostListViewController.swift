@@ -40,7 +40,6 @@ final class PostListViewController: UIViewController {
 
 // MARK: - Setup functions
 extension PostListViewController {
-    
     private func setupComponents() {
         navigationItem.title = AppLocalization.PostList.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -51,7 +50,6 @@ extension PostListViewController {
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)
-        view.setNeedsUpdateConstraints()
         setupConstraints()
         
         bindViewModel()
@@ -70,22 +68,18 @@ extension PostListViewController {
     }
     
     private func applyStyles() { }
-    
 }
 
 // MARK: - Actions
 extension PostListViewController {
-    
     @objc
     private func loadData() {
         viewModel?.loadData()
     }
-    
 }
 
 // MARK: - Module functions
 extension PostListViewController {
-    
     private func bindViewModel() {
         viewModel?.loadDataCompletion = { [unowned self] result in
             switch result {
@@ -110,12 +104,10 @@ extension PostListViewController {
         Toast.shared.show(title: AppLocalization.General.error.localized,
                           message: error.localizedDescription)
     }
-    
 }
 
 // MARK: - UITableViewDataSource
 extension PostListViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
@@ -126,23 +118,17 @@ extension PostListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = sections[indexPath.section].rows[indexPath.row]
-        
-        if model is PostListCellModel {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: model.cellIdentifier) as? PostListCell else {
-                preconditionFailure("Invalid cell type")
-            }
-            cell.model = model
-            return cell
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: model.cellIdentifier) as? TableCell else {
+            preconditionFailure("Invalid cell")
         }
-        
-        preconditionFailure("Invalid cell model")
+        cell.model = model
+        return cell
     }
-    
 }
 
 // MARK: - UITableViewDelegate
 extension PostListViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = sections[indexPath.section].rows[indexPath.row]
         return model.cellHeight
@@ -152,9 +138,8 @@ extension PostListViewController: UITableViewDelegate {
         let model = sections[indexPath.section].rows[indexPath.row]
         
         if let selectedModel = model as? PostListCellModel,
-            let postId = selectedModel.userInfo["postId"] as? Int {
+           let postId = selectedModel.userInfo["postId"] as? Int {
             router?.pushPostViewController(postId: postId)
         }
     }
-    
 }

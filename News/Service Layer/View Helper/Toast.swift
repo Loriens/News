@@ -10,7 +10,6 @@ import UIKit
 import Toast
 
 final class Toast {
-    
     // MARK: - Props
     static let shared = Toast()
     
@@ -42,5 +41,4 @@ final class Toast {
             UIApplication.shared.keyWindow?.hideAllToasts()
         }
     }
-    
 }

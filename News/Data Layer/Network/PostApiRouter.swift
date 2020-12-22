@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 enum PostApiRouter: APIConfiguration {
-    
     case list
     case item(postId: Int)
     
@@ -62,5 +61,4 @@ enum PostApiRouter: APIConfiguration {
         
         return try URLEncoding.default.encode(request, with: parameters)
     }
-    
 }

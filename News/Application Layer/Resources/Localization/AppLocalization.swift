@@ -9,7 +9,6 @@
 import Foundation
 
 enum AppLocalization {
-    
     enum General: String, Localizable {
         case ok = "OK"
         case save = "Save"
@@ -40,5 +39,4 @@ enum AppLocalization {
         case title = "PostTitle"
         case empty = "PostEmpty"
     }
-    
 }

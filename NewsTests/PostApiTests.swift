@@ -9,8 +9,7 @@
 import XCTest
 @testable import News
 
-class PostApiTests: XCTestCase {
-    
+final class PostApiTests: XCTestCase {
     // MARK: - Props
     var expectation: XCTestExpectation!
     let timeout: TimeInterval = 10
@@ -27,7 +26,8 @@ class PostApiTests: XCTestCase {
             waitForExpectations(timeout: timeout)
         }
         
-        NetworkClient.request(with: PostApiRouter.list)
+        NetworkClient.shared
+            .request(with: PostApiRouter.list)
             .responseDecodable(of: [PostResponse].self) { response in
                 defer {
                     self.expectation.fulfill()
@@ -50,7 +50,8 @@ class PostApiTests: XCTestCase {
             waitForExpectations(timeout: timeout)
         }
         
-        NetworkClient.request(with: PostApiRouter.item(postId: 1))
+        NetworkClient.shared
+            .request(with: PostApiRouter.item(postId: 1))
             .responseDecodable(of: PostResponse.self) { response in
                 defer {
                     self.expectation.fulfill()
@@ -64,5 +65,4 @@ class PostApiTests: XCTestCase {
                 XCTAssertNotNil(response.value?.defaultMapping())
             }
     }
-    
 }

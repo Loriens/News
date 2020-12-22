@@ -11,7 +11,6 @@ protocol PostViewModelInput {
 }
 
 final class PostViewModel {
-    
     // MARK: - Props
     var loadDataCompletion: ((Swift.Result<Post, PostError>) -> Void)?
     
@@ -26,7 +25,8 @@ final class PostViewModel {
             loadDataCompletion?(.failure(.postIsNotFound))
             return
         }
-        NetworkClient.request(with: PostApiRouter.item(postId: postId))
+        NetworkClient.shared
+            .request(with: PostApiRouter.item(postId: postId))
             .responseDecodable(of: PostResponse.self) { [weak self] response in
                 if let error = response.error {
                     self?.loadDataCompletion?(.failure(.unknown(error)))
@@ -39,7 +39,6 @@ final class PostViewModel {
                 self?.loadDataCompletion?(.success(post))
             }
     }
-    
 }
 
 // MARK: - Module functions
@@ -47,9 +46,7 @@ extension PostViewModel { }
 
 // MARK: - PostViewModelInput
 extension PostViewModel: PostViewModelInput {
-    
     func configure(postId: Int) {
         self.postId = postId
     }
-    
 }

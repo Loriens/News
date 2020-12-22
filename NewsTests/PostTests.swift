@@ -10,7 +10,6 @@ import XCTest
 @testable import News
 
 final class PostTests: XCTestCase {
-
     // MARK: - Test functions
     func testValidPostResponseMapsToPost() throws {
         let postResponse = PostResponse(
@@ -28,5 +27,4 @@ final class PostTests: XCTestCase {
         let postResponse = PostResponse()
         XCTAssertNil(postResponse.defaultMapping())
     }
-
 }

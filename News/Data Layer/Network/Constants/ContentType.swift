@@ -9,7 +9,6 @@
 import Foundation
 
 enum ContentType {
-    
     case json
     
     var value: String {
@@ -18,5 +17,4 @@ enum ContentType {
             return "application/json"
         }
     }
-    
 }

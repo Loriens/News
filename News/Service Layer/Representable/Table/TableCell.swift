@@ -13,7 +13,6 @@ public protocol TableCellRepresentable {
 }
 
 open class TableCell: UITableViewCell, TableCellRepresentable {
-    
     // MARK: - Identifier
     class public var identifier: String {
         return String.className(self)
@@ -47,5 +46,4 @@ open class TableCell: UITableViewCell, TableCellRepresentable {
     override open func setHighlighted(_ highlighted: Bool, animated: Bool) { }
     
     override open func setSelected(_ selected: Bool, animated: Bool) { }
-    
 }

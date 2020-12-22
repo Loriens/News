@@ -9,7 +9,6 @@
 import Foundation
 
 struct PostResponse: Codable {
-    
     var id: Int?
     var title: String?
     var body: String?
@@ -25,5 +24,4 @@ struct PostResponse: Codable {
         
         return post
     }
-    
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 final class PostViewController: UIViewController {
-    
     // MARK: - Subviews
     let textLabel: UILabel = {
         let label = UILabel()
@@ -33,19 +32,16 @@ final class PostViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         applyStyles()
     }
-    
 }
 
 // MARK: - Setup functions
 extension PostViewController {
-    
     private func setupComponents() {
         navigationItem.title = AppLocalization.Post.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         view.addSubview(textLabel)
         view.backgroundColor = .white
-        view.setNeedsUpdateConstraints()
         setupConstraints()
         
         bindViewModel()
@@ -66,7 +62,6 @@ extension PostViewController {
     private func applyStyles() {
         textLabel.apply(.bigTitleStyle())
     }
-    
 }
 
 // MARK: - Actions
@@ -74,7 +69,6 @@ extension PostViewController { }
 
 // MARK: - Module functions
 extension PostViewController {
-    
     private func bindViewModel() {
         viewModel?.loadDataCompletion = { [unowned self] result in
             switch result {
@@ -99,5 +93,4 @@ extension PostViewController {
             self.textLabel.text = AppLocalization.Post.empty.localized
         }
     }
-    
 }

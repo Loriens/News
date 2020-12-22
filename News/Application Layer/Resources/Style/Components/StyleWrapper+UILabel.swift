@@ -1,14 +1,14 @@
 //
 //  StyleWrapper+UILabel.swift
-//  Test Playground
+//  News
 //
-//  Created by  Кирилл on 3/6/19.
+//  Created by Vladislav Markov on 22.12.2020.
+//  Copyright © 2020 Vladislav Markov. All rights reserved.
 //
 
 import UIKit
 
 extension StyleWrapper where Element: UILabel {
-    
     static func bigTitleStyle() -> StyleWrapper {
         return .wrap { label in
             label.textAlignment = .center
@@ -18,7 +18,7 @@ extension StyleWrapper where Element: UILabel {
             label.textColor = AppTheme.accentMain
         }
     }
-    
+
     static func smallTitleStyle() -> StyleWrapper {
         return .wrap { label in
             label.textAlignment = .left
@@ -28,7 +28,7 @@ extension StyleWrapper where Element: UILabel {
             label.textColor = AppTheme.textMain
         }
     }
-    
+
     static func subtitleStyle() -> StyleWrapper {
         return .wrap { label in
             label.textAlignment = .left
@@ -38,5 +38,4 @@ extension StyleWrapper where Element: UILabel {
             label.textColor = AppTheme.textSub
         }
     }
-    
 }

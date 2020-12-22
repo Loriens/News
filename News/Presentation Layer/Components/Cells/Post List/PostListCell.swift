@@ -9,7 +9,6 @@
 import UIKit
 
 final class PostListCell: TableCell {
-    
     // MARK: - Subviews
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -17,6 +16,12 @@ final class PostListCell: TableCell {
         label.apply(.smallTitleStyle())
         return label
     }()
+
+    // MARK: - Lifecycle
+    override func prepareForReuse() {
+        titleLabel.text = ""
+        super.prepareForReuse()
+    }
     
     // MARK: - Setup functions
     override func setupView() {
@@ -31,7 +36,6 @@ final class PostListCell: TableCell {
     
     override func updateViews() {
         guard let model = model as? PostListCellModel else { return }
-        
         titleLabel.text = model.title
     }
     
@@ -46,5 +50,4 @@ final class PostListCell: TableCell {
             titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20)
         ])
     }
-    
 }

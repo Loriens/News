@@ -16,7 +16,6 @@ public protocol TableCellIdentifiable {
 }
 
 open class TableCellModel: TableCellIdentifiable {
-    
     // MARK: - Props
     public var cellIdentifier: String {
         return ""
@@ -30,5 +29,4 @@ open class TableCellModel: TableCellIdentifiable {
     
     // MARK: - Initialization
     init() { }
-    
 }

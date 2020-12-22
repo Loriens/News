@@ -7,7 +7,6 @@
 //
 
 enum PostConfigurator {
-
     static func create() -> PostViewController {
         return PostViewController()
     }
@@ -23,5 +22,4 @@ enum PostConfigurator {
         
         return viewModel
     }
-    
 }

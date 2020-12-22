@@ -13,7 +13,6 @@ protocol PostListViewModelInput {
 }
 
 final class PostListViewModel {
-    
     // MARK: - Props
     var loadDataCompletion: ((Swift.Result<[TableSectionModel], PostError>) -> Void)?
     
@@ -30,7 +29,8 @@ final class PostListViewModel {
     func loadData() {
         guard !isLoading else { return }
         isLoading = true
-        NetworkClient.request(with: PostApiRouter.list)
+        NetworkClient.shared
+            .request(with: PostApiRouter.list)
             .responseDecodable(of: [PostResponse].self) { [weak self] response in
                 defer { self?.isLoading = false }
                 
@@ -47,12 +47,10 @@ final class PostListViewModel {
                 self?.makeSectionsModel()
             }
     }
-    
 }
 
 // MARK: - Module functions
 extension PostListViewModel {
-    
     private func makeSectionsModel() {
         let mainSection = TableSectionModel()
         
@@ -64,12 +62,9 @@ extension PostListViewModel {
         
         loadDataCompletion?(.success([mainSection]))
     }
-    
 }
 
 // MARK: - PostListViewModelInput
 extension PostListViewModel: PostListViewModelInput {
-    
     func configure(with data: Any?) { }
-    
 }

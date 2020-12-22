@@ -10,12 +10,11 @@ import Foundation
 import Alamofire
 
 struct NetworkClient {
-    
     // MARK: - Props
     static let shared = NetworkClient()
     
-    let session: Session
-    let retrier: RequestInterceptor
+    private let session: Session
+    private let retrier: RequestInterceptor
     
     // MARK: - Initalization
     private init() {
@@ -24,10 +23,9 @@ struct NetworkClient {
     }
     
     // MARK: - Public functions
-    static func request(with convertible: URLRequestConvertible) -> DataRequest {
-        return shared.session
+    func request(with convertible: URLRequestConvertible) -> DataRequest {
+        return session
             .request(convertible)
             .validate()
     }
-    
 }

@@ -8,8 +8,7 @@
 
 import XCTest
 
-class PostUITests: XCTestCase {
-    
+final class PostUITests: XCTestCase {
     // MARK: - Props
     var app: XCUIApplication!
 
@@ -37,5 +36,4 @@ class PostUITests: XCTestCase {
         
         XCTAssertEqual(result, XCTWaiter.Result.completed)
     }
-
 }

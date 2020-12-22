@@ -9,7 +9,6 @@
 import UIKit
 
 final class PostListCellModel: TableCellModel {
-    
     // MARK: - Props
     public override var cellIdentifier: String {
         return PostListCell.identifier
@@ -21,5 +20,4 @@ final class PostListCellModel: TableCellModel {
     init(title: String) {
         self.title = title
     }
-    
 }

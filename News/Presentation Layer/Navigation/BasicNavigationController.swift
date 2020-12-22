@@ -9,7 +9,6 @@
 import UIKit
 
 final class BasicNavigationController: UINavigationController {
-    
     // MARK: - Props
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return AppTheme.statusBarStyle
@@ -39,5 +38,4 @@ final class BasicNavigationController: UINavigationController {
         ]
         navigationBar.prefersLargeTitles = false
     }
-    
 }
