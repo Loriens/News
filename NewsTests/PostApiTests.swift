@@ -28,7 +28,7 @@ final class PostApiTests: XCTestCase {
         
         NetworkClient.shared
             .request(with: PostApiRouter.list)
-            .responseDecodable(of: [PostResponse].self) { response in
+            .responseDecodable(of: [PostListModule.Post].self) { response in
                 defer {
                     self.expectation.fulfill()
                 }
@@ -39,9 +39,11 @@ final class PostApiTests: XCTestCase {
                 }
                 
                 do {
-                    let posts = try XCTUnwrap(response.value).compactMap({ $0.defaultMapping() })
+                    let posts = try XCTUnwrap(response.value)
                     XCTAssert(!posts.isEmpty)
-                } catch { }
+                } catch {
+                    XCTFail(error.localizedDescription)
+                }
             }
     }
     
@@ -52,7 +54,7 @@ final class PostApiTests: XCTestCase {
         
         NetworkClient.shared
             .request(with: PostApiRouter.item(postId: 1))
-            .responseDecodable(of: PostResponse.self) { response in
+            .responseDecodable(of: PostModule.Post.self) { response in
                 defer {
                     self.expectation.fulfill()
                 }
@@ -62,7 +64,7 @@ final class PostApiTests: XCTestCase {
                     return
                 }
                 
-                XCTAssertNotNil(response.value?.defaultMapping())
+                XCTAssertNotNil(response.value)
             }
     }
 }

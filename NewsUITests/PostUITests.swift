@@ -33,7 +33,6 @@ final class PostUITests: XCTestCase {
         let existsPredicate = NSPredicate(format: "exists == 1")
         let expectation = self.expectation(for: existsPredicate, evaluatedWith: element, handler: nil)
         let result = XCTWaiter.wait(for: [expectation], timeout: timeout)
-        
         XCTAssertEqual(result, XCTWaiter.Result.completed)
     }
 }

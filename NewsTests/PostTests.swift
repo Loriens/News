@@ -12,19 +12,13 @@ import XCTest
 final class PostTests: XCTestCase {
     // MARK: - Test functions
     func testValidPostResponseMapsToPost() throws {
-        let postResponse = PostResponse(
+        let post = PostModule.Post(
             id: 1,
             title: "Title",
             body: "Text"
         )
-        let post = try XCTUnwrap(postResponse.defaultMapping())
         XCTAssertEqual(post.id, 1)
         XCTAssertEqual(post.title, "Title")
-        XCTAssertEqual(post.text, "Text")
-    }
-    
-    func testInvalidPostResponseMapsToNil() throws {
-        let postResponse = PostResponse()
-        XCTAssertNil(postResponse.defaultMapping())
+        XCTAssertEqual(post.body, "Text")
     }
 }
