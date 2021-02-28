@@ -31,11 +31,9 @@ enum AppLocalization {
     
     enum PostList: String, Localizable {
         case title = "PostListTitle"
-        case empty = "PostListEmpty"
     }
     
     enum Post: String, Localizable {
         case title = "PostTitle"
-        case empty = "PostEmpty"
     }
 }

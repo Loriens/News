@@ -20,13 +20,10 @@
 // MARK: - Errors
 "UnknownError" = "Неизвестная ошибка";
 
-"PostIsNotFoundError" = "Пост не был найден";
 "EmptyPostError" = "Пустой пост :(";
 
 // MARK: - Post List
 "PostListTitle" = "Новости";
-"PostListEmpty" = "Данные отсутствуют";
 
 // MARK: - Post
 "PostTitle" = "Подробно";
-"PostEmpty" = "Данные отсутствуют";

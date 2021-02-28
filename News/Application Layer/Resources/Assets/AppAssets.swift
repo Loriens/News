@@ -6,7 +6,4 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-import Foundation
-import UIKit
-
 enum AppAssets { }

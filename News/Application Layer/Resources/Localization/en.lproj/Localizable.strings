@@ -20,13 +20,10 @@
 // MARK: - Errors
 "UnknownError" = "Unknown error";
 
-"PostIsNotFoundError" = "Post is not found";
 "EmptyPostError" = "Empty post :(";
 
 // MARK: - Post List
 "PostListTitle" = "News";
-"PostListEmpty" = "There is no data";
 
 // MARK: - Post
 "PostTitle" = "Detail";
-"PostEmpty" = "There is no data";
