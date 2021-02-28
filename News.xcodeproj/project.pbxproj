@@ -57,7 +57,6 @@
 		04CB2194238A9DE500907863 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB218F238A9DE500907863 /* PostView.swift */; };
 		04CB2195238A9DE500907863 /* PostConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2190238A9DE500907863 /* PostConfigurator.swift */; };
 		04CB2196238A9DE500907863 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2191238A9DE500907863 /* PostRouter.swift */; };
-		04CB2199238AA04600907863 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2198238AA04600907863 /* UIColor+hex.swift */; };
 		04CB219B238AA0AF00907863 /* UIViewController+identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219A238AA0AF00907863 /* UIViewController+identifier.swift */; };
 		04CB219D238AA1D700907863 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219C238AA1D700907863 /* Localizable.swift */; };
 		04E73C792430BA070005E2F5 /* PostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E73C782430BA070005E2F5 /* PostTests.swift */; };
@@ -134,7 +133,6 @@
 		04CB218F238A9DE500907863 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		04CB2190238A9DE500907863 /* PostConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfigurator.swift; sourceTree = "<group>"; };
 		04CB2191238A9DE500907863 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
-		04CB2198238AA04600907863 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		04CB219A238AA0AF00907863 /* UIViewController+identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+identifier.swift"; sourceTree = "<group>"; };
 		04CB219C238AA1D700907863 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		04E73C6C2430B9D30005E2F5 /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -401,7 +399,6 @@
 			isa = PBXGroup;
 			children = (
 				04CB2185238A9B7300907863 /* String+className.swift */,
-				04CB2198238AA04600907863 /* UIColor+hex.swift */,
 				0446616A25EBB4360092B63A /* UITableView+deque.swift */,
 				04CB218C238A9D3B00907863 /* UITableView+registerClass.swift */,
 				04CB219A238AA0AF00907863 /* UIViewController+identifier.swift */,
@@ -666,7 +663,6 @@
 				042E4348246FE3B200866E29 /* Toast.swift in Sources */,
 				0446613225EBADC20092B63A /* PostListModule.swift in Sources */,
 				0476102F22CA6C8700DE4982 /* AppAssets.swift in Sources */,
-				04CB2199238AA04600907863 /* UIColor+hex.swift in Sources */,
 				04CB2196238A9DE500907863 /* PostRouter.swift in Sources */,
 				04CB219D238AA1D700907863 /* Localizable.swift in Sources */,
 				04CB219B238AA0AF00907863 /* UIViewController+identifier.swift in Sources */,

@@ -10,17 +10,15 @@ import UIKit
 import Toast
 
 final class Toast {
-    // MARK: - Props
     static let shared = Toast()
 
     private var keyWindow: UIWindow? {
         return UIApplication.shared.windows.first(where: { $0.isKeyWindow })
     }
-    
-    // MARK: - Initialization
+
     private init() {
         var style = ToastStyle()
-        style.backgroundColor = UIColor(hex: "a9a9a9", alpha: 0.7)
+        style.backgroundColor = UIColor(red: 169, green: 169, blue: 169, alpha: 0.7)
         style.cornerRadius = 5.0
         style.displayShadow = true
         style.titleAlignment = .center
@@ -33,7 +31,6 @@ final class Toast {
         ToastManager.shared.duration = 3.0
     }
     
-    // MARK: - Public functions
     func show(title: String?, message: String?) {
         DispatchQueue.main.async {
             self.keyWindow?.makeToast(message, title: title)
