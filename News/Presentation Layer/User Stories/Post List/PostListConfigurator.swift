@@ -6,20 +6,16 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-enum PostListConfigurator {
-    static func create() -> PostListViewController {
-        return PostListViewController()
-    }
+final class PostListConfigurator {
+    init() { }
 
-    static func configure(with reference: PostListViewController) -> PostListViewModelInput {
-        let viewModel = PostListViewModel()
-        
-        let router = PostListRouter()
-        router.viewController = reference
-        
-        reference.router = router
-        reference.viewModel = viewModel
-        
-        return viewModel
+    func create() -> PostListView {
+        let viewController = PostListView()
+        let presenter = PostListPresenter(viewController: viewController)
+        let worker = PostListWorker()
+        let interactor = PostListInteractor(presenter: presenter, worker: worker)
+        viewController.interactor = interactor
+        viewController.router = PostListRouter(viewController: viewController)
+        return viewController
     }
 }

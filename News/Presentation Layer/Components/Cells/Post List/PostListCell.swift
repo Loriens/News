@@ -9,7 +9,6 @@
 import UIKit
 
 final class PostListCell: TableCell {
-    // MARK: - Subviews
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -17,16 +16,15 @@ final class PostListCell: TableCell {
         return label
     }()
 
-    // MARK: - Lifecycle
     override func prepareForReuse() {
         titleLabel.text = ""
         super.prepareForReuse()
     }
-    
-    // MARK: - Setup functions
+
     override func setupView() {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
+        selectionStyle = .none
         
         contentView.addSubview(titleLabel)
 
@@ -34,9 +32,8 @@ final class PostListCell: TableCell {
         setupConstraints()
     }
     
-    override func updateViews() {
-        guard let model = model as? PostListCellModel else { return }
-        titleLabel.text = model.title
+    func update(with title: String) {
+        titleLabel.text = title
     }
     
     private func setupActions() { }

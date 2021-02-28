@@ -27,9 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Window configuration
     private func setup(_ window: UIWindow) {
-        let vc = PostListConfigurator.create()
-        _ = PostListConfigurator.configure(with: vc)
-        
+        let configurator = PostListConfigurator()
+        let vc = configurator.create()
         let nc = BasicNavigationController(rootViewController: vc)
         
         self.window = window

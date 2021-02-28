@@ -8,22 +8,21 @@
 
 import Foundation
 
-protocol PostListRouterInput {
-    func pushPostViewController(postId: Int)
-}
+final class PostListRouter {
+    private weak var viewController: PostListView?
 
-final class PostListRouter: PostListRouterInput {
-    // MARK: - Props
-    weak var viewController: PostListViewController?
-    
-    // MARK: - PostListRouterInput
-    func pushPostViewController(postId: Int) {
-        DispatchQueue.main.async {
-            let vc = PostConfigurator.create()
-            let viewModelInput = PostConfigurator.configure(with: vc)
-            viewModelInput.configure(postId: postId)
+    init(viewController: PostListView) {
+        self.viewController = viewController
+    }
 
-            self.viewController?.navigationController?.pushViewController(vc, animated: true)
+    func route(action: PostListModule.Route.Action) {
+        switch action {
+        case let .openPost(postId):
+            DispatchQueue.main.async {
+                let configurator = PostConfigurator(postId: postId)
+                let vc = configurator.create()
+                self.viewController?.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

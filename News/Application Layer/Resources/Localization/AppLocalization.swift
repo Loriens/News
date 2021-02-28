@@ -25,7 +25,6 @@ enum AppLocalization {
         case unknown = "UnknownError"
         
         enum Post: String, Localizable {
-            case postIsNotFound = "PostIsNotFoundError"
             case emptyPost = "EmptyPostError"
         }
     }
