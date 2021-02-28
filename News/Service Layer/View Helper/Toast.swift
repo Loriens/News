@@ -18,7 +18,7 @@ final class Toast {
 
     private init() {
         var style = ToastStyle()
-        style.backgroundColor = UIColor(red: 169, green: 169, blue: 169, alpha: 0.7)
+        style.backgroundColor = UIColor(red: 169 / 255, green: 169 / 255, blue: 169 / 255, alpha: 0.7)
         style.cornerRadius = 5.0
         style.displayShadow = true
         style.titleAlignment = .center
