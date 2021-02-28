@@ -9,9 +9,7 @@
 import UIKit
 
 public extension UIViewController {
-    
     static var identifier: String {
         return String.className(self)
     }
-    
 }
