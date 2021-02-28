@@ -12,6 +12,10 @@ import Toast
 final class Toast {
     // MARK: - Props
     static let shared = Toast()
+
+    private var keyWindow: UIWindow? {
+        return UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+    }
     
     // MARK: - Initialization
     private init() {
@@ -32,13 +36,13 @@ final class Toast {
     // MARK: - Public functions
     func show(title: String?, message: String?) {
         DispatchQueue.main.async {
-            UIApplication.shared.keyWindow?.makeToast(message, title: title)
+            self.keyWindow?.makeToast(message, title: title)
         }
     }
     
     func hideAllToasts() {
         DispatchQueue.main.async {
-            UIApplication.shared.keyWindow?.hideAllToasts()
+            self.keyWindow?.hideAllToasts()
         }
     }
 }
