@@ -1,5 +1,5 @@
 //
-//  APIConfiguration.swift
+//  ApiConfiguration.swift
 //  News
 //
 //  Created by Vladislav on 24.11.2019.
@@ -8,7 +8,7 @@
 
 import Alamofire
 
-protocol APIConfiguration: URLRequestConvertible {
+protocol ApiConfiguration: URLRequestConvertible {
     var method: HTTPMethod { get }
     var path: String { get }
     var headers: HTTPHeaders? { get }

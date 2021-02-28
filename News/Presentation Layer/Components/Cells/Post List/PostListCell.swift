@@ -28,15 +28,12 @@ final class PostListCell: TableCell {
         
         contentView.addSubview(titleLabel)
 
-        setupActions()
         setupConstraints()
     }
     
     func update(with title: String) {
         titleLabel.text = title
     }
-    
-    private func setupActions() { }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([

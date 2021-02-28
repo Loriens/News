@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 struct NetworkClientRetrier: RequestInterceptor {
-    // MARK: - RequestInterceptor
     func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
         if request.retryCount < 3 {
             completion(.retryWithDelay(1))

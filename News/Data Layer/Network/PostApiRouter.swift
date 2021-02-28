@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-enum PostApiRouter: APIConfiguration {
+enum PostApiRouter: ApiConfiguration {
     case list
     case item(postId: Int)
     
