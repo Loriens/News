@@ -14,7 +14,7 @@ protocol PostViewDisplayLogic: AnyObject {
 }
 
 final class PostView: UIViewController {
-    let textLabel: UILabel = {
+    private let textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = AppLocalization.General.loading.localized

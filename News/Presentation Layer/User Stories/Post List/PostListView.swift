@@ -15,10 +15,10 @@ protocol PostListViewDisplayLogic: AnyObject {
 }
 
 final class PostListView: UIViewController {
-    let tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.registerCellClass(PostListCell.self)
+        tableView.delegate = self
         return tableView
     }()
 
@@ -48,7 +48,6 @@ final class PostListView: UIViewController {
         tableView.refreshControl = refreshControl
         dataSource = PostListDataSource(tableView: tableView)
         tableView.dataSource = dataSource
-        tableView.delegate = self
         view.addSubview(tableView)
         setupConstraints()
     }

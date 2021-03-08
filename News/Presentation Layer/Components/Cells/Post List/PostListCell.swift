@@ -9,7 +9,7 @@
 import UIKit
 
 final class PostListCell: TableCell {
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.apply(.smallTitleStyle())
