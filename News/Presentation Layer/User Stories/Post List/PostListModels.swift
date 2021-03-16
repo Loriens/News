@@ -24,11 +24,11 @@ enum PostListModels {
 
     enum OpenPost {
         struct Request {
-            let post: Post
+            let postId: Int
         }
 
         struct Response {
-            let post: Post
+            let postId: Int
         }
 
         struct ViewModel {
@@ -38,7 +38,7 @@ enum PostListModels {
 
     struct Post: Decodable, Hashable {
         var id: Int
-        var title: String?
+        var title: String
     }
 
     enum Section {
@@ -46,7 +46,7 @@ enum PostListModels {
     }
 
     enum Item: Hashable {
-        case post(_ post: Post)
+        case post(viewModel: PostListCellViewModel)
     }
 
     enum Error: LocalizedError {

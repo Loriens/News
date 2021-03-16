@@ -93,8 +93,8 @@ extension PostListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = dataSource?.itemIdentifier(for: indexPath) else { return }
         switch item {
-        case let .post(post):
-            let request = PostListModels.OpenPost.Request(post: post)
+        case let .post(cellViewModel):
+            let request = PostListModels.OpenPost.Request(postId: cellViewModel.postId)
             interactor?.openPost(with: request)
         }
     }

@@ -58,6 +58,7 @@
 		04CB2195238A9DE500907863 /* PostConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2190238A9DE500907863 /* PostConfigurator.swift */; };
 		04CB2196238A9DE500907863 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2191238A9DE500907863 /* PostRouter.swift */; };
 		04CB219D238AA1D700907863 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219C238AA1D700907863 /* Localizable.swift */; };
+		7667F81526013C3700D26037 /* PostListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7667F81426013C3700D26037 /* PostListCellViewModel.swift */; };
 		767765BC2601185C00D9F5CA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767765BB2601185C00D9F5CA /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +136,7 @@
 		04CB219C238AA1D700907863 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		04E73C6C2430B9D30005E2F5 /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E73C702430B9D30005E2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7667F81426013C3700D26037 /* PostListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListCellViewModel.swift; sourceTree = "<group>"; };
 		767765BB2601185C00D9F5CA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */,
+				7667F81426013C3700D26037 /* PostListCellViewModel.swift */,
 			);
 			path = "Post List";
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				767765BC2601185C00D9F5CA /* NetworkService.swift in Sources */,
 				04CB218D238A9D3B00907863 /* UITableView+registerClass.swift in Sources */,
 				04CB2160238A954100907863 /* HTTPHeaderFields.swift in Sources */,
+				7667F81526013C3700D26037 /* PostListCellViewModel.swift in Sources */,
 				04B51C9922CA8DF800CE0A0E /* BasicNavigationController.swift in Sources */,
 				04CB2176238A9AB900907863 /* PostListConfigurator.swift in Sources */,
 				0446613A25EBADC80092B63A /* PostListPresenter.swift in Sources */,

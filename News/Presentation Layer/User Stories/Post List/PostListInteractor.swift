@@ -28,7 +28,7 @@ final class PostListInteractor: PostListBusinessLogic {
     }
 
     func openPost(with request: PostListModels.OpenPost.Request) {
-        let response = PostListModels.OpenPost.Response(post: request.post)
+        let response = PostListModels.OpenPost.Response(postId: request.postId)
         presenter.update(with: response)
     }
 }

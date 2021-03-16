@@ -12,9 +12,9 @@ final class PostListDataSource: UITableViewDiffableDataSource<PostListModels.Sec
     init(tableView: UITableView) {
         super.init(tableView: tableView) { tableView, indexPath, item -> UITableViewCell? in
             switch item {
-            case let .post(post):
+            case let .post(cellViewModel):
                 let cell = tableView.dequeue(PostListCell.self, for: indexPath)
-                cell.update(with: post.title ?? "")
+                cell.update(with: cellViewModel)
                 return cell
             }
         }

@@ -22,7 +22,8 @@ final class PostWorker {
                     completion(.failure(.unknown(error)))
                     return
                 }
-                guard let post = response.value else {
+                guard let post = response.value,
+                      post.body != nil else {
                     completion(.failure(.emptyPost))
                     return
                 }

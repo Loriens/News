@@ -25,7 +25,8 @@ final class PostListPresenter: PostListPresentationLogic {
         case let .success(posts):
             var snapshot = NSDiffableDataSourceSnapshot<PostListModels.Section, PostListModels.Item>()
             snapshot.appendSections([.main])
-            let items = posts.map({ PostListModels.Item.post($0) })
+            let cellViewModels = posts.map({ PostListCellViewModel(postId: $0.id, title: $0.title) })
+            let items = cellViewModels.map({ PostListModels.Item.post(viewModel: $0) })
             snapshot.appendItems(items)
             let viewModel = PostListModels.GetPostList.ViewModel(result: .success(snapshot))
             DispatchQueue.main.async {
@@ -40,7 +41,7 @@ final class PostListPresenter: PostListPresentationLogic {
     }
 
     func update(with response: PostListModels.OpenPost.Response) {
-        let viewModel = PostListModels.OpenPost.ViewModel(postId: response.post.id)
+        let viewModel = PostListModels.OpenPost.ViewModel(postId: response.postId)
         DispatchQueue.main.async {
             self.viewController?.update(with: viewModel)
         }

@@ -23,7 +23,6 @@ enum PostModels {
 
     struct Post: Decodable {
         var id: Int
-        var title: String?
         var body: String?
     }
 
