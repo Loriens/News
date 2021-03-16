@@ -9,26 +9,21 @@
 import UIKit
 
 final class BasicNavigationController: UINavigationController {
-    // MARK: - Props
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return AppTheme.statusBarStyle
     }
     
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupUI()
+        setupComponents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setNeedsStatusBarAppearanceUpdate()
     }
     
-    // MARK: - Setup functions
-    private func setupUI() {
+    private func setupComponents() {
         navigationBar.isTranslucent = false
         navigationBar.barTintColor = AppTheme.backgroundBar
         navigationBar.tintColor = AppTheme.accentText

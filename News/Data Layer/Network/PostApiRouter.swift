@@ -49,16 +49,13 @@ enum PostApiRouter: ApiConfiguration {
     func asURLRequest() throws -> URLRequest {
         let url = try AppConfiguration.serverUrl.asURL()
         var request = URLRequest(url: url.appendingPathComponent(path))
-        
         request.httpMethod = method.rawValue
         request.timeoutInterval = 10
-        
         if let headers = headers {
             for key in headers.dictionary.keys {
                 request.setValue(headers[key], forHTTPHeaderField: key)
             }
         }
-        
         return try URLEncoding.default.encode(request, with: parameters)
     }
 }
