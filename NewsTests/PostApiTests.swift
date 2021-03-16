@@ -34,12 +34,7 @@ final class PostApiTests: XCTestCase {
                     XCTFail(error.localizedDescription)
                     return
                 }
-                do {
-                    let posts = try XCTUnwrap(response.value)
-                    XCTAssert(!posts.isEmpty)
-                } catch {
-                    XCTFail(error.localizedDescription)
-                }
+                XCTAssert(response.value?.isEmpty == false)
             }
     }
 
