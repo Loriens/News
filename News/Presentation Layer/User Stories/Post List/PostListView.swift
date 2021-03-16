@@ -68,8 +68,7 @@ final class PostListView: UIViewController {
 
 // MARK: - Actions
 extension PostListView {
-    @objc
-    private func loadData() {
+    @objc private func loadData() {
         interactor?.getPostList()
     }
 }

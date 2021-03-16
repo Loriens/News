@@ -11,7 +11,7 @@ import XCTest
 
 final class PostApiTests: XCTestCase {
     // MARK: - Props
-    var expectation: XCTestExpectation!
+    var expectation: XCTestExpectation?
     let timeout: TimeInterval = 10
 
     // MARK: - Setup functions
@@ -29,7 +29,7 @@ final class PostApiTests: XCTestCase {
             .request(with: PostApiRouter.list)
             .responseDecodable(of: [PostListModels.Post].self) { response in
                 defer {
-                    self.expectation.fulfill()
+                    self.expectation?.fulfill()
                 }
                 if let error = response.error {
                     XCTFail(error.localizedDescription)
@@ -53,7 +53,7 @@ final class PostApiTests: XCTestCase {
             .request(with: PostApiRouter.item(postId: 1))
             .responseDecodable(of: PostModels.Post.self) { response in
                 defer {
-                    self.expectation.fulfill()
+                    self.expectation?.fulfill()
                 }
                 if let error = response.error {
                     XCTFail(error.localizedDescription)

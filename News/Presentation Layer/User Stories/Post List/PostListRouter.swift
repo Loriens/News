@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PostListRoutingLogic{
+protocol PostListRoutingLogic {
     func routeToPost(postId: Int)
 }
 

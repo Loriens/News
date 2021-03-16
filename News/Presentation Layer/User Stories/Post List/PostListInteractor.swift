@@ -21,7 +21,7 @@ final class PostListInteractor: PostListBusinessLogic {
     }
 
     func getPostList() {
-        worker.getPostList { [weak self] (result) in
+        worker.getPostList { [weak self] result in
             let response = PostListModels.GetPostList.Response(result: result)
             self?.presenter.update(with: response)
         }

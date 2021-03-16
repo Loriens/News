@@ -10,22 +10,22 @@ import XCTest
 
 final class PostUITests: XCTestCase {
     // MARK: - Props
-    var app: XCUIApplication!
+    var app: XCUIApplication?
 
     // MARK: - Setup functions
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
         app = XCUIApplication()
-        app.launch()
+        app?.launch()
     }
 
     // MARK: - Test functions
     func testOpeningFirstPost() throws {
-        let cell = app.tables.staticTexts.firstMatch
+        let cell = try XCTUnwrap(app?.tables.staticTexts.firstMatch)
         waitForElementToAppear(element: cell)
         cell.tap()
-        XCTAssert(app.navigationBars["Detail"].exists)
+        XCTAssert(app?.navigationBars["Detail"].exists == true)
     }
 
     // MARK: - Module functions

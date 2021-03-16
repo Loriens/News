@@ -13,7 +13,7 @@ final class Toast {
     static let shared = Toast()
 
     private var keyWindow: UIWindow? {
-        return UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        return UIApplication.shared.windows.first { $0.isKeyWindow }
     }
 
     private init() {

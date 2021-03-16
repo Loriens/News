@@ -20,7 +20,7 @@ final class PostInteractor: PostBusinessLogic {
     }
 
     func getPost() {
-        worker.getPost { [weak self] (result) in
+        worker.getPost { [weak self] result in
             let response = PostModels.GetPost.Response(result: result)
             self?.presenter.update(with: response)
         }
