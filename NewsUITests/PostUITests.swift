@@ -9,10 +9,8 @@
 import XCTest
 
 final class PostUITests: XCTestCase {
-    // MARK: - Props
     var app: XCUIApplication?
 
-    // MARK: - Setup functions
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
@@ -20,7 +18,6 @@ final class PostUITests: XCTestCase {
         app?.launch()
     }
 
-    // MARK: - Test functions
     func testOpeningFirstPost() throws {
         let cell = try XCTUnwrap(app?.tables.staticTexts.firstMatch)
         waitForElementToAppear(element: cell)
@@ -28,7 +25,6 @@ final class PostUITests: XCTestCase {
         XCTAssert(app?.navigationBars["Detail"].exists == true)
     }
 
-    // MARK: - Module functions
     private func waitForElementToAppear(element: XCUIElement, timeout: TimeInterval = 10) {
         let existsPredicate = NSPredicate(format: "exists == 1")
         let expectation = self.expectation(for: existsPredicate, evaluatedWith: element, handler: nil)

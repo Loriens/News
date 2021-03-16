@@ -10,23 +10,22 @@ import XCTest
 @testable import News
 
 final class PostApiTests: XCTestCase {
-    // MARK: - Props
     var expectation: XCTestExpectation?
+    var networkService: NetworkService?
     let timeout: TimeInterval = 10
 
-    // MARK: - Setup functions
     override func setUp() {
         super.setUp()
         expectation = expectation(description: "Server responds in reasonable time")
+        let interceptor = AlamofireNetworkServiceRetrier()
+        networkService = AlamofireNetworkService(interceptor: interceptor)
     }
 
-    // MARK: - Test functions
     func testPostListResponse() {
         defer {
             waitForExpectations(timeout: timeout)
         }
-        AlamofireNetworkService.shared
-            .request(with: PostApiRouter.list)
+        networkService?.request(with: PostApiRouter.list)
             .responseDecodable(of: [PostListModels.Post].self) { response in
                 defer {
                     self.expectation?.fulfill()
@@ -48,9 +47,7 @@ final class PostApiTests: XCTestCase {
         defer {
             waitForExpectations(timeout: timeout)
         }
-
-        AlamofireNetworkService.shared
-            .request(with: PostApiRouter.item(postId: 1))
+        networkService?.request(with: PostApiRouter.item(postId: 1))
             .responseDecodable(of: PostModels.Post.self) { response in
                 defer {
                     self.expectation?.fulfill()
