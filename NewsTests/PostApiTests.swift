@@ -25,7 +25,7 @@ final class PostApiTests: XCTestCase {
         defer {
             waitForExpectations(timeout: timeout)
         }
-        NetworkClient.shared
+        AlamofireNetworkService.shared
             .request(with: PostApiRouter.list)
             .responseDecodable(of: [PostListModels.Post].self) { response in
                 defer {
@@ -49,7 +49,7 @@ final class PostApiTests: XCTestCase {
             waitForExpectations(timeout: timeout)
         }
 
-        NetworkClient.shared
+        AlamofireNetworkService.shared
             .request(with: PostApiRouter.item(postId: 1))
             .responseDecodable(of: PostModels.Post.self) { response in
                 defer {

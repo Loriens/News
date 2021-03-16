@@ -12,7 +12,9 @@ final class PostListConfigurator {
     func create() -> PostListView {
         let viewController = PostListView()
         let presenter = PostListPresenter(viewController: viewController)
-        let worker = PostListWorker()
+        let interceptor = AlamofireNetworkServiceRetrier()
+        let networkService = AlamofireNetworkService(interceptor: interceptor)
+        let worker = PostListWorker(networkService: networkService)
         let interactor = PostListInteractor(presenter: presenter, worker: worker)
         viewController.interactor = interactor
         viewController.router = PostListRouter(viewController: viewController)

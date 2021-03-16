@@ -7,15 +7,16 @@
 //
 
 final class PostWorker {
-    private var postId: Int
-    private var networkClient = NetworkClient.shared
+    private let postId: Int
+    private let networkService: NetworkService
 
-    init(postId: Int) {
+    init(postId: Int, networkService: NetworkService) {
         self.postId = postId
+        self.networkService = networkService
     }
 
     func getPost(completion: @escaping (Result<PostModels.Post, PostModels.Error>) -> Void) {
-        networkClient.request(with: PostApiRouter.item(postId: postId))
+        networkService.request(with: PostApiRouter.item(postId: postId))
             .responseDecodable(of: PostModels.Post.self) { response in
                 if let error = response.error {
                     completion(.failure(.unknown(error)))

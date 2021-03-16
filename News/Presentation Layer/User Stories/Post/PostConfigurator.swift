@@ -7,7 +7,7 @@
 //
 
 final class PostConfigurator {
-    private var postId: Int
+    private let postId: Int
 
     init(postId: Int) {
         self.postId = postId
@@ -16,7 +16,9 @@ final class PostConfigurator {
     func create() -> PostView {
         let viewController = PostView()
         let presenter = PostPresenter(viewController: viewController)
-        let worker = PostWorker(postId: postId)
+        let interceptor = AlamofireNetworkServiceRetrier()
+        let networkService = AlamofireNetworkService(interceptor: interceptor)
+        let worker = PostWorker(postId: postId, networkService: networkService)
         let interactor = PostInteractor(presenter: presenter, worker: worker)
         viewController.interactor = interactor
         let router = PostRouter(viewController: viewController)

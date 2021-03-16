@@ -7,12 +7,14 @@
 //
 
 final class PostListWorker {
-    private var networkClient = NetworkClient.shared
+    private let networkService: NetworkService
 
-    init() { }
+    init(networkService: NetworkService) {
+        self.networkService = networkService
+    }
 
     func getPostList(completion: @escaping (Result<[PostListModels.Post], PostListModels.Error>) -> Void) {
-        networkClient.request(with: PostApiRouter.list)
+        networkService.request(with: PostApiRouter.list)
             .responseDecodable(of: [PostListModels.Post].self) { response in
                 if let error = response.error {
                     completion(.failure(.unknown(error)))

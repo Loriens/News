@@ -1,23 +1,20 @@
 //
-//  NetworkClient.swift
+//  AlamofireNetworkService.swift
 //  News
 //
 //  Created by Vladislav on 16.05.2020.
 //  Copyright © 2020 Vladislav Markov. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
-struct NetworkClient {
-    static let shared = NetworkClient()
-
+struct AlamofireNetworkService: NetworkService {
     private let session: Session
-    private let retrier: RequestInterceptor
+    private let interceptor: RequestInterceptor
 
-    private init() {
-        retrier = NetworkClientRetrier()
-        session = Session(interceptor: retrier)
+    init(interceptor: RequestInterceptor) {
+        self.interceptor = interceptor
+        session = Session(interceptor: interceptor)
     }
 
     func request(with convertible: URLRequestConvertible) -> DataRequest {
