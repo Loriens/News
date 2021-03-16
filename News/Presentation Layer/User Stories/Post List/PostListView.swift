@@ -17,6 +17,8 @@ final class PostListView: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        dataSource = PostListDataSource(tableView: tableView)
+        tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
@@ -28,10 +30,8 @@ final class PostListView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupComponents()
         setupActions()
-
         interactor?.getPostList()
     }
 
@@ -42,17 +42,15 @@ final class PostListView: UIViewController {
     private func setupComponents() {
         navigationItem.title = AppLocalization.PostList.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        tableView.refreshControl = refreshControl
-        dataSource = PostListDataSource(tableView: tableView)
-        tableView.dataSource = dataSource
         view.addSubview(tableView)
         setupConstraints()
     }
 
-    private func setupActions() { }
+    private func setupActions() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(getPostList), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -68,7 +66,7 @@ final class PostListView: UIViewController {
 
 // MARK: - Actions
 extension PostListView {
-    @objc private func loadData() {
+    @objc private func getPostList() {
         interactor?.getPostList()
     }
 }

@@ -25,10 +25,8 @@ final class PostView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupComponents()
         setupActions()
-
         interactor?.getPost()
     }
 

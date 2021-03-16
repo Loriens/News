@@ -25,9 +25,7 @@ final class PostListCell: TableCell {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         selectionStyle = .none
-
         contentView.addSubview(titleLabel)
-
         setupConstraints()
     }
 
