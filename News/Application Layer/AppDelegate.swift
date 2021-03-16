@@ -10,7 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    // MARK: - UIApplicationDelegate
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -20,10 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    // MARK: - Application configuration
     private func setup(_ application: UIApplication) { }
 
-    // MARK: - Window configuration
     private func setup(_ window: UIWindow) {
         let configurator = PostListConfigurator()
         let vc = configurator.create()
