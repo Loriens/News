@@ -6,31 +6,29 @@
 //  Copyright © 2021 Vladislav Markov. All rights reserved.
 //
 
-final class PostListInteractor {
-    private var presenter: PostListPresenter
+protocol PostListBusinessLogic {
+    func getPostList()
+    func openPost(with request: PostListModels.OpenPost.Request)
+}
+
+final class PostListInteractor: PostListBusinessLogic {
+    private var presenter: PostListPresentationLogic
     private var worker: PostListWorker
 
-    init(presenter: PostListPresenter, worker: PostListWorker) {
+    init(presenter: PostListPresentationLogic, worker: PostListWorker) {
         self.presenter = presenter
         self.worker = worker
     }
 
-    func viewDidLoad() {
-        loadData()
-    }
-
-    func loadData() {
+    func getPostList() {
         worker.getPostList { [weak self] (result) in
-            switch result {
-            case let .success(posts):
-                self?.presenter.refresh(with: posts)
-            case let .failure(error):
-                self?.presenter.refresh(with: error)
-            }
+            let response = PostListModels.GetPostList.Response(result: result)
+            self?.presenter.update(with: response)
         }
     }
 
-    func postDidSelect(post: PostListModule.Post) {
-        presenter.route(action: .openPost(id: post.id))
+    func openPost(with request: PostListModels.OpenPost.Request) {
+        let response = PostListModels.OpenPost.Response(post: request.post)
+        presenter.update(with: response)
     }
 }

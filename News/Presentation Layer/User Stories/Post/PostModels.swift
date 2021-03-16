@@ -1,5 +1,5 @@
 //
-//  PostModule.swift
+//  PostModels.swift
 //  News
 //
 //  Created by Vladislav Markov on 28.02.2021.
@@ -8,17 +8,24 @@
 
 import Foundation
 
-enum PostModule {
+enum PostModels {
+    enum GetPost {
+        struct Request { }
+        
+        struct Response {
+            let result: Result<Post, Error>
+        }
+        
+        struct ViewModel {
+            let result: Result<Post, Error>
+        }
+    }
+
     struct Post: Decodable {
         var id: Int
         var title: String?
         var body: String?
     }
-
-    struct ViewModel {
-        let post: Post
-    }
-
 
     enum Error: LocalizedError {
         case emptyPost

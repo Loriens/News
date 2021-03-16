@@ -9,8 +9,7 @@
 import UIKit
 
 protocol PostViewDisplayLogic: AnyObject {
-    func update(with viewModel: PostModule.ViewModel)
-    func update(with error: Error)
+    func update(with viewModel: PostModels.GetPost.ViewModel)
 }
 
 final class PostView: UIViewController {
@@ -21,8 +20,8 @@ final class PostView: UIViewController {
         return label
     }()
 
-    var interactor: PostInteractor?
-    var router: PostRouter?
+    var interactor: PostBusinessLogic?
+    var router: PostRoutingLogic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +29,7 @@ final class PostView: UIViewController {
         setupComponents()
         setupActions()
 
-        interactor?.viewDidLoad()
+        interactor?.getPost()
     }
     
     override func viewDidLayoutSubviews() {
@@ -63,15 +62,16 @@ final class PostView: UIViewController {
 
 // MARK: - PostViewDisplayLogic
 extension PostView: PostViewDisplayLogic {
-    func update(with viewModel: PostModule.ViewModel) {
-        UIView.animate(withDuration: 0.3) {
-            self.textLabel.text = viewModel.post.body ?? ""
-        }
-    }
-
-    func update(with error: Error) {
-        UIView.animate(withDuration: 0.3) {
-            self.textLabel.text = error.localizedDescription
+    func update(with viewModel: PostModels.GetPost.ViewModel) {
+        switch  viewModel.result {
+        case let .success(post):
+            UIView.animate(withDuration: 0.3) {
+                self.textLabel.text = post.body ?? ""
+            }
+        case let .failure(error):
+            UIView.animate(withDuration: 0.3) {
+                self.textLabel.text = error.localizedDescription
+            }
         }
     }
 }

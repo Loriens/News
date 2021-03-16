@@ -19,7 +19,8 @@ final class PostConfigurator {
         let worker = PostWorker(postId: postId)
         let interactor = PostInteractor(presenter: presenter, worker: worker)
         viewController.interactor = interactor
-        viewController.router = PostRouter(viewController: viewController)
+        let router = PostRouter(viewController: viewController)
+        viewController.router = router
         return viewController
     }
 }

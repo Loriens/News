@@ -12,7 +12,7 @@ import XCTest
 final class PostTests: XCTestCase {
     // MARK: - Test functions
     func testValidPostResponseMapsToPost() throws {
-        let post = PostModule.Post(
+        let post = PostModels.Post(
             id: 1,
             title: "Title",
             body: "Text"

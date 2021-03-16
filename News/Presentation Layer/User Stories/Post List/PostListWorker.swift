@@ -11,18 +11,14 @@ final class PostListWorker {
 
     init() { }
 
-    func getPostList(completion: @escaping (Result<[PostListModule.Post], PostListModule.Error>) -> Void) {
+    func getPostList(completion: @escaping (Result<[PostListModels.Post], PostListModels.Error>) -> Void) {
         networkClient.request(with: PostApiRouter.list)
-            .responseDecodable(of: [PostListModule.Post].self) { response in
+            .responseDecodable(of: [PostListModels.Post].self) { response in
                 if let error = response.error {
                     completion(.failure(.unknown(error)))
                     return
                 }
-                guard let posts = response.value else {
-                    completion(.success([]))
-                    return
-                }
-                completion(.success(posts))
+                completion(.success(response.value ?? []))
             }
     }
 }

@@ -9,9 +9,8 @@
 import UIKit
 
 protocol PostListViewDisplayLogic: AnyObject {
-    func update(with viewModel: PostListModule.ViewModel)
-    func update(with error: Error)
-    func route(action: PostListModule.Route.Action)
+    func update(with viewModel: PostListModels.GetPostList.ViewModel)
+    func update(with viewModel: PostListModels.OpenPost.ViewModel)
 }
 
 final class PostListView: UIViewController {
@@ -19,12 +18,13 @@ final class PostListView: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
 
-    var interactor: PostListInteractor?
-    var router: PostListRouter?
-    private var dataSource: UITableViewDiffableDataSource<PostListModule.Section, PostListModule.Item>?
+    var interactor: PostListBusinessLogic?
+    var router: PostListRoutingLogic?
+    private var dataSource: UITableViewDiffableDataSource<PostListModels.Section, PostListModels.Item>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ final class PostListView: UIViewController {
         setupComponents()
         setupActions()
 
-        interactor?.viewDidLoad()
+        interactor?.getPostList()
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,38 +70,35 @@ final class PostListView: UIViewController {
 extension PostListView {
     @objc
     private func loadData() {
-        interactor?.loadData()
+        interactor?.getPostList()
     }
 }
 
 // MARK: - PostListViewDisplayLogic
 extension PostListView: PostListViewDisplayLogic {
-    func update(with viewModel: PostListModule.ViewModel) {
+    func update(with viewModel: PostListModels.GetPostList.ViewModel) {
         tableView.refreshControl?.endRefreshing()
-        dataSource?.apply(viewModel.snapshot, animatingDifferences: true)
+        switch viewModel.result {
+        case let .success(snapshot):
+            dataSource?.apply(snapshot, animatingDifferences: true)
+        case let .failure(error):
+            Toast.shared.show(title: AppLocalization.General.error.localized, message: error.localizedDescription)
+        }
     }
 
-    func update(with error: Error) {
-        tableView.refreshControl?.endRefreshing()
-        Toast.shared.show(title: AppLocalization.General.error.localized, message: error.localizedDescription)
-    }
-
-    func route(action: PostListModule.Route.Action) {
-        router?.route(action: action)
+    func update(with viewModel: PostListModels.OpenPost.ViewModel) {
+        router?.routeToPost(postId: viewModel.postId)
     }
 }
 
 // MARK: - UITableViewDelegate
 extension PostListView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = dataSource?.itemIdentifier(for: indexPath) else { return }
         switch item {
         case let .post(post):
-            interactor?.postDidSelect(post: post)
+            let request = PostListModels.OpenPost.Request(post: post)
+            interactor?.openPost(with: request)
         }
     }
 }

@@ -6,7 +6,9 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-final class PostRouter {
+protocol PostRoutingLogic { }
+
+final class PostRouter: PostRoutingLogic {
     private weak var viewController: PostView?
 
     init(viewController: PostView) {

@@ -8,23 +8,21 @@
 
 import Foundation
 
-final class PostPresenter {
+protocol PostPresentationLogic {
+    func update(with response: PostModels.GetPost.Response)
+}
+
+final class PostPresenter: PostPresentationLogic {
     private weak var viewController: PostViewDisplayLogic?
 
     init(viewController: PostViewDisplayLogic) {
         self.viewController = viewController
     }
 
-    func refresh(with post: PostModule.Post) {
-        let viewModel = PostModule.ViewModel(post: post)
+    func update(with response: PostModels.GetPost.Response) {
+        let viewModel = PostModels.GetPost.ViewModel(result: response.result)
         DispatchQueue.main.async {
             self.viewController?.update(with: viewModel)
-        }
-    }
-
-    func refresh(with error: Error) {
-        DispatchQueue.main.async {
-            self.viewController?.update(with: error)
         }
     }
 }

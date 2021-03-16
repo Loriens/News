@@ -14,9 +14,9 @@ final class PostWorker {
         self.postId = postId
     }
 
-    func getPost(completion: @escaping (Result<PostModule.Post, PostModule.Error>) -> Void) {
+    func getPost(completion: @escaping (Result<PostModels.Post, PostModels.Error>) -> Void) {
         networkClient.request(with: PostApiRouter.item(postId: postId))
-            .responseDecodable(of: PostModule.Post.self) { response in
+            .responseDecodable(of: PostModels.Post.self) { response in
                 if let error = response.error {
                     completion(.failure(.unknown(error)))
                     return

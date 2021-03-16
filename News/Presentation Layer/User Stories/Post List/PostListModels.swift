@@ -1,5 +1,5 @@
 //
-//  PostListModule.swift
+//  PostListModels.swift
 //  News
 //
 //  Created by Vladislav Markov on 28.02.2021.
@@ -9,9 +9,31 @@
 import Foundation
 import UIKit
 
-enum PostListModule {
-    struct ViewModel {
-        let snapshot: NSDiffableDataSourceSnapshot<Section, Item>
+enum PostListModels {
+    enum GetPostList {
+        struct Request { }
+        
+        struct Response {
+            let result: Result<[Post], Error>
+        }
+        
+        struct ViewModel {
+            let result: Result<NSDiffableDataSourceSnapshot<Section, Item>, Error>
+        }
+    }
+    
+    enum OpenPost {
+        struct Request {
+            let post: Post
+        }
+        
+        struct Response {
+            let post: Post
+        }
+        
+        struct ViewModel {
+            let postId: Int
+        }
     }
 
     struct Post: Decodable, Hashable {
@@ -25,12 +47,6 @@ enum PostListModule {
 
     enum Item: Hashable {
         case post(_ post: Post)
-    }
-
-    enum Route {
-        enum Action {
-            case openPost(id: Int)
-        }
     }
 
     enum Error: LocalizedError {

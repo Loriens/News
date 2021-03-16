@@ -12,11 +12,11 @@
 		042E434A246FE4C900866E29 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E4349246FE4C900866E29 /* NetworkClient.swift */; };
 		042E434C246FECD600866E29 /* NetworkClientRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E434B246FECD600866E29 /* NetworkClientRetrier.swift */; };
 		042E435024703D8C00866E29 /* PostApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E434F24703D8C00866E29 /* PostApiTests.swift */; };
-		0446611225EBA1210092B63A /* PostModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446611125EBA1210092B63A /* PostModule.swift */; };
+		0446611225EBA1210092B63A /* PostModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446611125EBA1210092B63A /* PostModels.swift */; };
 		0446611725EBA2C00092B63A /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446611625EBA2C00092B63A /* PostPresenter.swift */; };
 		0446611C25EBA2C60092B63A /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446611B25EBA2C60092B63A /* PostInteractor.swift */; };
 		0446612125EBA5B60092B63A /* PostWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446612025EBA5B60092B63A /* PostWorker.swift */; };
-		0446613225EBADC20092B63A /* PostListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446613125EBADC20092B63A /* PostListModule.swift */; };
+		0446613225EBADC20092B63A /* PostListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446613125EBADC20092B63A /* PostListModels.swift */; };
 		0446613A25EBADC80092B63A /* PostListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446613925EBADC80092B63A /* PostListPresenter.swift */; };
 		0446613F25EBADD10092B63A /* PostListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446613E25EBADD10092B63A /* PostListInteractor.swift */; };
 		0446614425EBADDB0092B63A /* PostListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446614325EBADDB0092B63A /* PostListWorker.swift */; };
@@ -86,11 +86,11 @@
 		042E4349246FE4C900866E29 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		042E434B246FECD600866E29 /* NetworkClientRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientRetrier.swift; sourceTree = "<group>"; };
 		042E434F24703D8C00866E29 /* PostApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApiTests.swift; sourceTree = "<group>"; };
-		0446611125EBA1210092B63A /* PostModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModule.swift; sourceTree = "<group>"; };
+		0446611125EBA1210092B63A /* PostModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModels.swift; sourceTree = "<group>"; };
 		0446611625EBA2C00092B63A /* PostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
 		0446611B25EBA2C60092B63A /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
 		0446612025EBA5B60092B63A /* PostWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWorker.swift; sourceTree = "<group>"; };
-		0446613125EBADC20092B63A /* PostListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListModule.swift; sourceTree = "<group>"; };
+		0446613125EBADC20092B63A /* PostListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListModels.swift; sourceTree = "<group>"; };
 		0446613925EBADC80092B63A /* PostListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListPresenter.swift; sourceTree = "<group>"; };
 		0446613E25EBADD10092B63A /* PostListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListInteractor.swift; sourceTree = "<group>"; };
 		0446614325EBADDB0092B63A /* PostListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListWorker.swift; sourceTree = "<group>"; };
@@ -409,7 +409,7 @@
 				04CB2171238A9AB900907863 /* PostListConfigurator.swift */,
 				0446615625EBAE9F0092B63A /* PostListDataSource.swift */,
 				0446613E25EBADD10092B63A /* PostListInteractor.swift */,
-				0446613125EBADC20092B63A /* PostListModule.swift */,
+				0446613125EBADC20092B63A /* PostListModels.swift */,
 				0446613925EBADC80092B63A /* PostListPresenter.swift */,
 				04CB2172238A9AB900907863 /* PostListRouter.swift */,
 				04CB2170238A9AB900907863 /* PostListView.swift */,
@@ -423,7 +423,7 @@
 			children = (
 				04CB2190238A9DE500907863 /* PostConfigurator.swift */,
 				0446611B25EBA2C60092B63A /* PostInteractor.swift */,
-				0446611125EBA1210092B63A /* PostModule.swift */,
+				0446611125EBA1210092B63A /* PostModels.swift */,
 				0446611625EBA2C00092B63A /* PostPresenter.swift */,
 				04CB2191238A9DE500907863 /* PostRouter.swift */,
 				04CB218F238A9DE500907863 /* PostView.swift */,
@@ -649,7 +649,7 @@
 				04CB217C238A9B1A00907863 /* TableCell.swift in Sources */,
 				0476102722CA6A4D00DE4982 /* AppConfiguration.swift in Sources */,
 				0446614425EBADDB0092B63A /* PostListWorker.swift in Sources */,
-				0446611225EBA1210092B63A /* PostModule.swift in Sources */,
+				0446611225EBA1210092B63A /* PostModels.swift in Sources */,
 				0476101022CA698000DE4982 /* AppDelegate.swift in Sources */,
 				04CB2186238A9B7300907863 /* String+className.swift in Sources */,
 				0446617125EBB4910092B63A /* Reusable.swift in Sources */,
@@ -658,7 +658,7 @@
 				04CB2158238A94F300907863 /* PostApiRouter.swift in Sources */,
 				0480C6762591FD5400B9566F /* Stylable.swift in Sources */,
 				042E4348246FE3B200866E29 /* Toast.swift in Sources */,
-				0446613225EBADC20092B63A /* PostListModule.swift in Sources */,
+				0446613225EBADC20092B63A /* PostListModels.swift in Sources */,
 				0476102F22CA6C8700DE4982 /* AppAssets.swift in Sources */,
 				04CB2196238A9DE500907863 /* PostRouter.swift in Sources */,
 				04CB219D238AA1D700907863 /* Localizable.swift in Sources */,

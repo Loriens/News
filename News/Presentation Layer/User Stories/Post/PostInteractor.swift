@@ -6,23 +6,23 @@
 //  Copyright © 2021 Vladislav Markov. All rights reserved.
 //
 
-final class PostInteractor {
-    private var presenter: PostPresenter
+protocol PostBusinessLogic {
+    func getPost()
+}
+
+final class PostInteractor: PostBusinessLogic {
+    private var presenter: PostPresentationLogic
     private var worker: PostWorker
 
-    init(presenter: PostPresenter, worker: PostWorker) {
+    init(presenter: PostPresentationLogic, worker: PostWorker) {
         self.presenter = presenter
         self.worker = worker
     }
 
-    func viewDidLoad() {
+    func getPost() {
         worker.getPost { [weak self] (result) in
-            switch result {
-            case let .success(post):
-                self?.presenter.refresh(with: post)
-            case let .failure(error):
-                self?.presenter.refresh(with: error)
-            }
+            let response = PostModels.GetPost.Response(result: result)
+            self?.presenter.update(with: response)
         }
     }
 }
