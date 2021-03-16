@@ -28,13 +28,13 @@ final class PostListView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupComponents()
         setupActions()
 
         interactor?.getPostList()
     }
-    
+
     override func viewDidLayoutSubviews() {
         applyStyles()
     }

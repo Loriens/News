@@ -12,7 +12,7 @@ import Alamofire
 enum PostApiRouter: ApiConfiguration {
     case list
     case item(postId: Int)
-    
+
     internal var method: HTTPMethod {
         switch self {
         case .list,
@@ -20,7 +20,7 @@ enum PostApiRouter: ApiConfiguration {
             return .get
         }
     }
-    
+
     internal var path: String {
         switch self {
         case .list:
@@ -29,7 +29,7 @@ enum PostApiRouter: ApiConfiguration {
             return "/posts/\(postId)"
         }
     }
-    
+
     internal var headers: HTTPHeaders? {
         switch self {
         case .list,
@@ -37,7 +37,7 @@ enum PostApiRouter: ApiConfiguration {
             return nil
         }
     }
-    
+
     internal var parameters: Parameters? {
         switch self {
         case .list,
@@ -45,7 +45,7 @@ enum PostApiRouter: ApiConfiguration {
             return nil
         }
     }
-    
+
     func asURLRequest() throws -> URLRequest {
         let url = try AppConfiguration.serverUrl.asURL()
         var request = URLRequest(url: url.appendingPathComponent(path))

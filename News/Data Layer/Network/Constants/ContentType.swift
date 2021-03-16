@@ -10,7 +10,7 @@ import Foundation
 
 enum ContentType {
     case json
-    
+
     var value: String {
         switch self {
         case .json:

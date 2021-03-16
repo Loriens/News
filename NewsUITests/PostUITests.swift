@@ -27,7 +27,7 @@ final class PostUITests: XCTestCase {
         cell.tap()
         XCTAssert(app.navigationBars["Detail"].exists)
     }
-    
+
     // MARK: - Module functions
     private func waitForElementToAppear(element: XCUIElement, timeout: TimeInterval = 10) {
         let existsPredicate = NSPredicate(format: "exists == 1")

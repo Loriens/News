@@ -11,7 +11,7 @@ import Alamofire
 
 struct NetworkClient {
     static let shared = NetworkClient()
-    
+
     private let session: Session
     private let retrier: RequestInterceptor
 

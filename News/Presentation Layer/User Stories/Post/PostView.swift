@@ -31,7 +31,7 @@ final class PostView: UIViewController {
 
         interactor?.getPost()
     }
-    
+
     override func viewDidLayoutSubviews() {
         applyStyles()
     }

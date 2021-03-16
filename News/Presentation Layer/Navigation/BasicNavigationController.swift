@@ -12,17 +12,17 @@ final class BasicNavigationController: UINavigationController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return AppTheme.statusBarStyle
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupComponents()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNeedsStatusBarAppearanceUpdate()
     }
-    
+
     private func setupComponents() {
         navigationBar.isTranslucent = false
         navigationBar.barTintColor = AppTheme.backgroundBar

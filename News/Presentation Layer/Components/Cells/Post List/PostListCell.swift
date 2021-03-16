@@ -30,11 +30,11 @@ final class PostListCell: TableCell {
 
         setupConstraints()
     }
-    
+
     func update(with title: String) {
         titleLabel.text = title
     }
-    
+
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),

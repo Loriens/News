@@ -38,7 +38,7 @@ final class PostListPresenter: PostListPresentationLogic {
             }
         }
     }
-    
+
     func update(with response: PostListModels.OpenPost.Response) {
         let viewModel = PostListModels.OpenPost.ViewModel(postId: response.post.id)
         DispatchQueue.main.async {

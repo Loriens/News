@@ -11,11 +11,11 @@ import Foundation
 enum PostModels {
     enum GetPost {
         struct Request { }
-        
+
         struct Response {
             let result: Result<Post, Error>
         }
-        
+
         struct ViewModel {
             let result: Result<Post, Error>
         }

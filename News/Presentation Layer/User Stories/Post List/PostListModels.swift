@@ -12,25 +12,25 @@ import UIKit
 enum PostListModels {
     enum GetPostList {
         struct Request { }
-        
+
         struct Response {
             let result: Result<[Post], Error>
         }
-        
+
         struct ViewModel {
             let result: Result<NSDiffableDataSourceSnapshot<Section, Item>, Error>
         }
     }
-    
+
     enum OpenPost {
         struct Request {
             let post: Post
         }
-        
+
         struct Response {
             let post: Post
         }
-        
+
         struct ViewModel {
             let postId: Int
         }

@@ -14,8 +14,8 @@ extension Localizable {
     var key: String {
         return rawValue as? String ?? ""
     }
-    
+
     var localized: String {
         return NSLocalizedString(key, comment: "")
-    } 
+    }
 }

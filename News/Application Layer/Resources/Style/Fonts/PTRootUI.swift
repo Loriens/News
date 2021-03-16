@@ -13,7 +13,7 @@ enum PTRootUI {
     case regular
     case medium
     case bold
-    
+
     public func font(size: CGFloat) -> UIFont {
         switch self {
         case .light:

@@ -30,13 +30,13 @@ final class Toast {
         ToastManager.shared.position = .center
         ToastManager.shared.duration = 3.0
     }
-    
+
     func show(title: String?, message: String?) {
         DispatchQueue.main.async {
             self.keyWindow?.makeToast(message, title: title)
         }
     }
-    
+
     func hideAllToasts() {
         DispatchQueue.main.async {
             self.keyWindow?.hideAllToasts()

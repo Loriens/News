@@ -20,19 +20,19 @@ enum AppLocalization {
         case tryAgain = "TryAgain"
         case error = "Error"
     }
-    
+
     enum Error: String, Localizable {
         case unknown = "UnknownError"
-        
+
         enum Post: String, Localizable {
             case emptyPost = "EmptyPostError"
         }
     }
-    
+
     enum PostList: String, Localizable {
         case title = "PostListTitle"
     }
-    
+
     enum Post: String, Localizable {
         case title = "PostTitle"
     }
