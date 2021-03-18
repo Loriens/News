@@ -32,7 +32,8 @@ final class PostListView: UIViewController {
         super.viewDidLoad()
         setupComponents()
         setupActions()
-        interactor?.getPostList()
+        let request = PostListModels.GetPostList.Request()
+        interactor?.getPostList(with: request)
     }
 
     override func viewDidLayoutSubviews() {
@@ -68,7 +69,8 @@ final class PostListView: UIViewController {
 // MARK: - Actions
 extension PostListView {
     @objc private func getPostList() {
-        interactor?.getPostList()
+        let request = PostListModels.GetPostList.Request()
+        interactor?.getPostList(with: request)
     }
 }
 
