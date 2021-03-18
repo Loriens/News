@@ -45,11 +45,12 @@ final class PostView: UIViewController {
     private func setupActions() { }
 
     private func setupConstraints() {
+        let margins = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            textLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            textLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            textLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            textLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32)
+            textLabel.topAnchor.constraint(equalTo: margins.topAnchor),
+            textLabel.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+            textLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            textLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
         ])
     }
 
