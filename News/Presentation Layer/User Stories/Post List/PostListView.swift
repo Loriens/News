@@ -53,11 +53,12 @@ final class PostListView: UIViewController {
     }
 
     private func setupConstraints() {
+        let safeArea = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
     }
 
