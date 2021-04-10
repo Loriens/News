@@ -40,6 +40,16 @@ final class PostListView: UIViewController {
         applyStyles()
     }
 
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        guard traitCollection.preferredContentSizeCategory
+                != previousTraitCollection?.preferredContentSizeCategory else { return }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
     private func setupComponents() {
         navigationItem.title = AppLocalization.PostList.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
