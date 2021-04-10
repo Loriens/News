@@ -11,7 +11,7 @@ import Alamofire
 
 enum PostApiRouter: ApiConfiguration {
     case list
-    case item(postId: Int)
+    case item(postId: PostModule.Post.Id)
 
     internal var method: HTTPMethod {
         switch self {

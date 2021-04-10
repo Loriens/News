@@ -7,6 +7,6 @@
 //
 
 struct PostListCellViewModel: Hashable {
-    let postId: Int
+    let postId: PostListModule.Post.Id
     let title: String
 }

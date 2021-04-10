@@ -86,6 +86,10 @@ identifier_name:
     - vc
     - nc
 
+type_name:
+  excluded:
+    - Id
+
 line_length:
   ignores_urls: true
   ignores_function_declarations: true

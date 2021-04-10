@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PostListRoutingLogic {
-    func routeToPost(postId: Int)
+    func routeToPost(postId: PostListModule.Post.Id)
 }
 
 final class PostListRouter: PostListRoutingLogic {
@@ -19,7 +19,7 @@ final class PostListRouter: PostListRoutingLogic {
         self.viewController = viewController
     }
 
-    func routeToPost(postId: Int) {
+    func routeToPost(postId: PostListModule.Post.Id) {
         let configurator = PostFactory(postId: postId)
         let vc = configurator.create()
         viewController?.navigationController?.pushViewController(vc, animated: true)

@@ -7,9 +7,9 @@
 //
 
 final class PostFactory {
-    private let postId: Int
+    private let postId: PostModule.Post.Id
 
-    init(postId: Int) {
+    init(postId: PostModule.Post.Id) {
         self.postId = postId
     }
 

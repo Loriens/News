@@ -24,20 +24,22 @@ enum PostListModule {
 
     enum OpenPost {
         struct Request {
-            let postId: Int
+            let postId: Post.Id
         }
 
         struct Response {
-            let postId: Int
+            let postId: Post.Id
         }
 
         struct ViewModel {
-            let postId: Int
+            let postId: Post.Id
         }
     }
 
     struct Post: Decodable, Hashable {
-        var id: Int
+        typealias Id = Int
+
+        var id: Id
         var title: String
     }
 

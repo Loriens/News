@@ -22,7 +22,9 @@ enum PostModule {
     }
 
     struct Post: Decodable {
-        var id: Int
+        typealias Id = Int
+
+        var id: Id
         var body: String?
     }
 
