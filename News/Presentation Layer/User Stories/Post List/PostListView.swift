@@ -20,7 +20,6 @@ final class PostListView: UIViewController {
         dataSource = PostListDataSource(tableView: tableView)
         tableView.dataSource = dataSource
         tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
 
