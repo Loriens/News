@@ -28,7 +28,7 @@ final class BasicNavigationController: UINavigationController {
         navigationBar.barTintColor = AppTheme.backgroundBar
         navigationBar.tintColor = AppTheme.accentText
         navigationBar.titleTextAttributes = [
-            .font: PTRootUI.bold.font(size: 20.0),
+            .font: PTRootUI.bold.dynamicallyScalingFont(size: 20),
             .foregroundColor: AppTheme.accentText
         ]
         navigationBar.prefersLargeTitles = false

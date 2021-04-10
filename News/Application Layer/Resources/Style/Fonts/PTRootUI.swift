@@ -8,34 +8,16 @@
 
 import UIKit
 
-enum PTRootUI {
-    case light
-    case regular
-    case medium
-    case bold
+enum PTRootUI: String {
+    case light = "PTRootUI-Light"
+    case regular = "PTRootUI-Regular"
+    case medium = "PTRootUI-Medium"
+    case bold = "PTRootUI-Bold"
 
-    public func font(size: CGFloat) -> UIFont {
-        switch self {
-        case .light:
-            if let font = UIFont(name: "PT Root UI_Light", size: size) {
-                return font
-            }
-            return UIFont.systemFont(ofSize: size, weight: .light)
-        case .regular:
-            if let font = UIFont(name: "PT Root UI_Regular", size: size) {
-                return font
-            }
-            return UIFont.systemFont(ofSize: size, weight: .regular)
-        case .medium:
-            if let font = UIFont(name: "PT Root UI_Medium", size: size) {
-                return font
-            }
-            return UIFont.systemFont(ofSize: size, weight: .medium)
-        case .bold:
-            if let font = UIFont(name: "PT Root UI_Bold", size: size) {
-                return font
-            }
-            return UIFont.systemFont(ofSize: size, weight: .bold)
+    func dynamicallyScalingFont(size: CGFloat) -> UIFont {
+        guard let font = UIFont(name: rawValue, size: size) else {
+            fatalError("Retrieve \(rawValue) font with error")
         }
+        return UIFontMetrics.default.scaledFont(for: font)
     }
 }

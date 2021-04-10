@@ -14,8 +14,9 @@ extension StyleWrapper where Element: UILabel {
             label.textAlignment = .center
             label.numberOfLines = 0
             label.lineBreakMode = .byTruncatingTail
-            label.font = PTRootUI.bold.font(size: 20.0)
+            label.font = PTRootUI.bold.dynamicallyScalingFont(size: 22)
             label.textColor = AppTheme.accentMain
+            label.adjustsFontForContentSizeCategory = true
         }
     }
 
@@ -24,8 +25,9 @@ extension StyleWrapper where Element: UILabel {
             label.textAlignment = .left
             label.numberOfLines = 0
             label.lineBreakMode = .byTruncatingTail
-            label.font = PTRootUI.medium.font(size: 16.0)
+            label.font = PTRootUI.medium.dynamicallyScalingFont(size: 18)
             label.textColor = AppTheme.textMain
+            label.adjustsFontForContentSizeCategory = true
         }
     }
 
@@ -34,8 +36,9 @@ extension StyleWrapper where Element: UILabel {
             label.textAlignment = .left
             label.numberOfLines = 0
             label.lineBreakMode = .byTruncatingTail
-            label.font = PTRootUI.medium.font(size: 14.0)
+            label.font = PTRootUI.medium.dynamicallyScalingFont(size: 16)
             label.textColor = AppTheme.textSub
+            label.adjustsFontForContentSizeCategory = true
         }
     }
 }
