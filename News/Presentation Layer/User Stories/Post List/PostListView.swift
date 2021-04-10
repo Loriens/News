@@ -9,8 +9,8 @@
 import UIKit
 
 protocol PostListViewDisplayLogic: AnyObject {
-    func update(with viewModel: PostListModels.GetPostList.ViewModel)
-    func update(with viewModel: PostListModels.OpenPost.ViewModel)
+    func update(with viewModel: PostListModule.GetPostList.ViewModel)
+    func update(with viewModel: PostListModule.OpenPost.ViewModel)
 }
 
 final class PostListView: UIViewController {
@@ -26,13 +26,13 @@ final class PostListView: UIViewController {
 
     var interactor: PostListBusinessLogic?
     var router: PostListRoutingLogic?
-    private var dataSource: UITableViewDiffableDataSource<PostListModels.Section, PostListModels.Item>?
+    private var dataSource: UITableViewDiffableDataSource<PostListModule.Section, PostListModule.Item>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupComponents()
         setupActions()
-        let request = PostListModels.GetPostList.Request()
+        let request = PostListModule.GetPostList.Request()
         interactor?.getPostList(with: request)
     }
 
@@ -69,14 +69,14 @@ final class PostListView: UIViewController {
 // MARK: - Actions
 extension PostListView {
     @objc private func getPostList() {
-        let request = PostListModels.GetPostList.Request()
+        let request = PostListModule.GetPostList.Request()
         interactor?.getPostList(with: request)
     }
 }
 
 // MARK: - PostListViewDisplayLogic
 extension PostListView: PostListViewDisplayLogic {
-    func update(with viewModel: PostListModels.GetPostList.ViewModel) {
+    func update(with viewModel: PostListModule.GetPostList.ViewModel) {
         tableView.refreshControl?.endRefreshing()
         switch viewModel.result {
         case let .success(snapshot):
@@ -86,7 +86,7 @@ extension PostListView: PostListViewDisplayLogic {
         }
     }
 
-    func update(with viewModel: PostListModels.OpenPost.ViewModel) {
+    func update(with viewModel: PostListModule.OpenPost.ViewModel) {
         router?.routeToPost(postId: viewModel.postId)
     }
 }
@@ -97,7 +97,7 @@ extension PostListView: UITableViewDelegate {
         guard let item = dataSource?.itemIdentifier(for: indexPath) else { return }
         switch item {
         case let .post(cellViewModel):
-            let request = PostListModels.OpenPost.Request(postId: cellViewModel.postId)
+            let request = PostListModule.OpenPost.Request(postId: cellViewModel.postId)
             interactor?.openPost(with: request)
         }
     }

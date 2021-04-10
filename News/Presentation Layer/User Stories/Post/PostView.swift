@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PostViewDisplayLogic: AnyObject {
-    func update(with viewModel: PostModels.GetPost.ViewModel)
+    func update(with viewModel: PostModule.GetPost.ViewModel)
 }
 
 final class PostView: UIViewController {
@@ -61,7 +61,7 @@ final class PostView: UIViewController {
 
 // MARK: - PostViewDisplayLogic
 extension PostView: PostViewDisplayLogic {
-    func update(with viewModel: PostModels.GetPost.ViewModel) {
+    func update(with viewModel: PostModule.GetPost.ViewModel) {
         switch  viewModel.result {
         case let .success(post):
             UIView.animate(withDuration: 0.3) {

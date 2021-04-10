@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PostPresentationLogic {
-    func update(with response: PostModels.GetPost.Response)
+    func update(with response: PostModule.GetPost.Response)
 }
 
 final class PostPresenter: PostPresentationLogic {
@@ -19,8 +19,8 @@ final class PostPresenter: PostPresentationLogic {
         self.viewController = viewController
     }
 
-    func update(with response: PostModels.GetPost.Response) {
-        let viewModel = PostModels.GetPost.ViewModel(result: response.result)
+    func update(with response: PostModule.GetPost.Response) {
+        let viewModel = PostModule.GetPost.ViewModel(result: response.result)
         DispatchQueue.main.async {
             self.viewController?.update(with: viewModel)
         }

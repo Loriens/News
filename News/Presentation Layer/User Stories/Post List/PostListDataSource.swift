@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PostListDataSource: UITableViewDiffableDataSource<PostListModels.Section, PostListModels.Item> {
+final class PostListDataSource: UITableViewDiffableDataSource<PostListModule.Section, PostListModule.Item> {
     init(tableView: UITableView) {
         super.init(tableView: tableView) { tableView, indexPath, item -> UITableViewCell? in
             switch item {

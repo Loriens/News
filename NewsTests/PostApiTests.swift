@@ -26,7 +26,7 @@ final class PostApiTests: XCTestCase {
             waitForExpectations(timeout: timeout)
         }
         networkService?.request(with: PostApiRouter.list)
-            .responseDecodable(of: [PostListModels.Post].self) { response in
+            .responseDecodable(of: [PostListModule.Post].self) { response in
                 defer {
                     self.expectation?.fulfill()
                 }
@@ -43,7 +43,7 @@ final class PostApiTests: XCTestCase {
             waitForExpectations(timeout: timeout)
         }
         networkService?.request(with: PostApiRouter.item(postId: 1))
-            .responseDecodable(of: PostModels.Post.self) { response in
+            .responseDecodable(of: PostModule.Post.self) { response in
                 defer {
                     self.expectation?.fulfill()
                 }

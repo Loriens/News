@@ -1,5 +1,5 @@
 //
-//  PostListModels.swift
+//  PostListModule.swift
 //  News
 //
 //  Created by Vladislav Markov on 28.02.2021.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum PostListModels {
+enum PostListModule {
     enum GetPostList {
         struct Request { }
 

@@ -9,8 +9,8 @@
 import UIKit
 
 protocol PostListPresentationLogic {
-    func update(with response: PostListModels.GetPostList.Response)
-    func update(with response: PostListModels.OpenPost.Response)
+    func update(with response: PostListModule.GetPostList.Response)
+    func update(with response: PostListModule.OpenPost.Response)
 }
 
 final class PostListPresenter: PostListPresentationLogic {
@@ -20,28 +20,28 @@ final class PostListPresenter: PostListPresentationLogic {
         self.viewController = viewController
     }
 
-    func update(with response: PostListModels.GetPostList.Response) {
+    func update(with response: PostListModule.GetPostList.Response) {
         switch response.result {
         case let .success(posts):
-            var snapshot = NSDiffableDataSourceSnapshot<PostListModels.Section, PostListModels.Item>()
+            var snapshot = NSDiffableDataSourceSnapshot<PostListModule.Section, PostListModule.Item>()
             snapshot.appendSections([.main])
             let cellViewModels = posts.map({ PostListCellViewModel(postId: $0.id, title: $0.title) })
-            let items = cellViewModels.map({ PostListModels.Item.post(viewModel: $0) })
+            let items = cellViewModels.map({ PostListModule.Item.post(viewModel: $0) })
             snapshot.appendItems(items)
-            let viewModel = PostListModels.GetPostList.ViewModel(result: .success(snapshot))
+            let viewModel = PostListModule.GetPostList.ViewModel(result: .success(snapshot))
             DispatchQueue.main.async {
                 self.viewController?.update(with: viewModel)
             }
         case let .failure(error):
-            let viewModel = PostListModels.GetPostList.ViewModel(result: .failure(error))
+            let viewModel = PostListModule.GetPostList.ViewModel(result: .failure(error))
             DispatchQueue.main.async {
                 self.viewController?.update(with: viewModel)
             }
         }
     }
 
-    func update(with response: PostListModels.OpenPost.Response) {
-        let viewModel = PostListModels.OpenPost.ViewModel(postId: response.postId)
+    func update(with response: PostListModule.OpenPost.Response) {
+        let viewModel = PostListModule.OpenPost.ViewModel(postId: response.postId)
         DispatchQueue.main.async {
             self.viewController?.update(with: viewModel)
         }

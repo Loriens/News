@@ -7,8 +7,8 @@
 //
 
 protocol PostListBusinessLogic {
-    func getPostList(with request: PostListModels.GetPostList.Request)
-    func openPost(with request: PostListModels.OpenPost.Request)
+    func getPostList(with request: PostListModule.GetPostList.Request)
+    func openPost(with request: PostListModule.OpenPost.Request)
 }
 
 final class PostListInteractor: PostListBusinessLogic {
@@ -20,15 +20,15 @@ final class PostListInteractor: PostListBusinessLogic {
         self.worker = worker
     }
 
-    func getPostList(with request: PostListModels.GetPostList.Request) {
+    func getPostList(with request: PostListModule.GetPostList.Request) {
         worker.getPostList { [weak self] result in
-            let response = PostListModels.GetPostList.Response(result: result)
+            let response = PostListModule.GetPostList.Response(result: result)
             self?.presenter.update(with: response)
         }
     }
 
-    func openPost(with request: PostListModels.OpenPost.Request) {
-        let response = PostListModels.OpenPost.Response(postId: request.postId)
+    func openPost(with request: PostListModule.OpenPost.Request) {
+        let response = PostListModule.OpenPost.Response(postId: request.postId)
         presenter.update(with: response)
     }
 }
