@@ -20,7 +20,7 @@ final class PostListRouter: PostListRoutingLogic {
     }
 
     func routeToPost(postId: Int) {
-        let configurator = PostConfigurator(postId: postId)
+        let configurator = PostFactory(postId: postId)
         let vc = configurator.create()
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }

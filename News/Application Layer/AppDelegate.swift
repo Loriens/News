@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setup(_ application: UIApplication) { }
 
     private func setup(_ window: UIWindow) {
-        let configurator = PostListConfigurator()
+        let configurator = PostListFactory()
         let vc = configurator.create()
         let nc = BasicNavigationController(rootViewController: vc)
         self.window = window

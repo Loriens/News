@@ -1,12 +1,12 @@
 //
-//  PostListConfigurator.swift
+//  PostListFactory.swift
 //  News
 //
 //  Created by Vladislav on 24.11.2019.
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-final class PostListConfigurator {
+final class PostListFactory {
     init() { }
 
     func create() -> PostListView {
