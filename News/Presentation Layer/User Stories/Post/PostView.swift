@@ -22,6 +22,17 @@ final class PostView: UIViewController {
 
     var interactor: PostBusinessLogic?
     var router: PostRoutingLogic?
+    private var staticConstraints: [NSLayoutConstraint] = []
+
+    private var textLabelConstraints: [NSLayoutConstraint] {
+        let margins = view.layoutMarginsGuide
+        return [
+            textLabel.topAnchor.constraint(equalTo: margins.topAnchor),
+            textLabel.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+            textLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            textLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+        ]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,25 +45,23 @@ final class PostView: UIViewController {
         applyStyles()
     }
 
+    override func updateViewConstraints() {
+        if staticConstraints.isEmpty {
+            staticConstraints = textLabelConstraints
+            NSLayoutConstraint.activate(staticConstraints)
+        }
+        super.updateViewConstraints()
+    }
+
     private func setupComponents() {
         navigationItem.title = AppLocalization.Post.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         view.addSubview(textLabel)
         view.backgroundColor = .white
-        setupConstraints()
+        view.setNeedsUpdateConstraints()
     }
 
     private func setupActions() { }
-
-    private func setupConstraints() {
-        let margins = view.layoutMarginsGuide
-        NSLayoutConstraint.activate([
-            textLabel.topAnchor.constraint(equalTo: margins.topAnchor),
-            textLabel.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
-            textLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-            textLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
-        ])
-    }
 
     private func applyStyles() {
         textLabel.apply(.bigTitleStyle())

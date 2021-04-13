@@ -26,6 +26,17 @@ final class PostListView: UIViewController {
     var interactor: PostListBusinessLogic?
     var router: PostListRoutingLogic?
     private var dataSource: UITableViewDiffableDataSource<PostListModule.Section, PostListModule.Item>?
+    private var staticConstraints: [NSLayoutConstraint] = []
+
+    private var tableViewConstraints: [NSLayoutConstraint] {
+        let safeArea = view.safeAreaLayoutGuide
+        return [
+            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+        ]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +50,13 @@ final class PostListView: UIViewController {
         applyStyles()
     }
 
+    override func updateViewConstraints() {
+        if staticConstraints.isEmpty {
+            staticConstraints = tableViewConstraints
+            NSLayoutConstraint.activate(staticConstraints)
+        }
+        super.updateViewConstraints()
+    }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
@@ -53,23 +71,13 @@ final class PostListView: UIViewController {
         navigationItem.title = AppLocalization.PostList.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         view.addSubview(tableView)
-        setupConstraints()
+        view.setNeedsUpdateConstraints()
     }
 
     private func setupActions() {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(getPostList), for: .valueChanged)
         tableView.refreshControl = refreshControl
-    }
-
-    private func setupConstraints() {
-        let safeArea = view.safeAreaLayoutGuide
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
-        ])
     }
 
     private func applyStyles() { }

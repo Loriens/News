@@ -16,9 +16,29 @@ final class PostListCell: TableCell {
         return label
     }()
 
+    private var staticConstraints: [NSLayoutConstraint] = []
+
+    private var titleLabelConstraints: [NSLayoutConstraint] {
+        return [
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20)
+        ]
+    }
+
     override func prepareForReuse() {
-        titleLabel.text = ""
         super.prepareForReuse()
+        titleLabel.text = ""
+    }
+
+    override func updateConstraints() {
+        if staticConstraints.isEmpty {
+            staticConstraints = titleLabelConstraints
+            NSLayoutConstraint.activate(staticConstraints)
+        }
+        super.updateConstraints()
     }
 
     override func setupView() {
@@ -26,20 +46,10 @@ final class PostListCell: TableCell {
         contentView.backgroundColor = .clear
         selectionStyle = .none
         contentView.addSubview(titleLabel)
-        setupConstraints()
+        setNeedsUpdateConstraints()
     }
 
     func update(with viewModel: PostListCellViewModel) {
         titleLabel.text = viewModel.title
-    }
-
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20)
-        ])
     }
 }
