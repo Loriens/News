@@ -14,6 +14,23 @@ protocol PostListViewDisplayLogic: AnyObject {
 }
 
 final class PostListView: UIViewController {
+    enum Section {
+        case main
+    }
+
+    struct Item: Hashable {
+        let postId: PostListModule.Post.Id
+        let title: String
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(postId)
+        }
+
+        static func == (lhs: Item, rhs: Item) -> Bool {
+            return lhs.postId == rhs.postId
+        }
+    }
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +42,7 @@ final class PostListView: UIViewController {
 
     var interactor: PostListBusinessLogic?
     var router: PostListRoutingLogic?
-    private var dataSource: UITableViewDiffableDataSource<PostListModule.Section, PostListModule.Item>?
+    private var dataSource: UITableViewDiffableDataSource<Section, Item>?
     private var staticConstraints: [NSLayoutConstraint] = []
 
     private var tableViewConstraints: [NSLayoutConstraint] {
@@ -112,10 +129,7 @@ extension PostListView: PostListViewDisplayLogic {
 extension PostListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = dataSource?.itemIdentifier(for: indexPath) else { return }
-        switch item {
-        case let .post(cellViewModel):
-            let request = PostListModule.OpenPost.Request(postId: cellViewModel.postId)
-            interactor?.openPost(with: request)
-        }
+        let request = PostListModule.OpenPost.Request(postId: item.postId)
+        interactor?.openPost(with: request)
     }
 }

@@ -49,7 +49,7 @@ final class PostListCell: TableCell {
         setNeedsUpdateConstraints()
     }
 
-    func update(with viewModel: PostListCellViewModel) {
-        titleLabel.text = viewModel.title
+    func update(with item: PostListView.Item) {
+        titleLabel.text = item.title
     }
 }

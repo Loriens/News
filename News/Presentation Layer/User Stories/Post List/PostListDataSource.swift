@@ -8,15 +8,12 @@
 
 import UIKit
 
-final class PostListDataSource: UITableViewDiffableDataSource<PostListModule.Section, PostListModule.Item> {
+final class PostListDataSource: UITableViewDiffableDataSource<PostListView.Section, PostListView.Item> {
     init(tableView: UITableView) {
         super.init(tableView: tableView) { tableView, indexPath, item -> UITableViewCell? in
-            switch item {
-            case let .post(cellViewModel):
-                let cell = tableView.dequeue(PostListCell.self, for: indexPath)
-                cell.update(with: cellViewModel)
-                return cell
-            }
+            let cell = tableView.dequeue(PostListCell.self, for: indexPath)
+            cell.update(with: item)
+            return cell
         }
         tableView.registerCellClass(PostListCell.self)
     }

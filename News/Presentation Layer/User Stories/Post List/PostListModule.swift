@@ -18,7 +18,7 @@ enum PostListModule {
         }
 
         struct ViewModel {
-            let result: Result<NSDiffableDataSourceSnapshot<Section, Item>, Error>
+            let result: Result<NSDiffableDataSourceSnapshot<PostListView.Section, PostListView.Item>, Error>
         }
     }
 
@@ -41,14 +41,6 @@ enum PostListModule {
 
         var id: Id
         var title: String
-    }
-
-    enum Section {
-        case main
-    }
-
-    enum Item: Hashable {
-        case post(viewModel: PostListCellViewModel)
     }
 
     enum Error: LocalizedError {

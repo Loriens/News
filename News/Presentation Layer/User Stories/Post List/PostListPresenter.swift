@@ -23,10 +23,9 @@ final class PostListPresenter: PostListPresentationLogic {
     func update(with response: PostListModule.GetPostList.Response) {
         switch response.result {
         case let .success(posts):
-            var snapshot = NSDiffableDataSourceSnapshot<PostListModule.Section, PostListModule.Item>()
+            var snapshot = NSDiffableDataSourceSnapshot<PostListView.Section, PostListView.Item>()
             snapshot.appendSections([.main])
-            let cellViewModels = posts.map({ PostListCellViewModel(postId: $0.id, title: $0.title) })
-            let items = cellViewModels.map({ PostListModule.Item.post(viewModel: $0) })
+            let items = posts.map({ PostListView.Item(postId: $0.id, title: $0.title) })
             snapshot.appendItems(items)
             let viewModel = PostListModule.GetPostList.ViewModel(result: .success(snapshot))
             DispatchQueue.main.async {
