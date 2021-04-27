@@ -18,8 +18,8 @@ final class PostListRouter: PostListRoutingLogic {
     }
 
     func routeToPost(postId: PostListModule.Post.Id) {
-        let configurator = PostFactory(postId: postId)
-        let vc = configurator.create()
+        let factory = PostFactory(postId: postId)
+        let vc = factory.create()
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
