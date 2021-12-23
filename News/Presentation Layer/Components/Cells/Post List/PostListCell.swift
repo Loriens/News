@@ -42,14 +42,20 @@ final class PostListCell: TableCell {
     }
 
     override func setupView() {
+        isAccessibilityElement = true
+        accessibilityTraits = .button
+
         backgroundColor = .clear
-        contentView.backgroundColor = .clear
         selectionStyle = .none
+
+        contentView.backgroundColor = .clear
         contentView.addSubview(titleLabel)
+
         setNeedsUpdateConstraints()
     }
 
     func update(with item: PostListView.Item) {
         titleLabel.text = item.title
+        accessibilityLabel = item.title
     }
 }
