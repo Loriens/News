@@ -17,6 +17,7 @@ final class PostView: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = AppLocalization.General.loading.localized
+        label.isAccessibilityElement = true
         return label
     }()
 
@@ -73,12 +74,12 @@ extension PostView: PostViewDisplayLogic {
     func update(with viewModel: PostModule.GetPost.ViewModel) {
         switch  viewModel.result {
         case let .success(post):
-            UIView.animate(withDuration: 0.3) {
-                self.textLabel.text = post.body ?? ""
+            UIView.animate(withDuration: 0.3) { [self] in
+                textLabel.text = post.body ?? ""
             }
         case let .failure(error):
-            UIView.animate(withDuration: 0.3) {
-                self.textLabel.text = error.localizedDescription
+            UIView.animate(withDuration: 0.3) { [self] in
+                textLabel.text = error.localizedDescription
             }
         }
     }
