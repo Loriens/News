@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DesignSystem
 
 protocol PostListViewDisplayLogic: AnyObject {
     func update(with viewModel: PostListModule.GetPostList.ViewModel)
@@ -55,16 +56,17 @@ final class PostListView: UIViewController {
         ]
     }
 
+    override func loadView() {
+        view = View()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupComponents()
         setupActions()
+        applyStyles()
         let request = PostListModule.GetPostList.Request()
         interactor?.getPostList(with: request)
-    }
-
-    override func viewDidLayoutSubviews() {
-        applyStyles()
     }
 
     override func updateViewConstraints() {
@@ -97,7 +99,10 @@ final class PostListView: UIViewController {
         tableView.refreshControl = refreshControl
     }
 
-    private func applyStyles() { }
+    private func applyStyles() {
+        (view as? View)?.applyStyle(.basic)
+        tableView.backgroundColor = .clear
+    }
 }
 
 // MARK: - Actions
