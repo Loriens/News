@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import DesignSystem
 
 protocol PostViewDisplayLogic: AnyObject {
     func update(with viewModel: PostModule.GetPost.ViewModel)
 }
 
 final class PostView: UIViewController {
-    private let textLabel: UILabel = {
-        let label = UILabel()
+    private let textLabel: Label = {
+        let label = Label()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = AppLocalization.General.loading.localized
         label.isAccessibilityElement = true
@@ -35,15 +36,17 @@ final class PostView: UIViewController {
         ]
     }
 
+    override func loadView() {
+        view = View()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupComponents()
         setupActions()
-        interactor?.getPost()
-    }
-
-    override func viewDidLayoutSubviews() {
         applyStyles()
+        let request = PostModule.GetPost.Request()
+        interactor?.getPost(request: request)
     }
 
     override func updateViewConstraints() {
@@ -58,14 +61,14 @@ final class PostView: UIViewController {
         navigationItem.title = AppLocalization.Post.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         view.addSubview(textLabel)
-        view.backgroundColor = .white
         view.setNeedsUpdateConstraints()
     }
 
     private func setupActions() { }
 
     private func applyStyles() {
-        textLabel.apply(.bigTitleStyle())
+        (view as? View)?.applyStyle(.basic)
+        textLabel.applyStyle(.bigTitle)
     }
 }
 

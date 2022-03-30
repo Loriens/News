@@ -48,7 +48,5 @@
 	</array>
 	<key>ServerUrl</key>
 	<string>$(SERVER_URL)</string>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 </dict>
 </plist>
