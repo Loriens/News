@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import DesignSystem
 
 final class PostListCell: TableCell {
-    private let titleLabel: UILabel = {
-        let label = UILabel()
+    private let titleLabel: Label = {
+        let label = Label()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.apply(.smallTitleStyle())
+        label.applyStyle(.smallTitle)
         return label
     }()
 

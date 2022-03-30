@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import DesignSystem
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        updateTheme()
         setup(application)
         let window = UIWindow(frame: UIScreen.main.bounds)
         setup(window)
@@ -24,9 +26,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setup(_ window: UIWindow) {
         let configurator = PostListFactory()
         let vc = configurator.create()
-        let nc = BasicNavigationController(rootViewController: vc)
+        let nc = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
+        (nc.navigationBar as? NavigationBar)?.applyStyle(.basic)
+        nc.viewControllers = [vc]
         self.window = window
         self.window?.rootViewController = nc
         self.window?.makeKeyAndVisible()
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        updateTheme()
+    }
+
+    private func updateTheme() {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .dark:
+            ThemeManager.shared.update(theme: ThemeMainDark())
+        default:
+            ThemeManager.shared.update(theme: ThemeMainLight())
+        }
     }
 }

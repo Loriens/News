@@ -7,7 +7,7 @@
 //
 
 protocol PostBusinessLogic {
-    func getPost()
+    func getPost(request: PostModule.GetPost.Request)
 }
 
 final class PostInteractor: PostBusinessLogic {
@@ -19,7 +19,7 @@ final class PostInteractor: PostBusinessLogic {
         self.worker = worker
     }
 
-    func getPost() {
+    func getPost(request: PostModule.GetPost.Request) {
         worker.getPost { [weak self] result in
             let response = PostModule.GetPost.Response(result: result)
             self?.presenter.update(with: response)
