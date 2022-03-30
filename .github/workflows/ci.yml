@@ -4,9 +4,20 @@ on: [push]
 
 jobs:
   build:
-
+    runs-on: ubuntu-latest
+    name: "Run Danger"
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - uses: actions/checkout@v1
+      - name: Danger
+        uses: danger/swift@3.3.0
+        with:
+            args: --failOnErrors --no-publish-check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build:
     runs-on: macOS-latest
-
+    if: github.ref == 'refs/heads/develop'
     steps:
     - uses: actions/checkout@v2
     - name: Run tests
