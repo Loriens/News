@@ -9,7 +9,6 @@ SwiftLint.lint(inline: true)
 if danger.git.commits.count > 1 {
     fail("PR должен содержать не больше 1 коммита")
 }
-message("\(danger.git.commits.count)")
 
 /// Проверка на размер PR
 let prLimit = 600
