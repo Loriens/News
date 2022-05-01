@@ -6,21 +6,19 @@
 //  Copyright © 2021 Vladislav Markov. All rights reserved.
 //
 
-final class PostListWorker {
-    private let networkService: NetworkService
+import NetworkLayer
 
-    init(networkService: NetworkService) {
-        self.networkService = networkService
+final class PostListWorker {
+    private let networkClient: NetworkClient
+
+    init(networkClient: NetworkClient) {
+        self.networkClient = networkClient
     }
 
-    func getPostList(completion: @escaping (Result<[PostListModule.Post], PostListModule.Error>) -> Void) {
-        networkService.request(with: PostApiRouter.list)
-            .responseDecodable(of: [PostListModule.Post].self) { response in
-                if let error = response.error {
-                    completion(.failure(.unknown(error)))
-                    return
-                }
-                completion(.success(response.value ?? []))
-            }
+    func getPostList(completion: @escaping (Result<[PostListModule.Post], NetworkError>) -> Void) {
+        let request = PostRequestFactory.list.makeRequest()
+        networkClient.perform(request: request) { (result: Result<[PostListModule.Post], NetworkError>)  in
+            completion(result)
+        }
     }
 }

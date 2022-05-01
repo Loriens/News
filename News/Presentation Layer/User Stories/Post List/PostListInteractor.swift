@@ -22,7 +22,13 @@ final class PostListInteractor: PostListBusinessLogic {
 
     func getPostList(with request: PostListModule.GetPostList.Request) {
         worker.getPostList { [weak self] result in
-            let response = PostListModule.GetPostList.Response(result: result)
+            let response: PostListModule.GetPostList.Response
+            switch result {
+            case .success(let posts):
+                response = .init(result: .success(posts))
+            case .failure(let error):
+                response = .init(result: .failure(.unknown(error)))
+            }
             self?.presenter.update(with: response)
         }
     }
