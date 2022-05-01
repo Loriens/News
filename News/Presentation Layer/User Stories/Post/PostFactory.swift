@@ -6,6 +6,8 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
+import NetworkLayer
+
 final class PostFactory {
     private let postId: PostModule.Post.Id
 
@@ -16,9 +18,8 @@ final class PostFactory {
     func create() -> PostView {
         let viewController = PostView()
         let presenter = PostPresenter(viewController: viewController)
-        let interceptor = AlamofireNetworkServiceRetrier()
-        let networkService = AlamofireNetworkService(interceptor: interceptor)
-        let worker = PostWorker(postId: postId, networkService: networkService)
+        let networkClient = DefaultNetworkClient()
+        let worker = PostWorker(postId: postId, networkClient: networkClient)
         let interactor = PostInteractor(presenter: presenter, worker: worker)
         viewController.interactor = interactor
         let router = PostRouter(viewController: viewController)

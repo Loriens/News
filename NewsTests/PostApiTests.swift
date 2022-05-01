@@ -7,51 +7,45 @@
 //
 
 import XCTest
+import NetworkLayer
 @testable import News
 
 final class PostApiTests: XCTestCase {
     var expectation: XCTestExpectation?
-    var networkService: NetworkService?
+    var networkClient: NetworkClient?
     let timeout: TimeInterval = 10
 
     override func setUp() {
         super.setUp()
         expectation = expectation(description: "Server responds in reasonable time")
-        let interceptor = AlamofireNetworkServiceRetrier()
-        networkService = AlamofireNetworkService(interceptor: interceptor)
+        networkClient = DefaultNetworkClient()
     }
 
     func testPostListResponse() {
-        defer {
-            waitForExpectations(timeout: timeout)
-        }
-        networkService?.request(with: PostApiRouter.list)
-            .responseDecodable(of: [PostListModule.Post].self) { response in
-                defer {
-                    self.expectation?.fulfill()
-                }
-                if let error = response.error {
-                    XCTFail(error.localizedDescription)
-                    return
-                }
-                XCTAssert(response.value?.isEmpty == false)
+        let request = PostRequestFactory.list.makeRequest()
+        networkClient?.perform(request: request) { (result: Result<[PostListModule.Post], NetworkError>) in
+            switch result {
+            case .success(let posts):
+                XCTAssertFalse(posts.isEmpty)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
+            self.expectation?.fulfill()
+        }
+        waitForExpectations(timeout: timeout)
     }
 
     func testPostItemResponse() {
-        defer {
-            waitForExpectations(timeout: timeout)
-        }
-        networkService?.request(with: PostApiRouter.item(postId: 1))
-            .responseDecodable(of: PostModule.Post.self) { response in
-                defer {
-                    self.expectation?.fulfill()
-                }
-                if let error = response.error {
-                    XCTFail(error.localizedDescription)
-                    return
-                }
-                XCTAssertNotNil(response.value)
+        let request = PostRequestFactory.item(postId: 1).makeRequest()
+        networkClient?.perform(request: request) { (result: Result<PostModule.Post, NetworkError>) in
+            switch result {
+            case .success(let post):
+                XCTAssertNotNil(post.body)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
+            self.expectation?.fulfill()
+        }
+        waitForExpectations(timeout: timeout)
     }
 }
