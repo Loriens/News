@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		041D31BE2471716500381A2F /* PostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D31BD2471716500381A2F /* PostUITests.swift */; };
-		042E4348246FE3B200866E29 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E4347246FE3B200866E29 /* Toast.swift */; };
 		042E435024703D8C00866E29 /* PostApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E434F24703D8C00866E29 /* PostApiTests.swift */; };
 		0446611225EBA1210092B63A /* PostModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446611125EBA1210092B63A /* PostModule.swift */; };
 		0446611725EBA2C00092B63A /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446611625EBA2C00092B63A /* PostPresenter.swift */; };
@@ -19,8 +18,6 @@
 		0446613F25EBADD10092B63A /* PostListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446613E25EBADD10092B63A /* PostListInteractor.swift */; };
 		0446614425EBADDB0092B63A /* PostListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446614325EBADDB0092B63A /* PostListWorker.swift */; };
 		0446615725EBAE9F0092B63A /* PostListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446615625EBAE9F0092B63A /* PostListDataSource.swift */; };
-		0446616B25EBB4360092B63A /* UITableView+deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446616A25EBB4360092B63A /* UITableView+deque.swift */; };
-		0446617125EBB4910092B63A /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446617025EBB4910092B63A /* Reusable.swift */; };
 		0476101022CA698000DE4982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476100F22CA698000DE4982 /* AppDelegate.swift */; };
 		0476101A22CA698200DE4982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0476101822CA698200DE4982 /* LaunchScreen.storyboard */; };
 		0476102722CA6A4D00DE4982 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476102622CA6A4D00DE4982 /* AppConfiguration.swift */; };
@@ -30,21 +27,18 @@
 		0476104D22CA729500DE4982 /* PT Root UI_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0476104922CA729500DE4982 /* PT Root UI_Regular.otf */; };
 		0476104E22CA729500DE4982 /* PT Root UI_Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0476104A22CA729500DE4982 /* PT Root UI_Light.otf */; };
 		0476104F22CA729500DE4982 /* PT Root UI_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0476104B22CA729500DE4982 /* PT Root UI_Bold.otf */; };
-		047E86E823E6F54D00EE1165 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 047E86E723E6F54D00EE1165 /* Toast */; settings = {ATTRIBUTES = (Required, ); }; };
 		04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B51C9C22CA8E5400CE0A0E /* PostListCell.swift */; };
 		04CB2158238A94F300907863 /* PostRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2157238A94F300907863 /* PostRequestFactory.swift */; };
 		04CB2175238A9AB900907863 /* PostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2170238A9AB900907863 /* PostListView.swift */; };
 		04CB2176238A9AB900907863 /* PostListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2171238A9AB900907863 /* PostListFactory.swift */; };
 		04CB2177238A9AB900907863 /* PostListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2172238A9AB900907863 /* PostListRouter.swift */; };
-		04CB217C238A9B1A00907863 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB217B238A9B1A00907863 /* TableCell.swift */; };
-		04CB2186238A9B7300907863 /* String+className.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2185238A9B7300907863 /* String+className.swift */; };
-		04CB218D238A9D3B00907863 /* UITableView+registerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB218C238A9D3B00907863 /* UITableView+registerClass.swift */; };
 		04CB2194238A9DE500907863 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB218F238A9DE500907863 /* PostView.swift */; };
 		04CB2195238A9DE500907863 /* PostFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2190238A9DE500907863 /* PostFactory.swift */; };
 		04CB2196238A9DE500907863 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2191238A9DE500907863 /* PostRouter.swift */; };
 		04CB219D238AA1D700907863 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219C238AA1D700907863 /* Localizable.swift */; };
 		E5A0D040281EB96B00DBF05C /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = E5A0D03F281EB96B00DBF05C /* DesignSystem */; };
 		E5A0D042281EB96E00DBF05C /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = E5A0D041281EB96E00DBF05C /* NetworkLayer */; };
+		E5C2CEF6281F2877005A5356 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CEF5281F2877005A5356 /* PostResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +62,6 @@
 		041D31B324716FFD00381A2F /* NewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		041D31B724716FFD00381A2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041D31BD2471716500381A2F /* PostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUITests.swift; sourceTree = "<group>"; };
-		042E4347246FE3B200866E29 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		042E434F24703D8C00866E29 /* PostApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApiTests.swift; sourceTree = "<group>"; };
 		0446611125EBA1210092B63A /* PostModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModule.swift; sourceTree = "<group>"; };
 		0446611625EBA2C00092B63A /* PostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
@@ -79,8 +72,6 @@
 		0446613E25EBADD10092B63A /* PostListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListInteractor.swift; sourceTree = "<group>"; };
 		0446614325EBADDB0092B63A /* PostListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListWorker.swift; sourceTree = "<group>"; };
 		0446615625EBAE9F0092B63A /* PostListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListDataSource.swift; sourceTree = "<group>"; };
-		0446616A25EBB4360092B63A /* UITableView+deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+deque.swift"; sourceTree = "<group>"; };
-		0446617025EBB4910092B63A /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		0476100C22CA698000DE4982 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0476100F22CA698000DE4982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0476101922CA698200DE4982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,9 +89,6 @@
 		04CB2170238A9AB900907863 /* PostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
 		04CB2171238A9AB900907863 /* PostListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListFactory.swift; sourceTree = "<group>"; };
 		04CB2172238A9AB900907863 /* PostListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListRouter.swift; sourceTree = "<group>"; };
-		04CB217B238A9B1A00907863 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
-		04CB2185238A9B7300907863 /* String+className.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+className.swift"; sourceTree = "<group>"; };
-		04CB218C238A9D3B00907863 /* UITableView+registerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+registerClass.swift"; sourceTree = "<group>"; };
 		04CB218F238A9DE500907863 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		04CB2190238A9DE500907863 /* PostFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFactory.swift; sourceTree = "<group>"; };
 		04CB2191238A9DE500907863 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
@@ -109,6 +97,7 @@
 		04E73C702430B9D30005E2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5A0D03D281EB85C00DBF05C /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = LocalPackages/DesignSystem; sourceTree = "<group>"; };
 		E5A0D03E281EB86500DBF05C /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkLayer; path = LocalPackages/NetworkLayer; sourceTree = "<group>"; };
+		E5C2CEF5281F2877005A5356 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +113,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5A0D042281EB96E00DBF05C /* NetworkLayer in Frameworks */,
-				047E86E823E6F54D00EE1165 /* Toast in Frameworks */,
 				E5A0D040281EB96B00DBF05C /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,9 +163,7 @@
 			children = (
 				0476102122CA69C900DE4982 /* Application Layer */,
 				0476102322CA69D600DE4982 /* Data Layer */,
-				04CB2169238A979D00907863 /* Domain Layer */,
 				0476102422CA69DE00DE4982 /* Presentation Layer */,
-				0476102522CA69E500DE4982 /* Service Layer */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -197,7 +183,7 @@
 		0476102322CA69D600DE4982 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
-				04CB2156238A94C200907863 /* Network */,
+				04CB2156238A94C200907863 /* Post */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
@@ -209,15 +195,6 @@
 				04B51C7622CA8C6A00CE0A0E /* User Stories */,
 			);
 			path = "Presentation Layer";
-			sourceTree = "<group>";
-		};
-		0476102522CA69E500DE4982 /* Service Layer */ = {
-			isa = PBXGroup;
-			children = (
-				04CB2179238A9AFE00907863 /* Representable */,
-				04CB2187238A9B8D00907863 /* View Helper */,
-			);
-			path = "Service Layer";
 			sourceTree = "<group>";
 		};
 		0476102A22CA6C4200DE4982 /* Resources */ = {
@@ -283,30 +260,13 @@
 			path = "Post List";
 			sourceTree = "<group>";
 		};
-		04CB2156238A94C200907863 /* Network */ = {
+		04CB2156238A94C200907863 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				04CB2157238A94F300907863 /* PostRequestFactory.swift */,
+				E5C2CEF8281F2DB8005A5356 /* Request */,
+				E5C2CEF4281F2871005A5356 /* Response */,
 			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		04CB2169238A979D00907863 /* Domain Layer */ = {
-			isa = PBXGroup;
-			children = (
-				04CB216A238A97A900907863 /* Extensions */,
-			);
-			path = "Domain Layer";
-			sourceTree = "<group>";
-		};
-		04CB216A238A97A900907863 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				04CB2185238A9B7300907863 /* String+className.swift */,
-				0446616A25EBB4360092B63A /* UITableView+deque.swift */,
-				04CB218C238A9D3B00907863 /* UITableView+registerClass.swift */,
-			);
-			path = Extensions;
+			path = Post;
 			sourceTree = "<group>";
 		};
 		04CB216D238A9A6600907863 /* Post List */ = {
@@ -338,31 +298,6 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
-		04CB2179238A9AFE00907863 /* Representable */ = {
-			isa = PBXGroup;
-			children = (
-				04CB217A238A9B0A00907863 /* Table */,
-			);
-			path = Representable;
-			sourceTree = "<group>";
-		};
-		04CB217A238A9B0A00907863 /* Table */ = {
-			isa = PBXGroup;
-			children = (
-				0446617025EBB4910092B63A /* Reusable.swift */,
-				04CB217B238A9B1A00907863 /* TableCell.swift */,
-			);
-			path = Table;
-			sourceTree = "<group>";
-		};
-		04CB2187238A9B8D00907863 /* View Helper */ = {
-			isa = PBXGroup;
-			children = (
-				042E4347246FE3B200866E29 /* Toast.swift */,
-			);
-			path = "View Helper";
-			sourceTree = "<group>";
-		};
 		04E73C6D2430B9D30005E2F5 /* NewsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +321,22 @@
 				E5A0D03E281EB86500DBF05C /* NetworkLayer */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		E5C2CEF4281F2871005A5356 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				E5C2CEF5281F2877005A5356 /* PostResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		E5C2CEF8281F2DB8005A5356 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				04CB2157238A94F300907863 /* PostRequestFactory.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,7 +375,6 @@
 			);
 			name = News;
 			packageProductDependencies = (
-				047E86E723E6F54D00EE1165 /* Toast */,
 				E5A0D03F281EB96B00DBF05C /* DesignSystem */,
 				E5A0D041281EB96E00DBF05C /* NetworkLayer */,
 			);
@@ -484,7 +434,6 @@
 			);
 			mainGroup = 0476100322CA698000DE4982;
 			packageReferences = (
-				047E86E623E6F54D00EE1165 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 0476100D22CA698000DE4982 /* Products */;
 			projectDirPath = "";
@@ -561,25 +510,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				0446615725EBAE9F0092B63A /* PostListDataSource.swift in Sources */,
-				0446616B25EBB4360092B63A /* UITableView+deque.swift in Sources */,
 				0476103122CA6DDC00DE4982 /* AppLocalization.swift in Sources */,
-				04CB217C238A9B1A00907863 /* TableCell.swift in Sources */,
 				0476102722CA6A4D00DE4982 /* AppConfiguration.swift in Sources */,
 				0446614425EBADDB0092B63A /* PostListWorker.swift in Sources */,
 				0446611225EBA1210092B63A /* PostModule.swift in Sources */,
 				0476101022CA698000DE4982 /* AppDelegate.swift in Sources */,
-				04CB2186238A9B7300907863 /* String+className.swift in Sources */,
-				0446617125EBB4910092B63A /* Reusable.swift in Sources */,
 				04CB2194238A9DE500907863 /* PostView.swift in Sources */,
 				0446613F25EBADD10092B63A /* PostListInteractor.swift in Sources */,
 				04CB2158238A94F300907863 /* PostRequestFactory.swift in Sources */,
-				042E4348246FE3B200866E29 /* Toast.swift in Sources */,
 				0446613225EBADC20092B63A /* PostListModule.swift in Sources */,
 				04CB2196238A9DE500907863 /* PostRouter.swift in Sources */,
 				04CB219D238AA1D700907863 /* Localizable.swift in Sources */,
-				04CB218D238A9D3B00907863 /* UITableView+registerClass.swift in Sources */,
 				04CB2176238A9AB900907863 /* PostListFactory.swift in Sources */,
 				0446613A25EBADC80092B63A /* PostListPresenter.swift in Sources */,
+				E5C2CEF6281F2877005A5356 /* PostResponse.swift in Sources */,
 				04CB2175238A9AB900907863 /* PostListView.swift in Sources */,
 				0446612125EBA5B60092B63A /* PostWorker.swift in Sources */,
 				0446611725EBA2C00092B63A /* PostPresenter.swift in Sources */,
@@ -917,23 +861,7 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		047E86E623E6F54D00EE1165 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		047E86E723E6F54D00EE1165 /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 047E86E623E6F54D00EE1165 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
-		};
 		E5A0D03F281EB96B00DBF05C /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DesignSystem;

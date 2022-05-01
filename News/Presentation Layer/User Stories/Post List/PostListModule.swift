@@ -14,7 +14,7 @@ enum PostListModule {
         struct Request { }
 
         struct Response {
-            let result: Result<[Post], Error>
+            let result: Result<[PostResponse], Error>
         }
 
         struct ViewModel {
@@ -24,23 +24,16 @@ enum PostListModule {
 
     enum OpenPost {
         struct Request {
-            let postId: Post.Id
+            let postId: Int
         }
 
         struct Response {
-            let postId: Post.Id
+            let postId: Int
         }
 
         struct ViewModel {
-            let postId: Post.Id
+            let postId: Int
         }
-    }
-
-    struct Post: Decodable, Hashable {
-        typealias Id = Int
-
-        var id: Id
-        var title: String
     }
 
     enum Error: LocalizedError {

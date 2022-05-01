@@ -10,7 +10,7 @@ import Foundation
 
 enum PostRequestFactory {
     case list
-    case item(postId: PostModule.Post.Id)
+    case item(postId: Int)
 
     private var method: String {
         switch self {
