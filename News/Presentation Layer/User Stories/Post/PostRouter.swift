@@ -6,12 +6,14 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
+import UIKit
+
 protocol PostRoutingLogic { }
 
 final class PostRouter: PostRoutingLogic {
-    private weak var viewController: PostView?
+    private weak var viewController: UIViewController?
 
-    init(viewController: PostView) {
+    init(viewController: UIViewController) {
         self.viewController = viewController
     }
 }

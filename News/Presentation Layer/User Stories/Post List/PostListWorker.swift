@@ -15,9 +15,9 @@ final class PostListWorker {
         self.networkClient = networkClient
     }
 
-    func getPostList(completion: @escaping (Result<[PostListModule.Post], NetworkError>) -> Void) {
+    func getPostList(completion: @escaping (Result<[PostResponse], NetworkError>) -> Void) {
         let request = PostRequestFactory.list.makeRequest()
-        networkClient.perform(request: request) { (result: Result<[PostListModule.Post], NetworkError>)  in
+        networkClient.perform(request: request) { (result: Result<[PostResponse], NetworkError>)  in
             completion(result)
         }
     }

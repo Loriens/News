@@ -10,6 +10,7 @@ public final class ThemeManager {
     }
 
     public func update(theme: Theme) {
+        guard theme.id != self.theme.id else { return }
         self.theme = theme
         NotificationCenter.default.post(name: .themeDidChange, object: nil)
     }

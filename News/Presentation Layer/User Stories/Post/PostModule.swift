@@ -13,7 +13,7 @@ enum PostModule {
         struct Request { }
 
         struct Response {
-            let result: Result<Post, Error>
+            let result: Result<PostResponse, Error>
         }
 
         struct ViewModel {
@@ -21,11 +21,9 @@ enum PostModule {
         }
     }
 
-    struct Post: Decodable {
-        typealias Id = Int
-
-        var id: Id
-        var body: String?
+    struct Post {
+        let id: Int
+        let body: String
     }
 
     enum Error: LocalizedError {

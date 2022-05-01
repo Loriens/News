@@ -9,9 +9,9 @@
 import NetworkLayer
 
 final class PostFactory {
-    private let postId: PostModule.Post.Id
+    private let postId: Int
 
-    init(postId: PostModule.Post.Id) {
+    init(postId: Int) {
         self.postId = postId
     }
 

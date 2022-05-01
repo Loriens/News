@@ -9,17 +9,17 @@
 import NetworkLayer
 
 final class PostWorker {
-    private let postId: PostModule.Post.Id
+    private let postId: Int
     private let networkClient: NetworkClient
 
-    init(postId: PostModule.Post.Id, networkClient: NetworkClient) {
+    init(postId: Int, networkClient: NetworkClient) {
         self.postId = postId
         self.networkClient = networkClient
     }
 
-    func getPost(completion: @escaping (Result<PostModule.Post, NetworkError>) -> Void) {
+    func getPost(completion: @escaping (Result<PostResponse, NetworkError>) -> Void) {
         let request = PostRequestFactory.item(postId: postId).makeRequest()
-        networkClient.perform(request: request) { (result: Result<PostModule.Post, NetworkError>)  in
+        networkClient.perform(request: request) { (result: Result<PostResponse, NetworkError>)  in
             completion(result)
         }
     }

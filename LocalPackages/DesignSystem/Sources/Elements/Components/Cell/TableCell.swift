@@ -1,9 +1,8 @@
 //
 //  TableCell.swift
-//  News
+//  
 //
-//  Created by Vladislav on 24.11.2019.
-//  Copyright © 2019 Vladislav Markov. All rights reserved.
+//  Created by Марков Владислав Викторович on 01.05.2022.
 //
 
 import UIKit
