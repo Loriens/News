@@ -23,7 +23,7 @@ final class PostApiTests: XCTestCase {
 
     func testPostListResponse() {
         let request = PostRequestFactory.list.makeRequest()
-        networkClient?.perform(request: request) { (result: Result<[PostListModule.Post], NetworkError>) in
+        networkClient?.perform(request: request) { (result: Result<[PostResponse], NetworkError>) in
             switch result {
             case .success(let posts):
                 XCTAssertFalse(posts.isEmpty)
@@ -37,7 +37,7 @@ final class PostApiTests: XCTestCase {
 
     func testPostItemResponse() {
         let request = PostRequestFactory.item(postId: 1).makeRequest()
-        networkClient?.perform(request: request) { (result: Result<PostModule.Post, NetworkError>) in
+        networkClient?.perform(request: request) { (result: Result<PostResponse, NetworkError>) in
             switch result {
             case .success(let post):
                 XCTAssertNotNil(post.body)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DesignSystem
 
 final class PostListDataSource: UITableViewDiffableDataSource<PostListView.Section, PostListView.Item> {
     init(tableView: UITableView) {

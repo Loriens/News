@@ -20,15 +20,16 @@ final class PostListView: UIViewController {
     }
 
     struct Item: Hashable {
-        let postId: PostListModule.Post.Id
+        let postId: Int
         let title: String
 
         func hash(into hasher: inout Hasher) {
             hasher.combine(postId)
+            hasher.combine(title)
         }
 
         static func == (lhs: Item, rhs: Item) -> Bool {
-            return lhs.postId == rhs.postId
+            return lhs.postId == rhs.postId && lhs.title == rhs.title
         }
     }
 
@@ -121,7 +122,7 @@ extension PostListView: PostListViewDisplayLogic {
         case let .success(snapshot):
             dataSource?.apply(snapshot, animatingDifferences: true)
         case let .failure(error):
-            Toast.shared.show(title: AppLocalization.General.error.localized, message: error.localizedDescription)
+            router?.presentAlert(error: error)
         }
     }
 

@@ -1,9 +1,8 @@
 //
 //  Reusable.swift
-//  News
+//  
 //
-//  Created by Vladislav Markov on 28.02.2021.
-//  Copyright © 2021 Vladislav Markov. All rights reserved.
+//  Created by Марков Владислав Викторович on 01.05.2022.
 //
 
 import UIKit

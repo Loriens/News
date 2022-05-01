@@ -78,7 +78,7 @@ extension PostView: PostViewDisplayLogic {
         switch  viewModel.result {
         case let .success(post):
             UIView.animate(withDuration: 0.3) { [self] in
-                textLabel.text = post.body ?? ""
+                textLabel.text = post.body
             }
         case let .failure(error):
             UIView.animate(withDuration: 0.3) { [self] in
