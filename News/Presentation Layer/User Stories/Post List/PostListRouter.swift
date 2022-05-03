@@ -31,7 +31,7 @@ final class PostListRouter: PostListRoutingLogic {
         let message = error.localizedDescription
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-        let action = UIAlertAction(title: AppLocalization.General.ok.rawValue, style: .default)
+        let action = UIAlertAction(title: AppLocalization.General.ok.localized, style: .default)
         alertController.addAction(action)
 
         viewController?.present(alertController, animated: true)
