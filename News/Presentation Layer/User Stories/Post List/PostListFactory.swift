@@ -7,17 +7,15 @@
 //
 
 import NetworkLayer
+import UIKit
 
 final class PostListFactory {
     init() { }
 
-    func create() -> PostListView {
-        let viewController = PostListView()
-        let presenter = PostListPresenter(viewController: viewController)
+    func create() -> UIViewController {
         let networkClient = DefaultNetworkClient()
-        let worker = PostListWorker(networkClient: networkClient)
-        let interactor = PostListInteractor(presenter: presenter, worker: worker)
-        viewController.interactor = interactor
+        let viewModel = PostListViewModel(networkClient: networkClient)
+        let viewController = PostListView(viewModel: viewModel)
         viewController.router = PostListRouter(viewController: viewController)
         return viewController
     }

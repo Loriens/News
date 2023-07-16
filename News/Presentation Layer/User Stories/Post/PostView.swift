@@ -6,12 +6,9 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-import UIKit
+import Combine
 import DesignSystem
-
-protocol PostViewDisplayLogic: AnyObject {
-    func update(with viewModel: PostModule.GetPost.ViewModel)
-}
+import UIKit
 
 final class PostView: UIViewController {
     private let textLabel: Label = {
@@ -22,9 +19,10 @@ final class PostView: UIViewController {
         return label
     }()
 
-    var interactor: PostBusinessLogic?
-    var router: PostRoutingLogic?
+    var router: PostRouting?
+    private let viewModel: PostViewModel
     private var staticConstraints: [NSLayoutConstraint] = []
+    private var cancellables: [AnyCancellable] = []
 
     private var textLabelConstraints: [NSLayoutConstraint] {
         let margins = view.layoutMarginsGuide
@@ -36,6 +34,15 @@ final class PostView: UIViewController {
         ]
     }
 
+    init(viewModel: PostViewModel) {
+      self.viewModel = viewModel
+      super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func loadView() {
         view = View()
     }
@@ -45,8 +52,9 @@ final class PostView: UIViewController {
         setupComponents()
         setupActions()
         applyStyles()
-        let request = PostModule.GetPost.Request()
-        interactor?.getPost(request: request)
+        bindViewModel()
+
+        viewModel.loadData()
     }
 
     override func updateViewConstraints() {
@@ -70,20 +78,21 @@ final class PostView: UIViewController {
         (view as? View)?.applyStyle(.basic)
         textLabel.applyStyle(.bigTitle)
     }
-}
 
-// MARK: - PostViewDisplayLogic
-extension PostView: PostViewDisplayLogic {
-    func update(with viewModel: PostModule.GetPost.ViewModel) {
-        switch  viewModel.result {
-        case let .success(post):
-            UIView.animate(withDuration: 0.3) { [self] in
-                textLabel.text = post.body
+    private func bindViewModel() {
+        [
+            viewModel.$post.sink { [unowned self] post in
+                guard let post else { return }
+                UIView.animate(withDuration: 0.3) { [self] in
+                    textLabel.text = post.body
+                }
+            },
+            viewModel.$error.sink { [unowned self] error in
+                guard let error else { return }
+                UIView.animate(withDuration: 0.3) { [self] in
+                    textLabel.text = error.localizedDescription
+                }
             }
-        case let .failure(error):
-            UIView.animate(withDuration: 0.3) { [self] in
-                textLabel.text = error.localizedDescription
-            }
-        }
+        ].forEach { $0.store(in: &cancellables) }
     }
 }
