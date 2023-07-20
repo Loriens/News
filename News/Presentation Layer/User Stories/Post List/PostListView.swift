@@ -6,33 +6,11 @@
 //  Copyright © 2019 Vladislav Markov. All rights reserved.
 //
 
-import UIKit
+import Combine
 import DesignSystem
-
-protocol PostListViewDisplayLogic: AnyObject {
-    func update(with viewModel: PostListModule.GetPostList.ViewModel)
-    func update(with viewModel: PostListModule.OpenPost.ViewModel)
-}
+import UIKit
 
 final class PostListView: UIViewController {
-    enum Section {
-        case main
-    }
-
-    struct Item: Hashable {
-        let postId: Int
-        let title: String
-
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(postId)
-            hasher.combine(title)
-        }
-
-        static func == (lhs: Item, rhs: Item) -> Bool {
-            return lhs.postId == rhs.postId && lhs.title == rhs.title
-        }
-    }
-
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,10 +20,11 @@ final class PostListView: UIViewController {
         return tableView
     }()
 
-    var interactor: PostListBusinessLogic?
-    var router: PostListRoutingLogic?
-    private var dataSource: UITableViewDiffableDataSource<Section, Item>?
+    var router: PostListRouting?
+    private let viewModel: PostListViewModel
+    private var dataSource: UITableViewDiffableDataSource<PostListModule.Section, PostListModule.Item>?
     private var staticConstraints: [NSLayoutConstraint] = []
+    private var cancellables: [AnyCancellable] = []
 
     private var tableViewConstraints: [NSLayoutConstraint] {
         let safeArea = view.safeAreaLayoutGuide
@@ -57,6 +36,15 @@ final class PostListView: UIViewController {
         ]
     }
 
+    init(viewModel: PostListViewModel) {
+      self.viewModel = viewModel
+      super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func loadView() {
         view = View()
     }
@@ -66,8 +54,9 @@ final class PostListView: UIViewController {
         setupComponents()
         setupActions()
         applyStyles()
-        let request = PostListModule.GetPostList.Request()
-        interactor?.getPostList(with: request)
+        bindViewModel()
+
+        loadData()
     }
 
     override func updateViewConstraints() {
@@ -96,7 +85,7 @@ final class PostListView: UIViewController {
 
     private func setupActions() {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(getPostList), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView.refreshControl = refreshControl
     }
 
@@ -104,30 +93,28 @@ final class PostListView: UIViewController {
         (view as? View)?.applyStyle(.basic)
         tableView.backgroundColor = .clear
     }
-}
 
-// MARK: - Actions
-extension PostListView {
-    @objc private func getPostList() {
-        let request = PostListModule.GetPostList.Request()
-        interactor?.getPostList(with: request)
-    }
-}
-
-// MARK: - PostListViewDisplayLogic
-extension PostListView: PostListViewDisplayLogic {
-    func update(with viewModel: PostListModule.GetPostList.ViewModel) {
-        tableView.refreshControl?.endRefreshing()
-        switch viewModel.result {
-        case let .success(snapshot):
-            dataSource?.apply(snapshot, animatingDifferences: true)
-        case let .failure(error):
-            router?.presentAlert(error: error)
-        }
+    private func bindViewModel() {
+        [
+            viewModel.$snapshot.sink { [unowned self] snapshot in
+                guard let snapshot else { return }
+                tableView.refreshControl?.endRefreshing()
+                dataSource?.apply(snapshot, animatingDifferences: true)
+            },
+            viewModel.$error.sink { [unowned self] error in
+                guard let error else { return }
+                tableView.refreshControl?.endRefreshing()
+                router?.presentAlert(error: error)
+            },
+            viewModel.openPostPublisher.sink { [unowned self] postId in
+                router?.routeToPost(postId: postId)
+            }
+        ].forEach { $0.store(in: &cancellables) }
     }
 
-    func update(with viewModel: PostListModule.OpenPost.ViewModel) {
-        router?.routeToPost(postId: viewModel.postId)
+    @objc
+    private func loadData() {
+        viewModel.loadData()
     }
 }
 
@@ -135,7 +122,6 @@ extension PostListView: PostListViewDisplayLogic {
 extension PostListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = dataSource?.itemIdentifier(for: indexPath) else { return }
-        let request = PostListModule.OpenPost.Request(postId: item.postId)
-        interactor?.openPost(with: request)
+        viewModel.openPost(postId: item.postId)
     }
 }

@@ -10,13 +10,7 @@
 		041D31BE2471716500381A2F /* PostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D31BD2471716500381A2F /* PostUITests.swift */; };
 		042E435024703D8C00866E29 /* PostApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E434F24703D8C00866E29 /* PostApiTests.swift */; };
 		0446611225EBA1210092B63A /* PostModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446611125EBA1210092B63A /* PostModule.swift */; };
-		0446611725EBA2C00092B63A /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446611625EBA2C00092B63A /* PostPresenter.swift */; };
-		0446611C25EBA2C60092B63A /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446611B25EBA2C60092B63A /* PostInteractor.swift */; };
-		0446612125EBA5B60092B63A /* PostWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446612025EBA5B60092B63A /* PostWorker.swift */; };
 		0446613225EBADC20092B63A /* PostListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446613125EBADC20092B63A /* PostListModule.swift */; };
-		0446613A25EBADC80092B63A /* PostListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446613925EBADC80092B63A /* PostListPresenter.swift */; };
-		0446613F25EBADD10092B63A /* PostListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446613E25EBADD10092B63A /* PostListInteractor.swift */; };
-		0446614425EBADDB0092B63A /* PostListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446614325EBADDB0092B63A /* PostListWorker.swift */; };
 		0446615725EBAE9F0092B63A /* PostListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446615625EBAE9F0092B63A /* PostListDataSource.swift */; };
 		0476101022CA698000DE4982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476100F22CA698000DE4982 /* AppDelegate.swift */; };
 		0476101A22CA698200DE4982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0476101822CA698200DE4982 /* LaunchScreen.storyboard */; };
@@ -36,6 +30,8 @@
 		04CB2195238A9DE500907863 /* PostFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2190238A9DE500907863 /* PostFactory.swift */; };
 		04CB2196238A9DE500907863 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2191238A9DE500907863 /* PostRouter.swift */; };
 		04CB219D238AA1D700907863 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219C238AA1D700907863 /* Localizable.swift */; };
+		8D143D862A6475EF007C0571 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D143D852A6475EF007C0571 /* PostViewModel.swift */; };
+		8D143D882A647999007C0571 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D143D872A647999007C0571 /* PostListViewModel.swift */; };
 		E5A0D040281EB96B00DBF05C /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = E5A0D03F281EB96B00DBF05C /* DesignSystem */; };
 		E5A0D042281EB96E00DBF05C /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = E5A0D041281EB96E00DBF05C /* NetworkLayer */; };
 		E5C2CEF6281F2877005A5356 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CEF5281F2877005A5356 /* PostResponse.swift */; };
@@ -64,13 +60,7 @@
 		041D31BD2471716500381A2F /* PostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUITests.swift; sourceTree = "<group>"; };
 		042E434F24703D8C00866E29 /* PostApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApiTests.swift; sourceTree = "<group>"; };
 		0446611125EBA1210092B63A /* PostModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModule.swift; sourceTree = "<group>"; };
-		0446611625EBA2C00092B63A /* PostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
-		0446611B25EBA2C60092B63A /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
-		0446612025EBA5B60092B63A /* PostWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWorker.swift; sourceTree = "<group>"; };
 		0446613125EBADC20092B63A /* PostListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListModule.swift; sourceTree = "<group>"; };
-		0446613925EBADC80092B63A /* PostListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListPresenter.swift; sourceTree = "<group>"; };
-		0446613E25EBADD10092B63A /* PostListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListInteractor.swift; sourceTree = "<group>"; };
-		0446614325EBADDB0092B63A /* PostListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListWorker.swift; sourceTree = "<group>"; };
 		0446615625EBAE9F0092B63A /* PostListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListDataSource.swift; sourceTree = "<group>"; };
 		0476100C22CA698000DE4982 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0476100F22CA698000DE4982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +85,8 @@
 		04CB219C238AA1D700907863 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		04E73C6C2430B9D30005E2F5 /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E73C702430B9D30005E2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D143D852A6475EF007C0571 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		8D143D872A647999007C0571 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		E5A0D03D281EB85C00DBF05C /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = LocalPackages/DesignSystem; sourceTree = "<group>"; };
 		E5A0D03E281EB86500DBF05C /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkLayer; path = LocalPackages/NetworkLayer; sourceTree = "<group>"; };
 		E5C2CEF5281F2877005A5356 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
@@ -272,14 +264,12 @@
 		04CB216D238A9A6600907863 /* Post List */ = {
 			isa = PBXGroup;
 			children = (
-				04CB2171238A9AB900907863 /* PostListFactory.swift */,
 				0446615625EBAE9F0092B63A /* PostListDataSource.swift */,
-				0446613E25EBADD10092B63A /* PostListInteractor.swift */,
+				04CB2171238A9AB900907863 /* PostListFactory.swift */,
 				0446613125EBADC20092B63A /* PostListModule.swift */,
-				0446613925EBADC80092B63A /* PostListPresenter.swift */,
 				04CB2172238A9AB900907863 /* PostListRouter.swift */,
 				04CB2170238A9AB900907863 /* PostListView.swift */,
-				0446614325EBADDB0092B63A /* PostListWorker.swift */,
+				8D143D872A647999007C0571 /* PostListViewModel.swift */,
 			);
 			path = "Post List";
 			sourceTree = "<group>";
@@ -288,12 +278,10 @@
 			isa = PBXGroup;
 			children = (
 				04CB2190238A9DE500907863 /* PostFactory.swift */,
-				0446611B25EBA2C60092B63A /* PostInteractor.swift */,
 				0446611125EBA1210092B63A /* PostModule.swift */,
-				0446611625EBA2C00092B63A /* PostPresenter.swift */,
 				04CB2191238A9DE500907863 /* PostRouter.swift */,
 				04CB218F238A9DE500907863 /* PostView.swift */,
-				0446612025EBA5B60092B63A /* PostWorker.swift */,
+				8D143D852A6475EF007C0571 /* PostViewModel.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -512,23 +500,19 @@
 				0446615725EBAE9F0092B63A /* PostListDataSource.swift in Sources */,
 				0476103122CA6DDC00DE4982 /* AppLocalization.swift in Sources */,
 				0476102722CA6A4D00DE4982 /* AppConfiguration.swift in Sources */,
-				0446614425EBADDB0092B63A /* PostListWorker.swift in Sources */,
 				0446611225EBA1210092B63A /* PostModule.swift in Sources */,
 				0476101022CA698000DE4982 /* AppDelegate.swift in Sources */,
 				04CB2194238A9DE500907863 /* PostView.swift in Sources */,
-				0446613F25EBADD10092B63A /* PostListInteractor.swift in Sources */,
+				8D143D882A647999007C0571 /* PostListViewModel.swift in Sources */,
 				04CB2158238A94F300907863 /* PostRequestFactory.swift in Sources */,
 				0446613225EBADC20092B63A /* PostListModule.swift in Sources */,
 				04CB2196238A9DE500907863 /* PostRouter.swift in Sources */,
 				04CB219D238AA1D700907863 /* Localizable.swift in Sources */,
 				04CB2176238A9AB900907863 /* PostListFactory.swift in Sources */,
-				0446613A25EBADC80092B63A /* PostListPresenter.swift in Sources */,
 				E5C2CEF6281F2877005A5356 /* PostResponse.swift in Sources */,
 				04CB2175238A9AB900907863 /* PostListView.swift in Sources */,
-				0446612125EBA5B60092B63A /* PostWorker.swift in Sources */,
-				0446611725EBA2C00092B63A /* PostPresenter.swift in Sources */,
 				04CB2177238A9AB900907863 /* PostListRouter.swift in Sources */,
-				0446611C25EBA2C60092B63A /* PostInteractor.swift in Sources */,
+				8D143D862A6475EF007C0571 /* PostViewModel.swift in Sources */,
 				04CB2195238A9DE500907863 /* PostFactory.swift in Sources */,
 				04B51C9E22CA8E5400CE0A0E /* PostListCell.swift in Sources */,
 			);
@@ -584,7 +568,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TV76LZZGYZ;
 				INFOPLIST_FILE = NewsUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -604,7 +588,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TV76LZZGYZ;
 				INFOPLIST_FILE = NewsUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -745,7 +729,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "News/Application Layer/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -765,7 +749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "News/Application Layer/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -785,7 +769,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TV76LZZGYZ;
 				INFOPLIST_FILE = NewsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -806,7 +790,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TV76LZZGYZ;
 				INFOPLIST_FILE = NewsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

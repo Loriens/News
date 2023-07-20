@@ -9,18 +9,6 @@
 import Foundation
 
 enum PostModule {
-    enum GetPost {
-        struct Request { }
-
-        struct Response {
-            let result: Result<PostResponse, Error>
-        }
-
-        struct ViewModel {
-            let result: Result<Post, Error>
-        }
-    }
-
     struct Post {
         let id: Int
         let body: String
@@ -28,7 +16,7 @@ enum PostModule {
 
     enum Error: LocalizedError {
         case emptyPost
-        case unknown(_ error: Swift.Error?)
+        case unknown(Swift.Error?)
 
         var errorDescription: String? {
             switch self {

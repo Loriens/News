@@ -9,7 +9,6 @@ import Foundation
 
 public enum NetworkError: Error {
     case invalidStatusCode(_ statusCode: Int)
-    case emptyData
-    case decoding(_ error: Error)
+    case decoding(_ error: DecodingError)
     case unknown(_ error: Error)
 }

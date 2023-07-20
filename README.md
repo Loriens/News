@@ -2,5 +2,5 @@
 Little description
 
 ## Requirements
-* iOS 13.0+
-* Xcode 13.2.1
+* iOS 15.0
+* Xcode 14.2

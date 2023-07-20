@@ -8,19 +8,19 @@
 
 import UIKit
 
-protocol PostListRoutingLogic {
+protocol PostListRouting {
     func routeToPost(postId: Int)
     func presentAlert(error: Error)
 }
 
-final class PostListRouter: PostListRoutingLogic {
+final class PostListRouter: PostListRouting {
     private weak var viewController: UIViewController?
 
     init(viewController: UIViewController) {
         self.viewController = viewController
     }
 
-    func routeToPost(postId: Int) {
+    func routeToPost(postId: PostListModule.Item.Id) {
         let factory = PostFactory(postId: postId)
         let vc = factory.create()
         viewController?.navigationController?.pushViewController(vc, animated: true)
