@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import Combine
 
 public protocol NetworkClient {
-    func perform<T: Decodable>(request: URLRequest, completion: @escaping (Result<T, NetworkError>) -> Void)
+    func getPublisher<T: Decodable>(request: URLRequest) -> AnyPublisher<T, NetworkError>
 }

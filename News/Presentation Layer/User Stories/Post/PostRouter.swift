@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol PostRoutingLogic { }
+protocol PostRouting { }
 
-final class PostRouter: PostRoutingLogic {
+final class PostRouter: PostRouting {
     private weak var viewController: UIViewController?
 
     init(viewController: UIViewController) {

@@ -7,6 +7,7 @@
 //
 
 import NetworkLayer
+import UIKit
 
 final class PostFactory {
     private let postId: Int
@@ -15,13 +16,10 @@ final class PostFactory {
         self.postId = postId
     }
 
-    func create() -> PostView {
-        let viewController = PostView()
-        let presenter = PostPresenter(viewController: viewController)
+    func create() -> UIViewController {
         let networkClient = DefaultNetworkClient()
-        let worker = PostWorker(postId: postId, networkClient: networkClient)
-        let interactor = PostInteractor(presenter: presenter, worker: worker)
-        viewController.interactor = interactor
+        let viewModel = PostViewModel(postId: postId, networkClient: networkClient)
+        let viewController = PostView(viewModel: viewModel)
         let router = PostRouter(viewController: viewController)
         viewController.router = router
         return viewController

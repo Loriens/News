@@ -9,7 +9,7 @@
 import UIKit
 import DesignSystem
 
-final class PostListDataSource: UITableViewDiffableDataSource<PostListView.Section, PostListView.Item> {
+final class PostListDataSource: UITableViewDiffableDataSource<PostListModule.Section, PostListModule.Item> {
     init(tableView: UITableView) {
         super.init(tableView: tableView) { tableView, indexPath, item -> UITableViewCell? in
             let cell = tableView.dequeue(PostListCell.self, for: indexPath)

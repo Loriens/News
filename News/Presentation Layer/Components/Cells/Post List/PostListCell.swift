@@ -55,7 +55,7 @@ final class PostListCell: TableCell {
         setNeedsUpdateConstraints()
     }
 
-    func update(with item: PostListView.Item) {
+    func update(with item: PostListModule.Item) {
         titleLabel.text = item.title
         accessibilityLabel = item.title
     }

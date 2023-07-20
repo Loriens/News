@@ -10,29 +10,23 @@ import Foundation
 import UIKit
 
 enum PostListModule {
-    enum GetPostList {
-        struct Request { }
-
-        struct Response {
-            let result: Result<[PostResponse], Error>
-        }
-
-        struct ViewModel {
-            let result: Result<NSDiffableDataSourceSnapshot<PostListView.Section, PostListView.Item>, Error>
-        }
+    enum Section {
+        case main
     }
 
-    enum OpenPost {
-        struct Request {
-            let postId: Int
+    struct Item: Hashable {
+        typealias Id = Int
+
+        let postId: Id
+        let title: String
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(postId)
+            hasher.combine(title)
         }
 
-        struct Response {
-            let postId: Int
-        }
-
-        struct ViewModel {
-            let postId: Int
+        static func == (lhs: Item, rhs: Item) -> Bool {
+            return lhs.postId == rhs.postId && lhs.title == rhs.title
         }
     }
 
