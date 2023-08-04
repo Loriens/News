@@ -1,6 +1,13 @@
+//
+//  ThemeMainColors.swift
+//
+//
+//  Created by Vladislav Markov on 04.08.2023.
+//
+
 import UIKit
 
-struct MainThemeFont: Font {
+struct ThemeMainFont: Font {
     func dynamicallyScalingFont(weight: UIFont.Weight, size: CGFloat) -> UIFont? {
         let name: String
         switch weight {
