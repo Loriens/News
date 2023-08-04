@@ -23,8 +23,7 @@ final class PostListView: UIViewController {
     var router: PostListRouting?
     private let viewModel: PostListViewModel
     private var dataSource: UITableViewDiffableDataSource<PostListModule.Section, PostListModule.Item>?
-    private var staticConstraints: [NSLayoutConstraint] = []
-    private var cancellables: [AnyCancellable] = []
+    private var cancellables: Set<AnyCancellable> = []
 
     private var tableViewConstraints: [NSLayoutConstraint] {
         let safeArea = view.safeAreaLayoutGuide
@@ -52,19 +51,12 @@ final class PostListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupComponents()
+        setupConstraints()
         setupActions()
         applyStyles()
+
         bindViewModel()
-
         loadData()
-    }
-
-    override func updateViewConstraints() {
-        if staticConstraints.isEmpty {
-            staticConstraints = tableViewConstraints
-            NSLayoutConstraint.activate(staticConstraints)
-        }
-        super.updateViewConstraints()
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -80,7 +72,10 @@ final class PostListView: UIViewController {
         navigationItem.title = AppLocalization.PostList.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         view.addSubview(tableView)
-        view.setNeedsUpdateConstraints()
+    }
+
+    private func setupConstraints() {
+        NSLayoutConstraint.activate(tableViewConstraints)
     }
 
     private func setupActions() {

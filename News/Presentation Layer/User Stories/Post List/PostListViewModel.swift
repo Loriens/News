@@ -22,13 +22,15 @@ final class PostListViewModel {
 
     private let networkClient: NetworkClient
     private let openPostSubject = PassthroughSubject<PostListModule.Item.Id, Never>()
-    private var cancellables: [AnyCancellable] = []
+    private var cancellables: Set<AnyCancellable> = []
 
     init(networkClient: NetworkClient) {
         self.networkClient = networkClient
     }
 
     func loadData() {
+        cancellables.removeAll()
+
         let request = PostRequestFactory.list.makeRequest()
 
         networkClient

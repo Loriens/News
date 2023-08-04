@@ -17,7 +17,7 @@ final class PostViewModel {
     private let postId: Int
     private let networkClient: NetworkClient
     private let postSubject = PassthroughSubject<PostModule.Post, PostModule.Error>()
-    private var cancellables: [AnyCancellable] = []
+    private var cancellables: Set<AnyCancellable> = []
 
     init(postId: Int, networkClient: NetworkClient) {
         self.postId = postId
@@ -25,6 +25,8 @@ final class PostViewModel {
     }
 
     func loadData() {
+        cancellables.removeAll()
+
         let request = PostRequestFactory.item(postId: postId).makeRequest()
 
         networkClient
