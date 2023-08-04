@@ -21,8 +21,7 @@ final class PostView: UIViewController {
 
     var router: PostRouting?
     private let viewModel: PostViewModel
-    private var staticConstraints: [NSLayoutConstraint] = []
-    private var cancellables: [AnyCancellable] = []
+    private var cancellables: Set<AnyCancellable> = []
 
     private var textLabelConstraints: [NSLayoutConstraint] {
         let margins = view.layoutMarginsGuide
@@ -50,26 +49,22 @@ final class PostView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupComponents()
+        setupConstraints()
         setupActions()
         applyStyles()
+
         bindViewModel()
-
         viewModel.loadData()
-    }
-
-    override func updateViewConstraints() {
-        if staticConstraints.isEmpty {
-            staticConstraints = textLabelConstraints
-            NSLayoutConstraint.activate(staticConstraints)
-        }
-        super.updateViewConstraints()
     }
 
     private func setupComponents() {
         navigationItem.title = AppLocalization.Post.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         view.addSubview(textLabel)
-        view.setNeedsUpdateConstraints()
+    }
+
+    private func setupConstraints() {
+        NSLayoutConstraint.activate(textLabelConstraints)
     }
 
     private func setupActions() { }
@@ -83,16 +78,18 @@ final class PostView: UIViewController {
         [
             viewModel.$post.sink { [unowned self] post in
                 guard let post else { return }
-                UIView.animate(withDuration: 0.3) { [self] in
-                    textLabel.text = post.body
-                }
+                updateTextLabel(text: post.body)
             },
             viewModel.$error.sink { [unowned self] error in
                 guard let error else { return }
-                UIView.animate(withDuration: 0.3) { [self] in
-                    textLabel.text = error.localizedDescription
-                }
+                updateTextLabel(text: error.localizedDescription)
             }
         ].forEach { $0.store(in: &cancellables) }
+    }
+
+    private func updateTextLabel(text: String) {
+        UIView.animate(withDuration: 0.3) { [self] in
+            textLabel.text = text
+        }
     }
 }

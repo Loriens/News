@@ -1,7 +1,7 @@
 import Foundation
 
 public final class ThemeManager {
-    public static var shared = ThemeManager(theme: ThemeMainLight())
+    public static var shared = ThemeManager(theme: ThemeMain())
 
     public var theme: Theme
 
@@ -12,6 +12,5 @@ public final class ThemeManager {
     public func update(theme: Theme) {
         guard theme.id != self.theme.id else { return }
         self.theme = theme
-        NotificationCenter.default.post(name: .themeDidChange, object: nil)
     }
 }
