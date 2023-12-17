@@ -2,17 +2,17 @@ import Danger
 
 let danger = Danger()
 
-/// Запуск линтера
+/// Run linter
 SwiftLint.lint(inline: true)
 
-/// Проверка на колличество коммитов
+/// Check commits count
 if danger.git.commits.count > 1 {
-    fail("PR должен содержать не больше 1 коммита")
+    fail("PR should not have more than 1 commit")
 }
 
-/// Проверка на размер PR
+/// Check PR size
 let prLimit = 600
 let prSize = danger.github.pullRequest.additions ?? 0
 if prSize > prLimit {
-    fail("PR не должен суммарно превышать \(prLimit) строк. Текущий размер \(prSize).")
+    fail("PR should not exceed \(prLimit) lines. The current number of lines is \(prSize).")
 }

@@ -47,6 +47,5 @@ final class PostViewModel {
                 post = PostModule.Post(id: value.id, body: body)
             }
             .store(in: &cancellables)
-
     }
 }

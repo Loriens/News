@@ -107,8 +107,7 @@ final class PostListView: UIViewController {
         ].forEach { $0.store(in: &cancellables) }
     }
 
-    @objc
-    private func loadData() {
+    @objc private func loadData() {
         viewModel.loadData()
     }
 }
