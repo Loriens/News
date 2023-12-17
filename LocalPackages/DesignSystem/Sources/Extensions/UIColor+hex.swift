@@ -4,6 +4,7 @@ extension UIColor {
     public convenience init?(hex: String) {
         // swiftlint:disable identifier_name
         let r, g, b, a: CGFloat
+        // swiftlint:enable identifier_name
 
         var mutableString = hex
 

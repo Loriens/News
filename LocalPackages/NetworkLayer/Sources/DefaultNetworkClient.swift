@@ -30,7 +30,7 @@ public final class DefaultNetworkClient: NetworkClient {
             .dataTaskPublisher(for: request)
             .subscribe(on: queue)
             .retry(retryCount)
-            .tryMap { (data, response) in
+            .tryMap { data, response in
                 if let response = response as? HTTPURLResponse,
                    !(200...299).contains(response.statusCode) {
                     throw NetworkError.invalidStatusCode(response.statusCode)
