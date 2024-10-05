@@ -9,6 +9,7 @@
 import NetworkLayer
 import UIKit
 
+@MainActor
 final class PostFactory {
     private let postId: Int
 

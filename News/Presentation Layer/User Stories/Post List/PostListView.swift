@@ -59,15 +59,6 @@ final class PostListView: UIViewController {
         loadData()
     }
 
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        guard traitCollection.preferredContentSizeCategory
-                != previousTraitCollection?.preferredContentSizeCategory else { return }
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-
     private func setupComponents() {
         navigationItem.title = AppLocalization.PostList.title.localized
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -82,6 +73,9 @@ final class PostListView: UIViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView.refreshControl = refreshControl
+
+        let traits: [UITrait] = [UITraitVerticalSizeClass.self, UITraitHorizontalSizeClass.self]
+        registerForTraitChanges(traits, action: #selector(reloadData))
     }
 
     private func applyStyles() {
@@ -109,6 +103,10 @@ final class PostListView: UIViewController {
 
     @objc private func loadData() {
         viewModel.loadData()
+    }
+
+    @objc private func reloadData() {
+        viewModel.reloadData()
     }
 }
 

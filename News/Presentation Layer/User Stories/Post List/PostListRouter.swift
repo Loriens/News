@@ -8,6 +8,7 @@
 
 import UIKit
 
+@MainActor
 protocol PostListRouting {
     func routeToPost(postId: Int)
     func presentAlert(error: Error)

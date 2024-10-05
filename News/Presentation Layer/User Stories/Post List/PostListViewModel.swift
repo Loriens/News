@@ -49,6 +49,12 @@ final class PostListViewModel {
             .store(in: &cancellables)
     }
 
+    func reloadData() {
+        let currentSnapshot = snapshot
+        snapshot = nil
+        snapshot = currentSnapshot
+    }
+
     func openPost(postId: PostListModule.Item.Id) {
         openPostSubject.send(postId)
     }

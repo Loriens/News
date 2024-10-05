@@ -9,8 +9,9 @@
 import NetworkLayer
 import UIKit
 
+@MainActor
 final class PostListFactory {
-    init() { }
+    init() {}
 
     func create() -> UIViewController {
         let networkClient = DefaultNetworkClient()
