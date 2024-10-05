@@ -9,7 +9,7 @@
 import UIKit
 import DesignSystem
 
-@UIApplicationMain
+@main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 

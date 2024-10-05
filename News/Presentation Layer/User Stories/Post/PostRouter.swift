@@ -8,7 +8,8 @@
 
 import UIKit
 
-protocol PostRouting { }
+@MainActor
+protocol PostRouting {}
 
 final class PostRouter: PostRouting {
     private weak var viewController: UIViewController?
