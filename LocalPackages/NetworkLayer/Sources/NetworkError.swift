@@ -2,13 +2,26 @@
 //  NetworkError.swift
 //  
 //
-//  Created by Марков Владислав Викторович on 01.05.2022.
+//  Created by Markov Vladislav on 01.05.2022.
 //
 
 import Foundation
 
-public enum NetworkError: Error {
+public enum NetworkError: Error, Equatable {
     case invalidStatusCode(_ statusCode: Int)
     case decoding(_ error: DecodingError)
     case unknown(_ error: Error)
+
+    public static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+        switch (lhs, rhs) {
+        case (.invalidStatusCode(let lhsCode), .invalidStatusCode(let rhsCode)):
+            return lhsCode == rhsCode
+        case (.decoding, .decoding):
+            return true
+        case (.unknown, .unknown):
+            return true
+        default:
+            return false
+        }
+    }
 }

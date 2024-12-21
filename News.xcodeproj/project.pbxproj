@@ -30,6 +30,9 @@
 		04CB2195238A9DE500907863 /* PostFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2190238A9DE500907863 /* PostFactory.swift */; };
 		04CB2196238A9DE500907863 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB2191238A9DE500907863 /* PostRouter.swift */; };
 		04CB219D238AA1D700907863 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB219C238AA1D700907863 /* Localizable.swift */; };
+		76AA90B32D172A9D001F956E /* post.json in Resources */ = {isa = PBXBuildFile; fileRef = 76AA90B02D172A9D001F956E /* post.json */; };
+		76AA90B42D172A9D001F956E /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 76AA90B12D172A9D001F956E /* posts.json */; };
+		76AA90B52D172A9D001F956E /* MockNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AA90AE2D172A9D001F956E /* MockNetworkClient.swift */; };
 		8D143D862A6475EF007C0571 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D143D852A6475EF007C0571 /* PostViewModel.swift */; };
 		8D143D882A647999007C0571 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D143D872A647999007C0571 /* PostListViewModel.swift */; };
 		E5A0D040281EB96B00DBF05C /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = E5A0D03F281EB96B00DBF05C /* DesignSystem */; };
@@ -85,6 +88,9 @@
 		04CB219C238AA1D700907863 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		04E73C6C2430B9D30005E2F5 /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E73C702430B9D30005E2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76AA90AE2D172A9D001F956E /* MockNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkClient.swift; sourceTree = "<group>"; };
+		76AA90B02D172A9D001F956E /* post.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = post.json; sourceTree = "<group>"; };
+		76AA90B12D172A9D001F956E /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		8D143D852A6475EF007C0571 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		8D143D872A647999007C0571 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		E5A0D03D281EB85C00DBF05C /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = LocalPackages/DesignSystem; sourceTree = "<group>"; };
@@ -291,8 +297,27 @@
 			children = (
 				04E73C702430B9D30005E2F5 /* Info.plist */,
 				042E434F24703D8C00866E29 /* PostApiTests.swift */,
+				76AA90AF2D172A9D001F956E /* Mocks */,
+				76AA90B22D172A9D001F956E /* Resources */,
 			);
 			path = NewsTests;
+			sourceTree = "<group>";
+		};
+		76AA90AF2D172A9D001F956E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				76AA90AE2D172A9D001F956E /* MockNetworkClient.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		76AA90B22D172A9D001F956E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				76AA90B02D172A9D001F956E /* post.json */,
+				76AA90B12D172A9D001F956E /* posts.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E526BF4327F4DBC500AB6151 /* Frameworks */ = {
@@ -460,6 +485,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76AA90B32D172A9D001F956E /* post.json in Resources */,
+				76AA90B42D172A9D001F956E /* posts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				042E435024703D8C00866E29 /* PostApiTests.swift in Sources */,
+				76AA90B52D172A9D001F956E /* MockNetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
