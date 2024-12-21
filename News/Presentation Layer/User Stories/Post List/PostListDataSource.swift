@@ -6,8 +6,8 @@
 //  Copyright © 2021 Vladislav Markov. All rights reserved.
 //
 
-import UIKit
 import DesignSystem
+import UIKit
 
 final class PostListDataSource: UITableViewDiffableDataSource<PostListModule.Section, PostListModule.Item> {
     init(tableView: UITableView) {

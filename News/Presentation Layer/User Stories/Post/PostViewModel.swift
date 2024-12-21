@@ -6,8 +6,8 @@
 //  Copyright © 2023 Vladislav Markov. All rights reserved.
 //
 
-import Foundation
 import Combine
+import Foundation
 import NetworkLayer
 
 @MainActor
