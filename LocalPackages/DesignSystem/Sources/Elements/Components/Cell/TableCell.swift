@@ -2,7 +2,7 @@
 //  TableCell.swift
 //  
 //
-//  Created by Марков Владислав Викторович on 01.05.2022.
+//  Created by Markov Vladislav on 01.05.2022.
 //
 
 import UIKit
