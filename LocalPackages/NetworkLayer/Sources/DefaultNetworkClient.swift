@@ -7,47 +7,66 @@
 //
 
 import Foundation
-import Combine
 
 public final class DefaultNetworkClient: NetworkClient {
     private static let decoder = JSONDecoder()
     private let session: URLSession
     private let retryCount: Int
-    private let queue: DispatchQueue
+    private let priority: TaskPriority
 
     public init(
         session: URLSession = .shared,
         retryCount: Int = 0,
-        queue: DispatchQueue = DispatchQueue(label: "default.network.client")
+        priority: TaskPriority = .userInitiated
     ) {
         self.session = session
         self.retryCount = retryCount
-        self.queue = queue
+        self.priority = priority
     }
 
-    public func getPublisher<T: Decodable>(request: URLRequest) -> AnyPublisher<T, NetworkError> {
-        session
-            .dataTaskPublisher(for: request)
-            .subscribe(on: queue)
-            .retry(retryCount)
-            .tryMap { data, response in
-                if let response = response as? HTTPURLResponse,
-                   !(200...299).contains(response.statusCode) {
-                    throw NetworkError.invalidStatusCode(response.statusCode)
+    public func send<T: Decodable>(_ request: URLRequest) async throws -> T {
+        try await Task.detached(priority: priority) { [session, retryCount] in
+            try await self.withRetry(retries: retryCount) {
+                let (data, response) = try await session.data(for: request)
+
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    throw NetworkError.unknown(URLError(.badServerResponse))
                 }
-                return data
-            }
-            .decode(type: T.self, decoder: Self.decoder)
-            .mapError { error -> NetworkError in
-                switch error {
-                case let error as NetworkError:
-                    return error
-                case let error as DecodingError:
-                    return .decoding(error)
-                default:
-                    return .unknown(error)
+
+                guard (200...299).contains(httpResponse.statusCode) else {
+                    throw NetworkError.invalidStatusCode(httpResponse.statusCode)
+                }
+
+                do {
+                    return try Self.decoder.decode(T.self, from: data)
+                } catch let error as DecodingError {
+                    throw NetworkError.decoding(error)
+                } catch {
+                    throw NetworkError.unknown(error)
                 }
             }
-            .eraseToAnyPublisher()
+        }.value
+    }
+
+    private func withRetry<T>(
+        retries: Int,
+        operation: () async throws -> T
+    ) async throws -> T {
+        var remainingAttempts = retries + 1 // +1 for initial attempt
+
+        while true {
+            do {
+                return try await operation()
+            } catch {
+                remainingAttempts -= 1
+                guard remainingAttempts > 0 else { throw error }
+                try await Task.sleep(nanoseconds: delay(attempt: retries - remainingAttempts + 1))
+            }
+        }
+    }
+
+    private func delay(attempt: Int) -> UInt64 {
+        let seconds = pow(2.0, Double(attempt))
+        return UInt64(seconds * 1_000_000_000)
     }
 }

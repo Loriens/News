@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import Combine
 
-public protocol NetworkClient {
-    func getPublisher<T: Decodable>(request: URLRequest) -> AnyPublisher<T, NetworkError>
+public protocol NetworkClient: AnyObject, Sendable {
+    func send<T: Decodable>(_ request: URLRequest) async throws -> T
 }

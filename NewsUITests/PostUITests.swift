@@ -9,26 +9,32 @@
 import XCTest
 
 final class PostUITests: XCTestCase {
-    var app: XCUIApplication?
+    private var app: XCUIApplication?
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
         continueAfterFailure = false
+    }
+
+    @MainActor
+    func testOpeningFirstPost() async throws {
         app = XCUIApplication()
         app?.launch()
-    }
 
-    func testOpeningFirstPost() throws {
-        let cell = try XCTUnwrap(app?.tables.staticTexts.firstMatch)
-        waitForElementToAppear(element: cell)
+        guard let app else {
+            XCTFail("App is not initialized")
+            return
+        }
+
+        let cell = try XCTUnwrap(app.tables.staticTexts.firstMatch)
+        await waitForElementToAppear(element: cell)
         cell.tap()
-        XCTAssert(app?.navigationBars["Detail"].exists == true)
+        XCTAssert(app.navigationBars["Detail"].exists)
     }
 
-    private func waitForElementToAppear(element: XCUIElement, timeout: TimeInterval = 10) {
-        let existsPredicate = NSPredicate(format: "exists == 1")
-        let expectation = self.expectation(for: existsPredicate, evaluatedWith: element, handler: nil)
-        let result = XCTWaiter.wait(for: [expectation], timeout: timeout)
-        XCTAssertEqual(result, XCTWaiter.Result.completed)
+    @MainActor
+    private func waitForElementToAppear(element: XCUIElement) async {
+        let predicate = NSPredicate(format: "exists == 1")
+        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
+        _ = await XCTWaiter().fulfillment(of: [expectation], timeout: 10)
     }
 }
