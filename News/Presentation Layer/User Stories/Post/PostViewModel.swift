@@ -10,7 +10,8 @@ import Foundation
 import Combine
 import NetworkLayer
 
-final class PostViewModel {
+@MainActor
+final class PostViewModel: ObservableObject {
     @Published var post: PostModule.Post?
     @Published var error: PostModule.Error?
 
@@ -25,27 +26,21 @@ final class PostViewModel {
     }
 
     func loadData() {
-        cancellables.removeAll()
-
         let request = PostRequestFactory.item(postId: postId).makeRequest()
 
-        networkClient
-            .getPublisher(request: request)
-            .receive(on: DispatchQueue.main)
-            .sink { [unowned self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case let .failure(error):
-                    self.error = .unknown(error)
-                }
-            } receiveValue: { [unowned self] (value: PostResponse) in
-                guard let body = value.body else {
+        Task {
+            do {
+                let response: PostResponse = try await networkClient.send(request)
+
+                guard let body = response.body else {
                     error = .emptyPost
                     return
                 }
-                post = PostModule.Post(id: value.id, body: body)
+
+                post = PostModule.Post(id: response.id, body: body)
+            } catch {
+                self.error = .unknown(error)
             }
-            .store(in: &cancellables)
+        }
     }
 }

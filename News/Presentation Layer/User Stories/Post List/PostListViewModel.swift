@@ -6,12 +6,13 @@
 //  Copyright © 2023 Vladislav Markov. All rights reserved.
 //
 
-import Foundation
 import Combine
-import UIKit
+import Foundation
 import NetworkLayer
+import UIKit
 
-final class PostListViewModel {
+@MainActor
+final class PostListViewModel: ObservableObject {
     typealias Snapshot = NSDiffableDataSourceSnapshot<PostListModule.Section, PostListModule.Item>
 
     @Published var snapshot: Snapshot?
@@ -29,24 +30,16 @@ final class PostListViewModel {
     }
 
     func loadData() {
-        cancellables.removeAll()
-
         let request = PostRequestFactory.list.makeRequest()
 
-        networkClient
-            .getPublisher(request: request)
-            .receive(on: DispatchQueue.main)
-            .sink { [unowned self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case let .failure(error):
-                    self.error = .unknown(error)
-                }
-            } receiveValue: { [unowned self] (value: [PostResponse]) in
-                self.snapshot = self.makeSnapshot(postResponses: value)
+        Task {
+            do {
+                let responses: [PostResponse] = try await networkClient.send(request)
+                self.snapshot = self.makeSnapshot(postResponses: responses)
+            } catch {
+                self.error = .unknown(error)
             }
-            .store(in: &cancellables)
+        }
     }
 
     func reloadData() {
