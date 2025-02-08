@@ -14,7 +14,7 @@ public enum NetworkError: Error, Equatable {
 
     public static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
         switch (lhs, rhs) {
-        case (.invalidStatusCode(let lhsCode), .invalidStatusCode(let rhsCode)):
+        case let (.invalidStatusCode(lhsCode), .invalidStatusCode(rhsCode)):
             return lhsCode == rhsCode
         case (.decoding, .decoding):
             return true
